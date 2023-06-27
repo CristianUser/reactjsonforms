@@ -23,6 +23,7 @@
   THE SOFTWARE.
 */
 import React from 'react';
+import { Checkbox } from '@chakra-ui/react';
 import {
   CellProps,
   isBooleanControl,
@@ -33,7 +34,6 @@ import { withJsonFormsCellProps } from '@jsonforms/react';
 import type { FC } from 'react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaBooleanCellProps } from '../util/index';
-import { Checkbox } from '@chakra-ui/react';
 
 export const BooleanCell: FC<CellProps> = (
   props: CellProps & VanillaRendererProps
@@ -42,7 +42,7 @@ export const BooleanCell: FC<CellProps> = (
 
   return (
     <Checkbox
-      checked={!!data}
+      isChecked={!!data}
       onChange={(ev) => handleChange(path, ev.target.checked)}
       className={className}
       id={id}

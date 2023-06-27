@@ -19,7 +19,7 @@
     "report": "nyc report --reporter=html",
     "test": "jest --no-cache",
     "test-cov": "jest --no-cache --coverage",
-    "doc": "typedoc --name 'JSON Forms Vanilla Renderers' --excludeExternals --theme ../../typedoc-jsonforms --out docs src"
+    "doc": "typedoc --name 'JSON Forms Vanilla Renderers' --excludeExternals --theme default --out docs src"
   },
   "files": [
     "lib",
@@ -87,7 +87,7 @@
     "source-map-support": "0.5.16",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
-    "typedoc": "^0.21.8",
+    "typedoc": "^0.24.8",
     "webpack": "^5.88.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1"

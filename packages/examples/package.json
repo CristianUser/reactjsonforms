@@ -40,7 +40,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "test": "echo 'Nothing to do for `examples` package'",
-    "doc": "typedoc --name 'JSON Forms Examples' --excludeExternals --theme ../../typedoc-jsonforms --out docs src"
+    "doc": "typedoc --name 'JSON Forms Examples' --excludeExternals --theme default --out docs src"
   },
   "dependencies": {
     "ajv-i18n": "^4.2.0"
@@ -63,7 +63,7 @@
     "rollup-plugin-typescript2": "^0.31.1",
     "rollup-plugin-visualizer": "^5.4.1",
     "tslib": "^2.6.0",
-    "typedoc": "^0.21.8",
-    "typescript": "4.4.4"
+    "typedoc": "^0.24.8",
+    "typescript": "4.9.3"
   }
 }

@@ -34,14 +34,14 @@
     "bundle": "webpack --config ./webpack/webpack.build.js --env=production --display-error-details",
     "build": "tsc",
     "build:examples-app": "rollup -c rollup.example.config.js",
-    "dev": "webpack --config webpack/webpack.dev.js && webpack-dev-server --config webpack/webpack.dev.js --env=dev --inline",
+    "dev": "webpack --config webpack/webpack.dev.js && webpack-dev-server --config webpack/webpack.dev.js --env=dev",
     "clean": "rimraf lib coverage dist .nyc_output 2> /dev/null",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "test": "jest --no-cache",
     "test-cov": "jest --no-cache --coverage",
     "report": "nyc report --reporter=html",
-    "doc": "typedoc --name 'JSON Forms React And Design Renderers' --mode file --excludeExternals --theme ../../typedoc-jsonforms --out docs src"
+    "doc": "typedoc --name 'JSON Forms React And Design Renderers' --excludeExternals --theme ../../typedoc-jsonforms --out docs src"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -82,12 +82,13 @@
     "antd": "^5.5.1"
   },
   "devDependencies": {
-    "@ant-design/icons": "^5.1.2",
+    "@ant-design/icons": "^5.1.4",
     "@ant-design/pro-components": "^2.4.16",
     "@cfaester/enzyme-adapter-react-18": "^0.7.0",
     "@jsonforms/core": "3.1.0",
     "@jsonforms/react": "3.1.0",
     "@types/enzyme": "^3.10.3",
+    "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "antd": "^5.5.1",
     "copy-webpack-plugin": "^6.4.0",
@@ -99,13 +100,14 @@
     "eslint-plugin-react": "^7.32.2",
     "jest": "^26.6.3",
     "nyc": "^15.1.0",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^26.4.4",
     "ts-loader": "^9.4.3",
     "typedoc": "^0.21.8",
-    "typescript": "4.4.4",
+    "typescript": "4.9.3",
     "webpack": "^5.88.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1"

@@ -131,7 +131,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
           <Button
             shape='circle'
             aria-label={translations.upAriaLabel}
-            icon={<ArrowUpOutlined />}
+            icon={<ArrowUpOutlined rev={undefined} />}
             onClick={moveUp(path, index)}
             disabled={!enableMoveUp}
           />
@@ -140,7 +140,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
           <Button
             shape='circle'
             aria-label={translations.downAriaLabel}
-            icon={<ArrowDownOutlined />}
+            icon={<ArrowDownOutlined rev={undefined} />}
             onClick={moveDown(path, index)}
             disabled={!enableMoveDown}
           />
@@ -151,7 +151,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
               shape='circle'
               aria-label={translations.removeAriaLabel}
               onClick={removeItems(path, [index])}
-              icon={<DeleteFilled />}
+              icon={<DeleteFilled rev={undefined} />}
             />
           </Tooltip>
         ) : null}

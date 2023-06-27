@@ -81,7 +81,7 @@ const TableToolbar = React.memo(
                   type='primary'
                   onClick={addItem(path, createDefaultValue(schema))}
                   shape='circle'
-                  icon={<PlusOutlined />}
+                  icon={<PlusOutlined rev={undefined} />}
                 />
               </Tooltip>,
             ]

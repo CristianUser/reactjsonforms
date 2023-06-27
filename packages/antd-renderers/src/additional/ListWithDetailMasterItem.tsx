@@ -47,7 +47,10 @@ const ListWithDetailMasterItem = ({
       onClick={handleSelect(index)}
       actions={[
         <Tooltip title='Delete' key='action_1'>
-          <Button icon={<DeleteFilled />} onClick={removeItem(path, index)} />
+          <Button
+            icon={<DeleteFilled rev={undefined} />}
+            onClick={removeItem(path, index)}
+          />
         </Tooltip>,
       ]}
     >

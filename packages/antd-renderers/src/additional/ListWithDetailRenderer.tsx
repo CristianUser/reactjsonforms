@@ -124,6 +124,7 @@ export const ListWithDetailRenderer = ({
                 removeItem={handleRemoveItem}
                 selected={selectedIndex === index}
                 key={index}
+                enabled={false}
               />
             )}
           />

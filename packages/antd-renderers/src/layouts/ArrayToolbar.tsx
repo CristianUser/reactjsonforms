@@ -47,7 +47,7 @@ export const ArrayLayoutToolbar = React.memo(
               type='primary'
               onClick={addItem(path, createDefault())}
               shape='circle'
-              icon={<PlusOutlined />}
+              icon={<PlusOutlined rev={undefined} />}
             />
           </Tooltip>
         }

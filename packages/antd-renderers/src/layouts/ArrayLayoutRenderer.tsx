@@ -29,9 +29,9 @@ import {
   isObjectArrayWithNesting,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { ArrayLayout } from './ArrayLayout';
-import { withJsonFormsArrayLayoutProps } from '@jsonforms/react';
+import { withJsonFormsArrayLayoutProps } from '@reactjsonforms/react';
 import Hidden from '../util/Hidden';
 
 export const ArrayLayoutRenderer = ({

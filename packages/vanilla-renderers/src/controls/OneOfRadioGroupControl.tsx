@@ -30,10 +30,10 @@ import {
   optionIs,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
-import { withJsonFormsOneOfEnumProps } from '@jsonforms/react';
+import { withJsonFormsOneOfEnumProps } from '@reactjsonforms/react';
 import { RadioGroup } from './RadioGroup';
 
 export const OneOfRadioGroupControl = (

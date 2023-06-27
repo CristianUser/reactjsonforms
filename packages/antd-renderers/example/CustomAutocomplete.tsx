@@ -6,10 +6,10 @@ import {
   RankedTester,
   withIncreasedRank,
   Actions,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { ExtendedUnwrapped } from '../src/extended';
 import { autocompleteOneOfEnumControlTester } from '../src/extended/AntdAutocompleteOneOfEnumControl';
-import { withJsonFormsOneOfEnumProps } from '@jsonforms/react';
+import { withJsonFormsOneOfEnumProps } from '@reactjsonforms/react';
 import React from 'react';
 import { Typography } from 'antd';
 

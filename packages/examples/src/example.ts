@@ -29,7 +29,7 @@ import {
   JsonSchema,
   UISchemaElement,
   JsonFormsI18nState,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 
 export interface ExampleDescription {
   name: string;

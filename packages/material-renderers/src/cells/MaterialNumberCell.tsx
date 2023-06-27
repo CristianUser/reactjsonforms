@@ -29,8 +29,8 @@ import {
   RankedTester,
   rankWith,
   WithClassname,
-} from '@jsonforms/core';
-import { withJsonFormsCellProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import { MuiInputNumber } from '../mui-controls/MuiInputNumber';
 
 export const MaterialNumberCell = (props: CellProps & WithClassname) => (

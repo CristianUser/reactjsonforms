@@ -29,8 +29,8 @@ import {
   isBooleanControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsControlProps } from '@reactjsonforms/react';
 import { AntdCheckbox } from '../antd-controls/AntdCheckbox';
 import { Form } from 'antd';
 import Hidden from '../util/Hidden';

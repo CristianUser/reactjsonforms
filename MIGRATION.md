@@ -57,11 +57,11 @@ To restore the old behavior, you can use `json-schema-ref-parser` or other libra
 
 ```ts
 import React, { useState } from 'react';
-import { JsonForms } from '@jsonforms/react';
+import { JsonForms } from '@reactjsonforms/react';
 import {
   materialCells,
   materialRenderers,
-} from '@jsonforms/material-renderers';
+} from '@reactjsonforms/material-renderers';
 import $RefParser from '@apidevtools/json-schema-ref-parser';
 import JsonRefs from 'json-refs';
 
@@ -294,13 +294,13 @@ const MyApp = () => {
 
 If you want to keep using the Redux variant of JSON Forms for now (which is not recommended), you have to change a few import paths.
 
-The new imports are available at `@jsonforms/react/lib/redux`, i.e.
+The new imports are available at `@reactjsonforms/react/lib/redux`, i.e.
 
 ```ts
 import {
   jsonformsReducer,
   JsonFormsReduxProvider,
-} from '@jsonforms/react/lib/redux';
+} from '@reactjsonforms/react/lib/redux';
 ```
 
 ## Migrating from JSON Forms 1.x (AngularJS 1.x)

@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import { findStyle, findStyleAsClassName, stylingReducer } from './styling';
-import { JsonFormsState } from '@jsonforms/core';
+import { JsonFormsState } from '@reactjsonforms/core';
 export { stylingReducer };
 
 export const getStyle =

@@ -28,7 +28,7 @@ import {
   Category,
   deriveLabelForUISchemaElement,
   Translator,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { isCategorization } from './tester';
 
 const getCategoryClassName = (

@@ -2,7 +2,7 @@ import { Grid, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React from 'react';
 import ValidationIcon from '../complex/ValidationIcon';
-import { ArrayTranslations } from '@jsonforms/core';
+import { ArrayTranslations } from '@reactjsonforms/core';
 export interface ArrayLayoutToolbarProps {
   label: string;
   errors: string;

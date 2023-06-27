@@ -31,8 +31,8 @@ import {
   rankWith,
   uiTypeIs,
   withIncreasedRank,
-} from '@jsonforms/core';
-import { withJsonFormsLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
 import { Card } from 'antd';
 import { LayoutRenderer, LayoutRendererProps } from '../util/layout';
 

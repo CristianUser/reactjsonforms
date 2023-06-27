@@ -28,8 +28,8 @@ import {
   JsonSchema,
   TesterContext,
   UISchemaElement,
-} from '@jsonforms/core';
-import { JsonFormsReactProps, useJsonForms } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { JsonFormsReactProps, useJsonForms } from '@reactjsonforms/react';
 import React from 'react';
 
 export const initCore = (

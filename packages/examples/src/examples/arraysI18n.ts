@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import { registerExamples } from '../register';
-import { ArrayTranslationEnum, Translator } from '@jsonforms/core';
+import { ArrayTranslationEnum, Translator } from '@reactjsonforms/core';
 import { get } from 'lodash';
 
 export const schema = {

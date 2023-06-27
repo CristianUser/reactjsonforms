@@ -28,7 +28,7 @@ import {
   JsonFormsUISchemaRegistryEntry,
   JsonSchema,
   NOT_APPLICABLE,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { StateProps } from '..';
 
 const schema = {

@@ -114,11 +114,11 @@ importers:
       '@cfaester/enzyme-adapter-react-18':
         specifier: ^0.7.0
         version: 0.7.0(enzyme@3.10.0)(react-dom@18.2.0)(react@18.2.0)
-      '@jsonforms/core':
-        specifier: 3.1.0
+      '@reactjsonforms/core':
+        specifier: workspace:^
         version: link:../core
-      '@jsonforms/react':
-        specifier: 3.1.0
+      '@reactjsonforms/react':
+        specifier: workspace:^
         version: link:../react
       '@types/enzyme':
         specifier: ^3.10.3
@@ -216,10 +216,10 @@ importers:
       '@istanbuljs/nyc-config-typescript':
         specifier: ^1.0.2
         version: 1.0.2(nyc@15.1.0)
-      '@jsonforms/core':
+      '@reactjsonforms/core':
         specifier: workspace:*
         version: link:../core
-      '@jsonforms/react':
+      '@reactjsonforms/react':
         specifier: workspace:*
         version: link:../react
       '@rollup/plugin-commonjs':
@@ -443,7 +443,7 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0(ajv@8.6.1)
     devDependencies:
-      '@jsonforms/core':
+      '@reactjsonforms/core':
         specifier: workspace:*
         version: link:../core
       '@typescript-eslint/eslint-plugin':
@@ -503,18 +503,18 @@ importers:
 
   packages/examples-react:
     dependencies:
-      '@jsonforms/core':
-        specifier: workspace:*
-        version: link:../core
-      '@jsonforms/examples':
-        specifier: workspace:*
-        version: link:../examples
-      '@jsonforms/react':
-        specifier: workspace:*
-        version: link:../react
       '@mui/material':
         specifier: ~5.13.5
         version: 5.13.5(@emotion/react@11.5.0)(@emotion/styled@11.3.0)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
+      '@reactjsonforms/core':
+        specifier: workspace:*
+        version: link:../core
+      '@reactjsonforms/examples':
+        specifier: workspace:*
+        version: link:../examples
+      '@reactjsonforms/react':
+        specifier: workspace:*
+        version: link:../react
       '@types/react-highlight':
         specifier: ^0.12.5
         version: 0.12.5
@@ -595,12 +595,6 @@ importers:
       '@emotion/styled':
         specifier: ^11.3.0
         version: 11.3.0(@emotion/react@11.5.0)(@types/react@18.0.28)(react@18.2.0)
-      '@jsonforms/core':
-        specifier: workspace:^
-        version: link:../core
-      '@jsonforms/react':
-        specifier: workspace:^
-        version: link:../react
       '@mui/icons-material':
         specifier: ~5.11.16
         version: 5.11.16(@mui/material@5.13.5)(@types/react@18.0.28)(react@18.2.0)
@@ -610,6 +604,12 @@ importers:
       '@mui/x-date-pickers':
         specifier: ^6.9.0
         version: 6.9.0(@emotion/react@11.5.0)(@emotion/styled@11.3.0)(@mui/material@5.13.5)(dayjs@1.10.7)(react-dom@18.2.0)(react@18.2.0)
+      '@reactjsonforms/core':
+        specifier: workspace:^
+        version: link:../core
+      '@reactjsonforms/react':
+        specifier: workspace:^
+        version: link:../react
       '@rollup/plugin-commonjs':
         specifier: ^23.0.3
         version: 23.0.3(rollup@2.78.0)
@@ -728,7 +728,7 @@ importers:
       '@cfaester/enzyme-adapter-react-18':
         specifier: ^0.7.0
         version: 0.7.0(enzyme@3.10.0)(react-dom@18.2.0)(react@18.2.0)
-      '@jsonforms/core':
+      '@reactjsonforms/core':
         specifier: workspace:*
         version: link:../core
       '@rollup/plugin-alias':
@@ -827,10 +827,10 @@ importers:
       '@istanbuljs/nyc-config-typescript':
         specifier: ^1.0.2
         version: 1.0.2(nyc@15.1.0)
-      '@jsonforms/core':
+      '@reactjsonforms/core':
         specifier: workspace:^
         version: link:../core
-      '@jsonforms/react':
+      '@reactjsonforms/react':
         specifier: workspace:^
         version: link:../react
       '@rollup/plugin-commonjs':

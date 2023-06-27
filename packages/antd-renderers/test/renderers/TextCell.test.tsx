@@ -24,13 +24,17 @@
 */
 import './MatchMediaMock';
 import * as React from 'react';
-import { ControlElement, JsonSchema, NOT_APPLICABLE } from '@jsonforms/core';
+import {
+  ControlElement,
+  JsonSchema,
+  NOT_APPLICABLE,
+} from '@reactjsonforms/core';
 import TextCell, { textCellTester } from '../../src/cells/TextCell';
 import { renderers } from '../../src';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore, TestEmitter } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

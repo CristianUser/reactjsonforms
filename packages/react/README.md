@@ -42,8 +42,8 @@ import React, { useState } from 'react';
 import {
   materialRenderers,
   materialCells,
-} from '@jsonforms/material-renderers';
-import { JsonForms } from '@jsonforms/react';
+} from '@reactjsonforms/material-renderers';
+import { JsonForms } from '@reactjsonforms/react';
 
 const schema = {
   type: 'object',

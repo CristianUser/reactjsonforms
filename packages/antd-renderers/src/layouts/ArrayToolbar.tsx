@@ -4,7 +4,7 @@ import { Button, Col, Row, Tooltip, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import React from 'react';
 import ValidationIcon from '../complex/ValidationIcon';
-import { ArrayTranslations } from '@jsonforms/core';
+import { ArrayTranslations } from '@reactjsonforms/core';
 export interface ArrayLayoutToolbarProps {
   translations: ArrayTranslations;
   label: string;

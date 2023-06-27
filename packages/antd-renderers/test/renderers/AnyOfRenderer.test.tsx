@@ -27,9 +27,9 @@ import React from 'react';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { ControlElement } from '@jsonforms/core';
+import { ControlElement } from '@reactjsonforms/core';
 import { AnyOfRenderer, cells, renderers } from '../../src';
-import { JsonForms, JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonForms, JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore, TestEmitter } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

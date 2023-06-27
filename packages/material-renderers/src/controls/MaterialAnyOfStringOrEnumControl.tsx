@@ -33,8 +33,8 @@ import {
   schemaMatches,
   uiTypeIs,
   WithClassname,
-} from '@jsonforms/core';
-import { Control, withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { Control, withJsonFormsControlProps } from '@reactjsonforms/react';
 import { Input, InputBaseComponentProps } from '@mui/material';
 import merge from 'lodash/merge';
 import React, { useMemo } from 'react';

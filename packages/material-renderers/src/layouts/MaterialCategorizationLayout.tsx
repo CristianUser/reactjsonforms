@@ -36,12 +36,12 @@ import {
   Tester,
   UISchemaElement,
   uiTypeIs,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   TranslateProps,
   withJsonFormsLayoutProps,
   withTranslateProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import {
   AjvProps,
   MaterialLayoutRenderer,

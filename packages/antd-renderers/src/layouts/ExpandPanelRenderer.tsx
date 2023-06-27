@@ -7,7 +7,7 @@ import {
   JsonFormsDispatch,
   JsonFormsStateContext,
   withJsonFormsContext,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import {
   ArrayTranslations,
   composePaths,
@@ -22,7 +22,7 @@ import {
   moveUp,
   Resolve,
   update,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { Avatar, Button, Collapse, Space, Tooltip, Typography } from 'antd';
 import {
   ArrowDownOutlined,

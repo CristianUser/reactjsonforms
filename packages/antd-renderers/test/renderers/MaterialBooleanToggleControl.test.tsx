@@ -28,7 +28,7 @@ import {
   ControlElement,
   NOT_APPLICABLE,
   UISchemaElement,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import BooleanToggleControl, {
   booleanToggleControlTester,
 } from '../../src/controls/BooleanToggleControl';
@@ -37,7 +37,7 @@ import { renderers } from '../../src';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore, TestEmitter } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

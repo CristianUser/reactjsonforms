@@ -28,7 +28,7 @@ import {
   or,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import ArrayControlRenderer from './ArrayControlRenderer';
 import ObjectRenderer, { objectControlTester } from './ObjectRenderer';
 import AllOfRenderer, { allOfControlTester } from './AllOfRenderer';

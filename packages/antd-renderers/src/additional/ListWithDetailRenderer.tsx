@@ -31,11 +31,11 @@ import {
   RankedTester,
   rankWith,
   uiTypeIs,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   JsonFormsDispatch,
   withJsonFormsArrayLayoutProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import { Col, Empty, List, Row } from 'antd';
 import range from 'lodash/range';
 import merge from 'lodash/merge';

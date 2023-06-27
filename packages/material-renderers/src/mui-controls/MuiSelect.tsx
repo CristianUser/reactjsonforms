@@ -23,11 +23,11 @@
   THE SOFTWARE.
 */
 import React, { useMemo } from 'react';
-import { EnumCellProps, WithClassname } from '@jsonforms/core';
+import { EnumCellProps, WithClassname } from '@reactjsonforms/core';
 
 import { MenuItem, Select } from '@mui/material';
 import merge from 'lodash/merge';
-import { TranslateProps } from '@jsonforms/react';
+import { TranslateProps } from '@reactjsonforms/react';
 import { i18nDefaults } from '../util';
 
 export const MuiSelect = React.memo(function MuiSelect(

@@ -1,5 +1,5 @@
 {
-  "name": "@jsonforms/examples",
+  "name": "@reactjsonforms/examples",
   "version": "3.1.0",
   "description": "JSON Forms Example Data",
   "repository": "https://github.com/eclipsesource/jsonforms",
@@ -46,10 +46,10 @@
     "ajv-i18n": "^4.2.0"
   },
   "peerDependencies": {
-    "@jsonforms/core": "3.1.0"
+    "@reactjsonforms/core": "3.1.0"
   },
   "devDependencies": {
-    "@jsonforms/core": "workspace:*",
+    "@reactjsonforms/core": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^7.32.0",

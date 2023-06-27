@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import { EnumCellProps, WithClassname } from '@jsonforms/core';
+import { EnumCellProps, WithClassname } from '@reactjsonforms/core';
 
 import { Select } from 'antd';
 import merge from 'lodash/merge';

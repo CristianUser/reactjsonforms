@@ -75,7 +75,7 @@ import {
   OwnPropsOfLabel,
   LabelProps,
   mapStateToLabelProps,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import debounce from 'lodash/debounce';
 import React, {
   ComponentType,

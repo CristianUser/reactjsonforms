@@ -28,8 +28,8 @@ import {
   JsonSchema,
   UISchemaElement,
   isLayout,
-} from '@jsonforms/core';
-import { JsonFormsDispatch } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { JsonFormsDispatch } from '@reactjsonforms/react';
 import omit from 'lodash/omit';
 
 interface CombinatorPropertiesProps {

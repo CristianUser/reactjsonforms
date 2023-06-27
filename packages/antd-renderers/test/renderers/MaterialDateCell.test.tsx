@@ -24,8 +24,8 @@
 */
 import './MatchMediaMock';
 import * as React from 'react';
-import { ControlElement, NOT_APPLICABLE } from '@jsonforms/core';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { ControlElement, NOT_APPLICABLE } from '@reactjsonforms/core';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import DateCell, { DateCellTester } from '../../src/cells/DateCell';
 import { renderers } from '../../src';
 

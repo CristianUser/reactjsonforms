@@ -24,12 +24,12 @@
 */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { JsonForms, JsonFormsInitStateProps } from '@jsonforms/react';
-import { ExampleDescription } from '@jsonforms/examples';
+import { JsonForms, JsonFormsInitStateProps } from '@reactjsonforms/react';
+import { ExampleDescription } from '@reactjsonforms/examples';
 import {
   JsonFormsCellRendererRegistryEntry,
   JsonFormsRendererRegistryEntry,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Highlight from 'react-highlight';
 import 'highlight.js/styles/default.css';

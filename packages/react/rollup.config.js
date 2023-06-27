@@ -21,7 +21,7 @@ const baseReduxConfig = {
     ...Object.keys(packageJson.peerDependencies),
     ...Object.keys(packageJson.optionalPeerDependencies),
     /^lodash\/.*/,
-    '@jsonforms/react',
+    '@reactjsonforms/react',
     'redux',
   ],
 };
@@ -68,7 +68,7 @@ export default [
     },
     plugins: [
       alias({
-        entries: [{ find: '..', replacement: '@jsonforms/react' }],
+        entries: [{ find: '..', replacement: '@reactjsonforms/react' }],
       }),
       typescript({
         tsconfig: './tsconfig.redux.json',
@@ -86,7 +86,7 @@ export default [
     },
     plugins: [
       alias({
-        entries: [{ find: '..', replacement: '@jsonforms/react' }],
+        entries: [{ find: '..', replacement: '@reactjsonforms/react' }],
       }),
       typescript({
         tsconfig: './tsconfig.redux.json',

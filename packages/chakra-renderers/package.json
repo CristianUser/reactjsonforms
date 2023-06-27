@@ -1,5 +1,5 @@
 {
-  "name": "@jsonforms/chakra-renderers",
+  "name": "@reactjsonforms/chakra-renderers",
   "version": "3.1.0",
   "description": "Chakra Renderer Set for JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
@@ -59,8 +59,8 @@
     "@chakra-ui/system": "^2.5.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@jsonforms/core": "workspace:*",
-    "@jsonforms/react": "workspace:*",
+    "@reactjsonforms/core": "workspace:*",
+    "@reactjsonforms/react": "workspace:*",
     "framer-motion": "^6.5.1"
   },
   "devDependencies": {
@@ -71,8 +71,8 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@jsonforms/core": "workspace:*",
-    "@jsonforms/react": "workspace:*",
+    "@reactjsonforms/core": "workspace:*",
+    "@reactjsonforms/react": "workspace:*",
     "@rollup/plugin-commonjs": "^23.0.3",
     "@rollup/plugin-json": "^5.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",

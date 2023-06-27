@@ -32,7 +32,7 @@ import AutocompleteOneOfEnumControl, {
   autocompleteOneOfEnumControlTester,
 } from './AntdAutocompleteOneOfEnumControl';
 
-import { JsonFormsRendererRegistryEntry } from '@jsonforms/core';
+import { JsonFormsRendererRegistryEntry } from '@reactjsonforms/core';
 import { renderers } from '../index';
 
 export const extendedRenderers: JsonFormsRendererRegistryEntry[] = [

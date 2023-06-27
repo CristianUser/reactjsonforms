@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import { CellProps, Formatted, WithClassname } from '@jsonforms/core';
+import { CellProps, Formatted, WithClassname } from '@reactjsonforms/core';
 import merge from 'lodash/merge';
 import { Input } from 'antd';
 

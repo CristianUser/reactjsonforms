@@ -31,7 +31,7 @@ import {
   DispatchCell,
   JsonFormsStateContext,
   useJsonForms,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import React, { Fragment } from 'react';
 import {
   ArrayLayoutProps,
@@ -43,7 +43,7 @@ import {
   JsonSchema,
   Paths,
   Resolve,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   ArrowDownOutlined,
   ArrowUpOutlined,

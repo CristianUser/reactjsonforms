@@ -14,7 +14,7 @@ import {
   JsonFormsDispatch,
   JsonFormsStateContext,
   withJsonFormsContext,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import {
   composePaths,
   ControlElement,
@@ -31,7 +31,7 @@ import {
   createId,
   removeId,
   ArrayTranslations,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   Accordion,
   AccordionSummary,

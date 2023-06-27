@@ -30,8 +30,8 @@ import {
   isRangeControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { Control, withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { Control, withJsonFormsControlProps } from '@reactjsonforms/react';
 import merge from 'lodash/merge';
 import { Form, Slider } from 'antd';
 import Hidden from '../util/Hidden';

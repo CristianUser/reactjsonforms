@@ -28,7 +28,7 @@ import {
   createDefaultValue,
   JsonSchema,
   ArrayTranslations,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { IconButton, TableRow, Tooltip, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import ValidationIcon from './ValidationIcon';

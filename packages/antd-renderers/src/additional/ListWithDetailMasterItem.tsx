@@ -22,8 +22,8 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import { StatePropsOfMasterItem } from '@jsonforms/core';
-import { withJsonFormsMasterListItemProps } from '@jsonforms/react';
+import { StatePropsOfMasterItem } from '@reactjsonforms/core';
+import { withJsonFormsMasterListItemProps } from '@reactjsonforms/react';
 import { DeleteFilled } from '@ant-design/icons';
 import { Avatar, Button, List, Tooltip } from 'antd';
 import React, { useMemo } from 'react';

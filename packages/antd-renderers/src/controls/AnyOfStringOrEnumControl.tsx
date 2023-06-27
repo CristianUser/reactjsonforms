@@ -33,8 +33,8 @@ import {
   schemaMatches,
   uiTypeIs,
   WithClassname,
-} from '@jsonforms/core';
-import { Control, withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { Control, withJsonFormsControlProps } from '@reactjsonforms/react';
 import { AutoComplete } from 'antd';
 import merge from 'lodash/merge';
 import React, { useState } from 'react';

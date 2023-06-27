@@ -31,8 +31,8 @@ import {
   RankedTester,
   rankWith,
   WithClassname,
-} from '@jsonforms/core';
-import { withJsonFormsCellProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import { AntdToggle } from '../antd-controls/AntdToggle';
 
 export const BooleanToggleCell = (props: CellProps & WithClassname) => {

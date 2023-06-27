@@ -19,7 +19,7 @@ Check <https://www.npmjs.com/search?q=%40jsonforms> for all published JSONForms 
 Install JSON Forms Core, React and React Material Renderers
 
 ```bash
-npm i --save @jsonforms/core @jsonforms/react @jsonforms/material-renderers
+npm i --save @reactjsonforms/core @reactjsonforms/react @reactjsonforms/material-renderers
 ```
 
 Use the `JsonForms` component for each form you want to render and hand over the renderer set.
@@ -29,8 +29,8 @@ import React, { useState } from 'react';
 import {
   materialRenderers,
   materialCells,
-} from '@jsonforms/material-renderers';
-import { JsonForms } from '@jsonforms/react';
+} from '@reactjsonforms/material-renderers';
+import { JsonForms } from '@reactjsonforms/react';
 
 const schema = {
   type: 'object',

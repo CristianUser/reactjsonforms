@@ -31,8 +31,8 @@ import {
   optionIs,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsControlProps } from '@reactjsonforms/react';
 import { AntdToggle } from '../antd-controls/AntdToggle';
 import { Form } from 'antd';
 import Hidden from '../util/Hidden';

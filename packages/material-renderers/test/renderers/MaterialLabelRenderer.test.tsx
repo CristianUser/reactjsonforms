@@ -24,7 +24,7 @@
 */
 import './MatchMediaMock';
 import * as React from 'react';
-import { LabelElement, NOT_APPLICABLE } from '@jsonforms/core';
+import { LabelElement, NOT_APPLICABLE } from '@reactjsonforms/core';
 import '../../src/cells';
 import MaterialLabelRenderer, {
   materialLabelRendererTester,
@@ -32,7 +32,7 @@ import MaterialLabelRenderer, {
 import { materialRenderers } from '../../src';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { JsonForms, JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonForms, JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

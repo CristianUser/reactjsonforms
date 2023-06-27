@@ -34,7 +34,7 @@ import {
   OwnPropsOfEnum,
   rankWith,
   StatePropsOfControlWithDetail,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 
 import { JsonForms } from '../src/JsonForms';
 import {

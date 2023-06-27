@@ -27,8 +27,8 @@ import {
   ControlProps,
   ControlState,
   isDescriptionHidden,
-} from '@jsonforms/core';
-import { Control } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { Control } from '@reactjsonforms/react';
 import { Form } from 'antd';
 import merge from 'lodash/merge';
 import Hidden from '../util/Hidden';

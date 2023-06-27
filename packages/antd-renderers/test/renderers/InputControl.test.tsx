@@ -36,12 +36,12 @@ import {
   JsonSchema,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   Control,
   JsonFormsStateProvider,
   withJsonFormsControlProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import HorizontalLayoutRenderer from '../../src/layouts/HorizontalLayout';
 import { AntdInputText } from '../../src/antd-controls';
 import { initCore } from './util';

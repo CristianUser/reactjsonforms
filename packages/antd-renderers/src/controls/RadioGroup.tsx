@@ -29,8 +29,8 @@ import {
   ControlState,
   isDescriptionHidden,
   OwnPropsOfEnum,
-} from '@jsonforms/core';
-import { Control } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { Control } from '@reactjsonforms/react';
 import { Form, Radio } from 'antd';
 import Hidden from '../util/Hidden';
 

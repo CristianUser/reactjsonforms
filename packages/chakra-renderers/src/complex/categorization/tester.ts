@@ -30,7 +30,7 @@ import {
   RankedTester,
   rankWith,
   uiTypeIs,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 
 export const isCategorization = (
   category: Category | Categorization

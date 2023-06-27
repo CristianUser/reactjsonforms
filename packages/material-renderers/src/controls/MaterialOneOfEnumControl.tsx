@@ -29,12 +29,12 @@ import {
   OwnPropsOfEnum,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   TranslateProps,
   withJsonFormsOneOfEnumProps,
   withTranslateProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import {
   MuiAutocomplete,
   WithOptionLabel,

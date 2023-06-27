@@ -23,14 +23,14 @@
   THE SOFTWARE.
 */
 import './MatchMediaMock';
-import { ControlElement } from '@jsonforms/core';
+import { ControlElement } from '@reactjsonforms/core';
 import * as React from 'react';
 
 import { renderers } from '../../src';
 import { ArrayLayout, arrayLayoutTester } from '../../src/layouts';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { JsonForms, JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonForms, JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -29,8 +29,8 @@ import {
   isLayout,
   JsonSchema,
   UISchemaElement,
-} from '@jsonforms/core';
-import { JsonFormsDispatch } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { JsonFormsDispatch } from '@reactjsonforms/react';
 
 interface CombinatorPropertiesProps {
   schema: JsonSchema;

@@ -29,8 +29,8 @@ import {
   OwnPropsOfEnum,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsEnumProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsEnumProps } from '@reactjsonforms/react';
 import { AntdSelect } from '../antd-controls/AntdSelect';
 import merge from 'lodash/merge';
 import { InputControl } from '../controls/InputControl';

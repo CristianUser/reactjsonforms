@@ -35,8 +35,11 @@ import {
   rankWith,
   StatePropsOfLayout,
   uiTypeIs,
-} from '@jsonforms/core';
-import { RendererComponent, withJsonFormsLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import {
+  RendererComponent,
+  withJsonFormsLayoutProps,
+} from '@reactjsonforms/react';
 import {
   AjvProps,
   LayoutRenderer as LayoutRenderer,

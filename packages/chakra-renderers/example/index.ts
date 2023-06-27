@@ -22,8 +22,10 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import { renderExample } from '../../examples-react/src/index';
-import { materialRenderers, materialCells } from '../src';
 import { ChakraProvider } from '@chakra-ui/react';
+import { createThemeSelection } from './theme.switcher';
+import { vanillaCells, vanillaRenderers } from '../src';
+import { renderExample } from '../../examples-react/src/index';
 
-renderExample(materialRenderers, materialCells, ChakraProvider);
+renderExample(vanillaRenderers, vanillaCells, ChakraProvider);
+createThemeSelection();

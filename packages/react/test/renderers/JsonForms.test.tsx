@@ -50,7 +50,7 @@ import {
 import { isEqual } from 'lodash';
 import Enzyme, { mount, shallow } from 'enzyme';
 import type { StatelessRenderer } from '../../src/Renderer';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import {
   JsonForms,
   JsonFormsDispatch,

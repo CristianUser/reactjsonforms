@@ -4,30 +4,32 @@ _Complex forms in the blink of an eye_
 
 JSON Forms eliminates the tedious task of writing fully-featured forms by hand by leveraging the capabilities of JSON, JSON Schema and Javascript.
 
-## Chakra Renderers Package
+## Vanilla Renderers Package
 
-This is the JSON Forms Chakra Renderers Package. This package only contains renderers and must be combined with [JSON Forms React](https://github.com/eclipsesource/jsonforms/blob/master/packages/react).
+This is the JSONForms Vanilla Renderers Package. This package only contains renderers and must be combined with [JSON Forms React](https://github.com/eclipsesource/jsonforms/blob/master/packages/react).
+
+You can combine [JSON Forms React](https://github.com/eclipsesource/jsonforms/blob/master/packages/react) with other renderers too, for example with the [Material Renderers](https://github.com/eclipsesource/jsonforms/tree/master/packages/material).
 
 See the official [documentation](https://jsonforms.io/docs/integrations/react/) and the JSON Forms React [seed repository](https://github.com/eclipsesource/jsonforms-react-seed) for examples on how to integrate JSON Forms with your application.
 
-You can combine [JSON Forms React](https://github.com/eclipsesource/jsonforms/blob/master/packages/react) with other renderers too, for example with the [Vanilla Renderers](https://github.com/eclipsesource/jsonforms/tree/master/packages/vanilla).
-
 Check <https://www.npmjs.com/search?q=%40jsonforms> for all published JSONForms packages.
+
+If you want to customize styling, have a look at our [styles guide](https://github.com/eclipsesource/jsonforms/blob/master/packages/vanilla-renderers/Styles.md).
 
 ### Quick start
 
-Install JSON Forms Core, React and React Chakra Renderers
+Install JSON Forms Core, React and React Vanilla Renderers
 
 ```bash
-npm i --save @jsonforms/core @jsonforms/react @jsonforms/chakra-renderers
+npm i --save @jsonforms/core @jsonforms/react @jsonforms/vanilla-renderers
 ```
 
 Use the `JsonForms` component for each form you want to render and hand over the renderer set.
 
-```ts
+```js
 import React, { useState } from 'react';
-import { chakraRenderers, chakraCells } from '@jsonforms/chakra-renderers';
 import { JsonForms } from '@jsonforms/react';
+import { vanillaCells, vanillaRenderers } from '@jsonforms/vanilla-renderers';
 
 const schema = {
   type: 'object',
@@ -50,7 +52,6 @@ const schema = {
   },
   required: ['name', 'due_date'],
 };
-
 const uischema = {
   type: 'VerticalLayout',
   elements: [
@@ -78,9 +79,7 @@ const uischema = {
     },
   ],
 };
-
 const initialData = {};
-
 function App() {
   const [data, setData] = useState(initialData);
   return (
@@ -88,8 +87,8 @@ function App() {
       schema={schema}
       uischema={uischema}
       data={data}
-      renderers={chakraRenderers}
-      cells={chakraCells}
+      renderers={vanillaRenderers}
+      cells={vanillaCells}
       onChange={({ data, _errors }) => setData(data)}
     />
   );

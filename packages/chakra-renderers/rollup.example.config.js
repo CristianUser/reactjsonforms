@@ -37,6 +37,10 @@ const config = {
     copy({
       targets: [
         {
+          src: 'example/example*.css',
+          dest: 'example/dist',
+        },
+        {
           src: 'example/index.bundled.html',
           dest: 'example/dist',
           rename: () => 'index.html',

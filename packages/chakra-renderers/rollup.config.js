@@ -7,11 +7,11 @@ const packageJson = require('./package.json');
 const baseConfig = {
   input: 'src/index.ts',
   external: [
-    ...Object.keys(packageJson.dependencies),
+    ...Object.keys(packageJson.dependencies ?? {}),
     ...Object.keys(packageJson.peerDependencies),
     'react',
     /^lodash\/.*/,
-    /^@chakra-ui\/.*/,
+    /^@material-ui\/.*/,
     /^dayjs\/.*/,
   ],
 };

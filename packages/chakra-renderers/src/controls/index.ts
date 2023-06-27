@@ -22,83 +22,18 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import MaterialAnyOfStringOrEnumControl, {
-  materialAnyOfStringOrEnumControlTester,
-} from './MaterialAnyOfStringOrEnumControl';
-import MaterialBooleanControl, {
-  materialBooleanControlTester,
-} from './MaterialBooleanControl';
-import MaterialBooleanToggleControl, {
-  materialBooleanToggleControlTester,
-} from './MaterialBooleanToggleControl';
-import MaterialDateControl, {
-  materialDateControlTester,
-} from './MaterialDateControl';
-import MaterialDateTimeControl, {
-  materialDateTimeControlTester,
-} from './MaterialDateTimeControl';
-import MaterialEnumControl, {
-  materialEnumControlTester,
-} from './MaterialEnumControl';
-import MaterialIntegerControl, {
-  materialIntegerControlTester,
-} from './MaterialIntegerControl';
-import MaterialNativeControl, {
-  materialNativeControlTester,
-} from './MaterialNativeControl';
-import MaterialNumberControl, {
-  materialNumberControlTester,
-} from './MaterialNumberControl';
-import MaterialOneOfEnumControl, {
-  materialOneOfEnumControlTester,
-} from './MaterialOneOfEnumControl';
-import MaterialOneOfRadioGroupControl, {
-  materialOneOfRadioGroupControlTester,
-} from './MaterialOneOfRadioGroupControl';
-import MaterialRadioGroupControl, {
-  materialRadioGroupControlTester,
-} from './MaterialRadioGroupControl';
-import MaterialSliderControl, {
-  materialSliderControlTester,
-} from './MaterialSliderControl';
-import MaterialTextControl, {
-  materialTextControlTester,
-} from './MaterialTextControl';
-import MaterialTimeControl, {
-  materialTimeControlTester,
-} from './MaterialTimeControl';
-
+import InputControl, { inputControlTester } from './InputControl';
+import RadioGroupControl, {
+  radioGroupControlTester,
+} from './RadioGroupControl';
+import OneOfRadioGroupControl, {
+  oneOfRadioGroupControlTester,
+} from './OneOfRadioGroupControl';
 export {
-  MaterialAnyOfStringOrEnumControl,
-  materialAnyOfStringOrEnumControlTester,
-  MaterialBooleanControl,
-  materialBooleanControlTester,
-  MaterialBooleanToggleControl,
-  materialBooleanToggleControlTester,
-  MaterialDateControl,
-  materialDateControlTester,
-  MaterialDateTimeControl,
-  materialDateTimeControlTester,
-  MaterialEnumControl,
-  materialEnumControlTester,
-  MaterialIntegerControl,
-  materialIntegerControlTester,
-  MaterialNativeControl,
-  materialNativeControlTester,
-  MaterialNumberControl,
-  materialNumberControlTester,
-  MaterialOneOfEnumControl,
-  materialOneOfEnumControlTester,
-  MaterialOneOfRadioGroupControl,
-  materialOneOfRadioGroupControlTester,
-  MaterialRadioGroupControl,
-  materialRadioGroupControlTester,
-  MaterialSliderControl,
-  materialSliderControlTester,
-  MaterialTextControl,
-  materialTextControlTester,
-  MaterialTimeControl,
-  materialTimeControlTester,
+  InputControl,
+  inputControlTester,
+  RadioGroupControl,
+  radioGroupControlTester,
+  OneOfRadioGroupControl,
+  oneOfRadioGroupControlTester,
 };
-
-export * from './MaterialInputControl';

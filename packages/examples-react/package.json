@@ -6,7 +6,7 @@
     "@jsonforms/core": "^3.1.0",
     "@jsonforms/examples": "^3.1.0",
     "@jsonforms/react": "^3.1.0",
-    "@mui/material": "~5.13.0",
+    "@mui/material": "~5.13.5",
     "@types/react-highlight": "^0.12.5",
     "@types/react-tabs": "^2.3.3",
     "framer-motion": "^6.5.1",
@@ -15,8 +15,8 @@
     "lodash": "^4.17.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-highlight": "^0.14.0",
-    "react-tabs": "^3.2.3"
+    "react-highlight": "^0.15.0",
+    "react-tabs": "^4.0.0"
   },
   "devDependencies": {
     "@types/react-dom": "^18.0.11",

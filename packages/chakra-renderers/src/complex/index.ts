@@ -22,45 +22,20 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import MaterialAllOfRenderer, {
-  materialAllOfControlTester,
-} from './MaterialAllOfRenderer';
-import MaterialAnyOfRenderer, {
-  materialAnyOfControlTester,
-} from './MaterialAnyOfRenderer';
-import MaterialArrayControlRenderer, {
-  materialArrayControlTester,
-} from './MaterialArrayControlRenderer';
-import MaterialEnumArrayRenderer, {
-  materialEnumArrayRendererTester,
-} from './MaterialEnumArrayRenderer';
-import MaterialObjectRenderer, {
-  materialObjectControlTester,
-} from './MaterialObjectRenderer';
-import MaterialOneOfRenderer, {
-  materialOneOfControlTester,
-} from './MaterialOneOfRenderer';
+import ArrayControl, { arrayControlTester } from './array';
+import Categorization, { categorizationTester } from './categorization';
+import LabelRenderer, { labelRendererTester } from './LabelRenderer';
+import TableArrayControl, {
+  tableArrayControlTester,
+} from './TableArrayControl';
 
 export {
-  materialAllOfControlTester,
-  MaterialAllOfRenderer,
-  materialAnyOfControlTester,
-  MaterialAnyOfRenderer,
-  materialArrayControlTester,
-  MaterialArrayControlRenderer,
-  materialEnumArrayRendererTester,
-  MaterialEnumArrayRenderer,
-  materialObjectControlTester,
-  MaterialObjectRenderer,
-  materialOneOfControlTester,
-  MaterialOneOfRenderer,
+  ArrayControl,
+  arrayControlTester,
+  Categorization,
+  categorizationTester,
+  LabelRenderer,
+  labelRendererTester,
+  TableArrayControl,
+  tableArrayControlTester,
 };
-
-export * from './CombinatorProperties';
-export * from './DeleteDialog';
-export * from './MaterialTableControl';
-export * from './TableToolbar';
-export * from './ValidationIcon';
-
-import NoBorderTableCell from './NoBorderTableCell';
-export { NoBorderTableCell };

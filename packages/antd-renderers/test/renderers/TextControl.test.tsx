@@ -28,7 +28,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import { TextControl } from '../../src/controls/TextControl';
 import { InputControl } from '../../src/controls/InputControl';
 import { AntdInputText } from '../../src/antd-controls/AntdInputText';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import { ControlElement, ControlProps } from '@jsonforms/core';
 
 Enzyme.configure({ adapter: new Adapter() });

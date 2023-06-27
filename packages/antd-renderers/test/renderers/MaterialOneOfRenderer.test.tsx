@@ -27,7 +27,7 @@ import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import { ControlElement } from '@jsonforms/core';
 import { OneOfRenderer, renderers } from '../../src';
 import {

@@ -49,7 +49,7 @@
     "@jsonforms/core": "3.1.0"
   },
   "devDependencies": {
-    "@jsonforms/core": "^3.1.0",
+    "@jsonforms/core": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^7.32.0",

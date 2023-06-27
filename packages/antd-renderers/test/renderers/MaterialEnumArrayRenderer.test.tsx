@@ -2,7 +2,7 @@ import './MatchMediaMock';
 import { ControlElement, NOT_APPLICABLE } from '@jsonforms/core';
 import { JsonForms } from '@jsonforms/react';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import React from 'react';
 import { enumArrayRendererTester, EnumArrayRenderer } from '../../src';
 

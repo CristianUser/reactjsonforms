@@ -57,4 +57,8 @@ export const DateTimeCell = (props: CellProps & VanillaRendererProps) => {
  */
 export const dateTimeCellTester: RankedTester = rankWith(2, isDateTimeControl);
 
-export default withJsonFormsCellProps(withVanillaCellProps(DateTimeCell));
+const DateTimeCellWithProps = withJsonFormsCellProps(
+  withVanillaCellProps(DateTimeCell)
+);
+
+export default DateTimeCellWithProps;

@@ -30,10 +30,10 @@ import {
   rankWith,
 } from '@jsonforms/core';
 import { withJsonFormsCellProps } from '@jsonforms/react';
-import { Checkbox } from '@chakra-ui/react';
 import type { FC } from 'react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaBooleanCellProps } from '../util/index';
+import { Checkbox } from '@chakra-ui/react';
 
 export const BooleanCell: FC<CellProps> = (
   props: CellProps & VanillaRendererProps
@@ -42,8 +42,7 @@ export const BooleanCell: FC<CellProps> = (
 
   return (
     <Checkbox
-      type='checkbox'
-      isChecked={!!data}
+      checked={!!data}
       onChange={(ev) => handleChange(path, ev.target.checked)}
       className={className}
       id={id}

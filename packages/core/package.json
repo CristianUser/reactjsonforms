@@ -36,6 +36,13 @@
   "main": "lib/jsonforms-core.cjs.js",
   "module": "lib/jsonforms-core.esm.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/jsonforms-core.esm.js",
+      "require": "./lib/jsonforms-core.cjs.js"
+    }
+  },
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "clean": "rimraf -rf lib coverage dist .nyc_output 2> /dev/null",

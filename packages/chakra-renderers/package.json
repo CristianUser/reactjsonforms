@@ -14,6 +14,13 @@
   "main": "lib/jsonforms-react-chakra.cjs.js",
   "module": "lib/jsonforms-react-chakra.esm.js",
   "typings": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/jsonforms-react-chakra.esm.js",
+      "require": "./lib/jsonforms-react-chakra.cjs.js"
+    }
+  },
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:examples-app": "rollup -c rollup.example.config.js",
@@ -52,10 +59,9 @@
     "@chakra-ui/system": "^2.5.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@jsonforms/core": "3.1.0",
-    "@jsonforms/react": "3.1.0",
-    "framer-motion": "^6.5.1",
-    "react": "^16.12.0 || ^17.0.0 || ^18.0.0"
+    "@jsonforms/core": "workspace:*",
+    "@jsonforms/react": "workspace:*",
+    "framer-motion": "^6.5.1"
   },
   "devDependencies": {
     "@cfaester/enzyme-adapter-react-18": "^0.7.0",
@@ -65,13 +71,14 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@jsonforms/core": "^3.1.0",
-    "@jsonforms/react": "^3.1.0",
+    "@jsonforms/core": "workspace:*",
+    "@jsonforms/react": "workspace:*",
     "@rollup/plugin-commonjs": "^23.0.3",
     "@rollup/plugin-json": "^5.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.1",
     "@types/enzyme": "^3.10.3",
+    "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
@@ -87,14 +94,15 @@
     "jsdom-global": "^3.0.2",
     "nyc": "^15.1.0",
     "prettier": "^2.8.4",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.78.0",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-import-css": "^3.1.0",
-    "rollup-plugin-typescript2": "^0.31.1",
-    "rollup-plugin-visualizer": "^5.4.1",
+    "rollup-plugin-import-css": "^3.3.1",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "rollup-plugin-visualizer": "^5.9.2",
     "source-map-loader": "^0.2.4",
     "source-map-support": "0.5.16",
     "ts-loader": "^9.4.3",

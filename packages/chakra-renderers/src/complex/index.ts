@@ -22,15 +22,12 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import Categorization, { categorizationTester } from './categorization';
 import LabelRenderer, { labelRendererTester } from './LabelRenderer';
 import TableArrayControl, {
   tableArrayControlTester,
 } from './TableArrayControl';
 
 export {
-  Categorization,
-  categorizationTester,
   LabelRenderer,
   labelRendererTester,
   TableArrayControl,

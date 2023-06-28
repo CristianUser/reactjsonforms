@@ -22,19 +22,16 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import {
+  LayoutProps,
   RankedTester,
   rankWith,
-  RendererProps,
   uiTypeIs,
   VerticalLayout,
 } from '@reactjsonforms/core';
+import { LayoutRenderer, LayoutRendererProps } from '../util/layout';
 import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
-import { withVanillaControlProps } from '../util';
-import { JsonFormsLayout } from './JsonFormsLayout';
-import { renderChildren } from './util';
-import { VanillaRendererProps } from '../index';
 
 /**
  * Default tester for a vertical layout.
@@ -45,50 +42,26 @@ export const verticalLayoutTester: RankedTester = rankWith(
   uiTypeIs('VerticalLayout')
 );
 
-export const VerticalLayoutRenderer = (
-  props: RendererProps & VanillaRendererProps
-) => {
-  const { data: _data, ...otherProps } = props;
-  // We don't hand over data to the layout renderer to avoid rerendering it with every data change
-  return <VerticalLayoutRendererComponent {...otherProps} />;
+export const VerticalLayoutRenderer = ({
+  uischema,
+  schema,
+  path,
+  enabled,
+  visible,
+  renderers,
+  cells,
+}: LayoutProps) => {
+  const verticalLayout = uischema as VerticalLayout;
+  const childProps: LayoutRendererProps = {
+    elements: verticalLayout.elements,
+    schema,
+    path,
+    enabled,
+    direction: 'column',
+    visible,
+  };
+
+  return <LayoutRenderer {...childProps} renderers={renderers} cells={cells} />;
 };
 
-const VerticalLayoutRendererComponent: FunctionComponent<
-  RendererProps & VanillaRendererProps
-> = React.memo(function VerticalLayoutRendererComponent({
-  schema,
-  uischema,
-  path,
-  visible,
-  enabled,
-  getStyle,
-  getStyleAsClassName,
-}: RendererProps & VanillaRendererProps) {
-  const verticalLayout = uischema as VerticalLayout;
-  const elementsSize = verticalLayout.elements
-    ? verticalLayout.elements.length
-    : 0;
-  const layoutClassName = getStyleAsClassName('vertical.layout');
-  const childClassNames = ['vertical-layout-item']
-    .concat(getStyle('vertical.layout.item', elementsSize))
-    .join(' ');
-
-  return (
-    <JsonFormsLayout
-      className={layoutClassName}
-      uischema={uischema}
-      schema={schema}
-      visible={visible}
-      enabled={enabled}
-      path={path}
-      getStyle={getStyle}
-      getStyleAsClassName={getStyleAsClassName}
-    >
-      {renderChildren(verticalLayout, schema, childClassNames, path, enabled)}
-    </JsonFormsLayout>
-  );
-});
-
-export default withVanillaControlProps(
-  withJsonFormsLayoutProps(VerticalLayoutRenderer, false)
-);
+export default withJsonFormsLayoutProps(VerticalLayoutRenderer);

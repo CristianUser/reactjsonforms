@@ -56,8 +56,6 @@ import {
 } from './controls';
 
 import {
-  Categorization,
-  categorizationTester,
   LabelRenderer,
   labelRendererTester,
   TableArrayControl,
@@ -67,6 +65,8 @@ import {
 import {
   ArrayLayout,
   arrayLayoutTester,
+  CategorizationLayout,
+  categorizationTester,
   GroupLayout,
   groupTester,
   HorizontalLayout,
@@ -121,7 +121,7 @@ export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },
   { tester: arrayLayoutTester, renderer: ArrayLayout },
   { tester: labelRendererTester, renderer: LabelRenderer },
-  { tester: categorizationTester, renderer: Categorization },
+  { tester: categorizationTester, renderer: CategorizationLayout },
   { tester: tableArrayControlTester, renderer: TableArrayControl },
   { tester: groupTester, renderer: GroupLayout },
   { tester: verticalLayoutTester, renderer: VerticalLayout },

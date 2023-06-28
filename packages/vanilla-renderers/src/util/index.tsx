@@ -36,8 +36,8 @@ import {
   RendererProps,
   StatePropsOfCell,
   StatePropsOfControl,
-} from '@jsonforms/core';
-import { useJsonForms } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { useJsonForms } from '@reactjsonforms/react';
 import { getStyle, getStyleAsClassName } from '../reducers';
 import { VanillaRendererProps } from '../index';
 import { findStyle, findStyleAsClassName } from '../reducers/styling';

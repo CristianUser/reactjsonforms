@@ -1,11 +1,11 @@
 {
-  "name": "@jsonforms/examples-react",
+  "name": "@reactjsonforms/examples-react",
   "version": "3.1.0",
   "private": true,
   "dependencies": {
-    "@jsonforms/core": "^3.1.0",
-    "@jsonforms/examples": "^3.1.0",
-    "@jsonforms/react": "^3.1.0",
+    "@reactjsonforms/core": "workspace:*",
+    "@reactjsonforms/examples": "workspace:*",
+    "@reactjsonforms/react": "workspace:*",
     "@mui/material": "~5.13.5",
     "@types/react-highlight": "^0.12.5",
     "@types/react-tabs": "^2.3.3",
@@ -19,6 +19,7 @@
     "react-tabs": "^4.0.0"
   },
   "devDependencies": {
+    "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",

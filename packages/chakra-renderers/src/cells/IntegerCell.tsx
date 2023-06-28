@@ -28,9 +28,9 @@ import {
   isIntegerControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { Input } from '@chakra-ui/react';
-import { withJsonFormsCellProps } from '@jsonforms/react';
+import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
 

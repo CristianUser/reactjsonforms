@@ -23,8 +23,8 @@
   THE SOFTWARE.
 */
 import * as React from 'react';
-import { ControlElement } from '@jsonforms/core';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { ControlElement } from '@reactjsonforms/core';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import EnumCell, { enumCellTester } from '../../src/cells/EnumCell';

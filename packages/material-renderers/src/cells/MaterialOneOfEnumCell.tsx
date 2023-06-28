@@ -29,12 +29,12 @@ import {
   RankedTester,
   rankWith,
   WithClassname,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   TranslateProps,
   withJsonFormsOneOfEnumCellProps,
   withTranslateProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import { MuiSelect } from '../mui-controls/MuiSelect';
 
 export const MaterialOneOfEnumCell = (

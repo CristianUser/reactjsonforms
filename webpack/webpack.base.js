@@ -27,10 +27,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              plugins: [
-                '@babel/plugin-proposal-optional-chaining',
-                '@babel/plugin-proposal-nullish-coalescing-operator',
-              ],
+              plugins: ['@babel/plugin-proposal-optional-chaining'],
             },
           },
           { loader: 'ts-loader' },
@@ -43,10 +40,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              plugins: [
-                '@babel/plugin-proposal-optional-chaining',
-                '@babel/plugin-proposal-nullish-coalescing-operator',
-              ],
+              plugins: ['@babel/plugin-proposal-optional-chaining'],
             },
           },
         ],

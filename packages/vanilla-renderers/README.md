@@ -21,15 +21,18 @@ If you want to customize styling, have a look at our [styles guide](https://gith
 Install JSON Forms Core, React and React Vanilla Renderers
 
 ```bash
-npm i --save @jsonforms/core @jsonforms/react @jsonforms/vanilla-renderers
+npm i --save @reactjsonforms/core @reactjsonforms/react @reactjsonforms/vanilla-renderers
 ```
 
 Use the `JsonForms` component for each form you want to render and hand over the renderer set.
 
 ```js
 import React, { useState } from 'react';
-import { JsonForms } from '@jsonforms/react';
-import { vanillaCells, vanillaRenderers } from '@jsonforms/vanilla-renderers';
+import { JsonForms } from '@reactjsonforms/react';
+import {
+  vanillaCells,
+  vanillaRenderers,
+} from '@reactjsonforms/vanilla-renderers';
 
 const schema = {
   type: 'object',

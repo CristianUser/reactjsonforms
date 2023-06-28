@@ -34,7 +34,7 @@ import {
   OwnPropsOfControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   Button,
   Dialog,
@@ -46,7 +46,10 @@ import {
   Tab,
   Tabs,
 } from '@mui/material';
-import { JsonFormsDispatch, withJsonFormsOneOfProps } from '@jsonforms/react';
+import {
+  JsonFormsDispatch,
+  withJsonFormsOneOfProps,
+} from '@reactjsonforms/react';
 import CombinatorProperties from './CombinatorProperties';
 
 export interface OwnOneOfProps extends OwnPropsOfControl {

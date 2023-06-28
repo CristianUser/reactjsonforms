@@ -24,10 +24,10 @@
 */
 import * as React from 'react';
 import * as _ from 'lodash';
-import { ControlElement, HorizontalLayout } from '@jsonforms/core';
+import { ControlElement, HorizontalLayout } from '@reactjsonforms/core';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import TableArrayControl, {
   tableArrayControlTester,
 } from '../../src/complex/TableArrayControl';

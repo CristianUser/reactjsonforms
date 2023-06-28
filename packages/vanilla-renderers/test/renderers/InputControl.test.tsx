@@ -23,8 +23,15 @@
   THE SOFTWARE.
 */
 import * as React from 'react';
-import { ControlElement, HorizontalLayout, JsonSchema } from '@jsonforms/core';
-import { JsonFormsDispatch, JsonFormsStateProvider } from '@jsonforms/react';
+import {
+  ControlElement,
+  HorizontalLayout,
+  JsonSchema,
+} from '@reactjsonforms/core';
+import {
+  JsonFormsDispatch,
+  JsonFormsStateProvider,
+} from '@reactjsonforms/react';
 import { vanillaRenderers } from '../../src';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';

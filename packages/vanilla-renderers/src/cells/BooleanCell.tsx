@@ -28,8 +28,8 @@ import {
   isBooleanControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsCellProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { FC } from 'react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaBooleanCellProps } from '../util/index';

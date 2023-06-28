@@ -25,15 +25,15 @@
 import isEmpty from 'lodash/isEmpty';
 import React, { ComponentType } from 'react';
 import Ajv from 'ajv';
-import type { UISchemaElement } from '@jsonforms/core';
+import type { UISchemaElement } from '@reactjsonforms/core';
 import {
   getAjv,
   JsonFormsCellRendererRegistryEntry,
   JsonFormsRendererRegistryEntry,
   JsonSchema,
   OwnPropsOfRenderer,
-} from '@jsonforms/core';
-import { JsonFormsDispatch, useJsonForms } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { JsonFormsDispatch, useJsonForms } from '@reactjsonforms/react';
 import { Grid, Hidden } from '@mui/material';
 
 export const renderLayoutElements = (

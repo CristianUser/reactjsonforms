@@ -29,7 +29,7 @@ import {
   composePaths,
   computeLabel,
   createDefaultValue,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import map from 'lodash/map';
 import { ArrayLayoutToolbar } from './ArrayToolbar';
 import ExpandPanelRenderer from './ExpandPanelRenderer';

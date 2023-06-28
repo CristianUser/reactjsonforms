@@ -35,7 +35,7 @@ import type {
   Layout,
   RendererProps,
   UISchemaElement,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   createAjv,
   jsonFormsReducerConfig,
@@ -46,7 +46,7 @@ import {
   schemaMatches,
   uiTypeIs,
   unregisterRenderer,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { isEqual } from 'lodash';
 import Enzyme, { mount, shallow } from 'enzyme';
 import type { StatelessRenderer } from '../../src/Renderer';

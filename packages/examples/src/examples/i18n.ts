@@ -30,7 +30,7 @@ import {
   AnyAction,
   Dispatch,
   Translator,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import get from 'lodash/get';
 // TODO change import when types are available for ajv-i18n (from v4.x)
 // eslint-disable-next-line @typescript-eslint/no-var-requires

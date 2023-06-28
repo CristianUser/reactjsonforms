@@ -32,11 +32,11 @@ import {
   JsonFormsSubStates,
   rendererReducer,
   uischemaRegistryReducer,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { connect } from 'react-redux';
 import { combineReducers, Reducer } from 'redux';
 import React from 'react';
-// This import will be aliased to '@jsonforms/react' via rollup
+// This import will be aliased to '@reactjsonforms/react' via rollup
 import { JsonFormsContext, JsonFormsReduxContextProps } from '..';
 
 const JsonFormsReduxProvider = ({

@@ -32,9 +32,9 @@ import {
   or,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { Hidden, TextField } from '@mui/material';
-import { withJsonFormsControlProps } from '@jsonforms/react';
+import { withJsonFormsControlProps } from '@reactjsonforms/react';
 import merge from 'lodash/merge';
 import { useDebouncedChange, useFocus } from '../util';
 

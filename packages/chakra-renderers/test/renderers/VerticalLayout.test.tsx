@@ -23,8 +23,8 @@
   THE SOFTWARE.
 */
 import * as React from 'react';
-import { UISchemaElement, VerticalLayout } from '@jsonforms/core';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { UISchemaElement, VerticalLayout } from '@reactjsonforms/core';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import VerticalLayoutRenderer, {

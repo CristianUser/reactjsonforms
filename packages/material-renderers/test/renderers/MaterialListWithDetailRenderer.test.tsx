@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import './MatchMediaMock';
-import { ControlElement } from '@jsonforms/core';
+import { ControlElement } from '@reactjsonforms/core';
 import * as React from 'react';
 
 import { materialRenderers } from '../../src';
@@ -32,7 +32,7 @@ import MaterialListWithDetailRenderer, {
 } from '../../src/additional/MaterialListWithDetailRenderer';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import { ListItem } from '@mui/material';
 import { initCore } from './util';
 

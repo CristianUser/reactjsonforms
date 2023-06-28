@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import * as React from 'react';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import ArrayControl from '../../src/complex/array/ArrayControlRenderer';
 import { vanillaRenderers } from '../../src/index';
 import { initCore } from '../util';

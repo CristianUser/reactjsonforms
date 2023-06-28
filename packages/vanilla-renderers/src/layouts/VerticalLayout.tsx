@@ -29,8 +29,8 @@ import {
   RendererProps,
   uiTypeIs,
   VerticalLayout,
-} from '@jsonforms/core';
-import { withJsonFormsLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
 import { withVanillaControlProps } from '../util';
 import { JsonFormsLayout } from './JsonFormsLayout';
 import { renderChildren } from './util';

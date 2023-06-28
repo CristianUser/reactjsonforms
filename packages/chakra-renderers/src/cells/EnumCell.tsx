@@ -28,12 +28,12 @@ import {
   isEnumControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   TranslateProps,
   withJsonFormsEnumCellProps,
   withTranslateProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import { Select } from '@chakra-ui/react';
 import { i18nDefaults, withVanillaEnumCellProps } from '../util';
 import type { VanillaRendererProps } from '../index';

@@ -22,8 +22,12 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import { isEnumControl, isOneOfEnumControl, rankWith } from '@jsonforms/core';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import {
+  isEnumControl,
+  isOneOfEnumControl,
+  rankWith,
+} from '@reactjsonforms/core';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import * as React from 'react';
 import * as _ from 'lodash';
 import Adapter from '@cfaester/enzyme-adapter-react-18';

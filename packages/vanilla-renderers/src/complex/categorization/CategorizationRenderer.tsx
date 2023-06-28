@@ -23,13 +23,17 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import type { Categorization, Category, LayoutProps } from '@jsonforms/core';
+import type {
+  Categorization,
+  Category,
+  LayoutProps,
+} from '@reactjsonforms/core';
 import {
   RendererComponent,
   TranslateProps,
   withJsonFormsLayoutProps,
   withTranslateProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import { CategorizationList } from './CategorizationList';
 import { SingleCategory } from './SingleCategory';
 import { isCategorization } from './tester';

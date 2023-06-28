@@ -97,7 +97,7 @@ These can be overwritten via the `JsonFormsStyleContext`.
 The following example will completely replace the default styles.
 
 ```typescript
-import { JsonFormsStyleContext } from '@jsonforms/vanilla-renderers';
+import { JsonFormsStyleContext } from '@reactjsonforms/vanilla-renderers';
 
 const styleContextValue = { styles: [
   {
@@ -125,7 +125,7 @@ Thereby, the existing style classes as well as your custom ones will be applied.
 This is the case because all style definitions for an ID are merged.
 
 ```typescript
-import { JsonFormsStyleContext, vanillaStyles } from '@jsonforms/vanilla-renderers';
+import { JsonFormsStyleContext, vanillaStyles } from '@reactjsonforms/vanilla-renderers';
 
 const styleContextValue = { styles: [
   ...vanillaStyles,

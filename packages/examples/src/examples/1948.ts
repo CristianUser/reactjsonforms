@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import { registerExamples } from '../register';
-import { UISchemaElement } from '@jsonforms/core';
+import { UISchemaElement } from '@reactjsonforms/core';
 
 export const schema = {
   type: 'object',

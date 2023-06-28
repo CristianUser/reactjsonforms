@@ -122,7 +122,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
   const getExtra = () => {
     return (
       <ButtonGroup>
-        <Tooltip key='1' title='Move up'>
+        <Tooltip key='1' label='Move up'>
           <IconButton
             aria-label={translations.upAriaLabel || ''}
             icon={<ArrowUpIcon />}
@@ -130,7 +130,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
             disabled={!enableMoveUp}
           />
         </Tooltip>
-        <Tooltip key='2' title='Move down'>
+        <Tooltip key='2' label='Move down'>
           <IconButton
             aria-label={translations.downAriaLabel || ''}
             icon={<ArrowDownIcon />}
@@ -139,7 +139,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
           />
         </Tooltip>
         {appliedUiSchemaOptions.showSortButtons ? (
-          <Tooltip key='3' title='Delete'>
+          <Tooltip key='3' label='Delete'>
             <IconButton
               aria-label={translations.removeAriaLabel || ''}
               onClick={removeItems(path, [index])}

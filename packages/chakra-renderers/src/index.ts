@@ -25,6 +25,13 @@
 import { RankedTester } from '@reactjsonforms/core';
 
 import {
+  LabelRenderer,
+  labelRendererTester,
+  ListWithDetailRenderer,
+  listWithDetailTester,
+} from './additional';
+
+import {
   BooleanCell,
   booleanCellTester,
   DateCell,
@@ -55,12 +62,7 @@ import {
   oneOfRadioGroupControlTester,
 } from './controls';
 
-import {
-  LabelRenderer,
-  labelRendererTester,
-  TableArrayControl,
-  tableArrayControlTester,
-} from './complex';
+import { TableArrayControl, tableArrayControlTester } from './complex';
 
 import {
   ArrayLayout,
@@ -126,6 +128,12 @@ export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
   { tester: groupTester, renderer: GroupLayout },
   { tester: verticalLayoutTester, renderer: VerticalLayout },
   { tester: horizontalLayoutTester, renderer: HorizontalLayout },
+  // additional
+  { tester: labelRendererTester, renderer: LabelRenderer },
+  {
+    tester: listWithDetailTester,
+    renderer: ListWithDetailRenderer,
+  },
 ];
 
 export const vanillaCells: { tester: RankedTester; cell: any }[] = [

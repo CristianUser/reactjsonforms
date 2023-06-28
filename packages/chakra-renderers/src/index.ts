@@ -67,6 +67,8 @@ import {
   AllOfRenderer,
   anyOfControlTester,
   AnyOfRenderer,
+  enumArrayRendererTester,
+  EnumArrayRenderer,
   TableArrayControl,
   tableArrayControlTester,
 } from './complex';
@@ -127,6 +129,7 @@ export * from './styles';
 export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
   { tester: allOfControlTester, renderer: AllOfRenderer },
   { tester: anyOfControlTester, renderer: AnyOfRenderer },
+  { tester: enumArrayRendererTester, renderer: EnumArrayRenderer },
   { tester: inputControlTester, renderer: InputControl },
   { tester: radioGroupControlTester, renderer: RadioGroupControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },

@@ -28,11 +28,11 @@ import TableArrayControl, {
 } from './TableArrayControl';
 import AllOfRenderer, { allOfControlTester } from './AllOfRenderer';
 import AnyOfRenderer, { anyOfControlTester } from './AnyOfRenderer';
-// import EnumArrayRenderer, {
-//   enumArrayRendererTester,
-// } from './EnumArrayRenderer';
+import EnumArrayRenderer, {
+  enumArrayRendererTester,
+} from './EnumArrayRenderer';
 
-// export { EnumArrayRenderer };
+export { EnumArrayRenderer, enumArrayRendererTester };
 export {
   AllOfRenderer,
   allOfControlTester,

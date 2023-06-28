@@ -51,13 +51,15 @@ const ListWithDetailMasterItem = ({
 
   return (
     <>
+      {index > 0 && <Divider mt='2' />}
       <Flex
         justifyContent='space-between'
+        alignItems='center'
         key={index}
         onClick={handleSelect(index)}
-        mb='2'
+        mt='2'
       >
-        <Flex>
+        <Flex alignItems='center'>
           <Avatar
             size={'sm'}
             bgColor='gray.200'
@@ -75,7 +77,6 @@ const ListWithDetailMasterItem = ({
           />
         </Tooltip>
       </Flex>
-      <Divider mb='2' />
     </>
   );
 };

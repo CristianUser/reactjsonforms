@@ -33,14 +33,17 @@ export interface ValidationProps {
 }
 
 const ValidationIcon: React.FC<ValidationProps> = ({ errorMessages, id }) => {
+  const errorCount = errorMessages.split('\n').length - 1;
   return (
-    <Tooltip id={id} title={errorMessages}>
-      <Avatar icon={<WarningIcon />}>
-        <AvatarBadge boxSize='1.25em'>
-          {errorMessages.split('\n').length}
-        </AvatarBadge>
-      </Avatar>
-    </Tooltip>
+    !!errorCount && (
+      <Tooltip id={id} title={errorMessages}>
+        <Avatar icon={<WarningIcon />}>
+          <AvatarBadge bgColor='red.400' boxSize='1.25em'>
+            {errorCount}
+          </AvatarBadge>
+        </Avatar>
+      </Tooltip>
+    )
   );
 };
 

@@ -23,27 +23,15 @@ module.exports = {
       {
         test: /\.tsx?$/, // All ts and tsx files will be process by
         use: [
-          // first ts-loader, then babel-loader
-          {
-            loader: 'babel-loader',
-            options: {
-              plugins: ['@babel/plugin-proposal-optional-chaining'],
-            },
-          },
+          // first babel-loader, then ts-loader
+          { loader: 'babel-loader' },
           { loader: 'ts-loader' },
         ],
         exclude: /node_modules/, // ignore node_modules
       },
       {
         test: /\.jsx?$/, // all js and jsx files will be processed by
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              plugins: ['@babel/plugin-proposal-optional-chaining'],
-            },
-          },
-        ],
+        use: 'babel-loader',
         exclude: /node_modules/, // ignore node_modules
       },
     ],

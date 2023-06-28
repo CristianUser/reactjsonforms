@@ -43,7 +43,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { ArrayLayoutToolbar } from '../layouts/ArrayToolbar';
 import ListWithDetailMasterItem from './ListWithDetailMasterItem';
 import Hidden from '../util/Hidden';
-import { Flex, List } from '@chakra-ui/react';
+import { Box, Flex, List } from '@chakra-ui/react';
 
 export const ListWithDetailRenderer = ({
   uischemas,
@@ -98,51 +98,53 @@ export const ListWithDetailRenderer = ({
 
   return (
     <Hidden hidden={!visible}>
-      <ArrayLayoutToolbar
-        translations={translations}
-        label={computeLabel(
-          label,
-          required,
-          appliedUiSchemaOptions.hideRequiredAsterisk
-        )}
-        errors={errors}
-        path={path}
-        addItem={addItem}
-        createDefault={handleCreateDefaultValue}
-      />
-      <Flex direction='row' gap='2'>
-        <Flex direction='column' flex={1}>
-          <List>
-            {range(data).map((_item, index) => (
-              <ListWithDetailMasterItem
-                translations={translations}
-                index={index}
-                path={path}
-                schema={schema}
-                handleSelect={handleListItemClick}
-                removeItem={handleRemoveItem}
-                selected={selectedIndex === index}
-                key={index}
-                enabled={false}
-              />
-            ))}
-          </List>
-        </Flex>
-        <Flex direction='column' flex={3}>
-          {selectedIndex !== undefined ? (
-            <JsonFormsDispatch
-              renderers={renderers}
-              cells={cells}
-              visible={visible}
-              schema={schema}
-              uischema={foundUISchema}
-              path={composePaths(path, `${selectedIndex}`)}
-            />
-          ) : (
-            <div>No Data</div>
+      <Box>
+        <ArrayLayoutToolbar
+          translations={translations}
+          label={computeLabel(
+            label,
+            required,
+            appliedUiSchemaOptions.hideRequiredAsterisk
           )}
+          errors={errors}
+          path={path}
+          addItem={addItem}
+          createDefault={handleCreateDefaultValue}
+        />
+        <Flex direction='row' gap='2'>
+          <Flex direction='column' flex={1}>
+            <List>
+              {range(data).map((_item, index) => (
+                <ListWithDetailMasterItem
+                  translations={translations}
+                  index={index}
+                  path={path}
+                  schema={schema}
+                  handleSelect={handleListItemClick}
+                  removeItem={handleRemoveItem}
+                  selected={selectedIndex === index}
+                  key={index}
+                  enabled={false}
+                />
+              ))}
+            </List>
+          </Flex>
+          <Flex direction='column' flex={3}>
+            {selectedIndex !== undefined ? (
+              <JsonFormsDispatch
+                renderers={renderers}
+                cells={cells}
+                visible={visible}
+                schema={schema}
+                uischema={foundUISchema}
+                path={composePaths(path, `${selectedIndex}`)}
+              />
+            ) : (
+              <div>No Data</div>
+            )}
+          </Flex>
         </Flex>
-      </Flex>
+      </Box>
     </Hidden>
   );
 };

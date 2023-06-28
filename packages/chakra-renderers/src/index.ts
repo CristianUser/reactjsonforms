@@ -62,7 +62,14 @@ import {
   oneOfRadioGroupControlTester,
 } from './controls';
 
-import { TableArrayControl, tableArrayControlTester } from './complex';
+import {
+  allOfControlTester,
+  AllOfRenderer,
+  anyOfControlTester,
+  AnyOfRenderer,
+  TableArrayControl,
+  tableArrayControlTester,
+} from './complex';
 
 import {
   ArrayLayout,
@@ -118,6 +125,8 @@ export * from './util';
 export * from './styles';
 
 export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
+  { tester: allOfControlTester, renderer: AllOfRenderer },
+  { tester: anyOfControlTester, renderer: AnyOfRenderer },
   { tester: inputControlTester, renderer: InputControl },
   { tester: radioGroupControlTester, renderer: RadioGroupControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },

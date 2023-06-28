@@ -22,35 +22,56 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import isEmpty from 'lodash/isEmpty';
+import React from 'react';
+import _ from 'lodash';
 import {
-  and,
-  Categorization,
-  Category,
-  RankedTester,
-  rankWith,
-  uiTypeIs,
+  Generate,
+  isLayout,
+  JsonSchema,
+  UISchemaElement,
 } from '@reactjsonforms/core';
+import { JsonFormsDispatch } from '@reactjsonforms/react';
 
-export const isCategorization = (
-  category: Category | Categorization
-): category is Categorization => category.type === 'Categorization';
+interface CombinatorPropertiesProps {
+  schema: JsonSchema;
+  combinatorKeyword: 'oneOf' | 'anyOf';
+  path: string;
+}
 
-export const categorizationTester: RankedTester = rankWith(
-  1,
-  and(uiTypeIs('Categorization'), (uischema) => {
-    const hasCategory = (element: Categorization): boolean => {
-      if (isEmpty(element.elements)) {
-        return false;
-      }
+export class CombinatorProperties extends React.Component<
+  CombinatorPropertiesProps,
+  // TODO fix @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  {}
+> {
+  render() {
+    const { schema, combinatorKeyword, path } = this.props;
 
-      return element.elements
-        .map((elem) =>
-          isCategorization(elem) ? hasCategory(elem) : elem.type === 'Category'
-        )
-        .reduce((prev, curr) => prev && curr, true);
-    };
+    const otherProps: JsonSchema = _.omit(
+      schema,
+      combinatorKeyword
+    ) as JsonSchema;
+    const foundUISchema: UISchemaElement = Generate.uiSchema(
+      otherProps,
+      'VerticalLayout'
+    );
+    let isLayoutWithElements = false;
+    if (foundUISchema !== null && isLayout(foundUISchema)) {
+      isLayoutWithElements = foundUISchema.elements.length > 0;
+    }
 
-    return hasCategory(uischema as Categorization);
-  })
-);
+    if (isLayoutWithElements) {
+      return (
+        <JsonFormsDispatch
+          schema={otherProps}
+          path={path}
+          uischema={foundUISchema}
+        />
+      );
+    }
+
+    return null;
+  }
+}
+
+export default CombinatorProperties;

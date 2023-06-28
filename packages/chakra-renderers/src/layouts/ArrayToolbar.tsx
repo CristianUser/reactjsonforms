@@ -31,7 +31,7 @@ type PageHeaderProps = {
 
 export const PageHeader = ({ title, extra }: PageHeaderProps) => {
   return (
-    <Flex justifyContent='space-between'>
+    <Flex justifyContent='space-between' w='100%' mb='4'>
       <Heading as='h3' size='md'>
         {title}
       </Heading>

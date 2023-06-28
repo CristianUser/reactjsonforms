@@ -32,7 +32,7 @@ import {
 import map from 'lodash/map';
 import ExpandPanelRenderer from './ExpandPanelRenderer';
 import merge from 'lodash/merge';
-import { Accordion, Alert, Button, Flex, Heading } from '@chakra-ui/react';
+import { Accordion, Alert, Box, Button, Flex, Heading } from '@chakra-ui/react';
 
 interface ArrayLayoutState {
   expanded: number;
@@ -75,8 +75,8 @@ export class ArrayLayout extends React.PureComponent<
     );
 
     return (
-      <div>
-        <Flex justifyContent='space-between'>
+      <Box w='100%'>
+        <Flex justifyContent='space-between' w='100%'>
           <Heading as='h3' size='md'>
             {label}
           </Heading>
@@ -117,7 +117,7 @@ export class ArrayLayout extends React.PureComponent<
         ) : (
           <div>No data</div>
         )}
-      </div>
+      </Box>
     );
   }
 }

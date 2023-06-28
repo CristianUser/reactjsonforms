@@ -29,6 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@jsonforms/core';
+import { Input } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@jsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -39,7 +40,7 @@ export const NumberCell = (props: CellProps & VanillaRendererProps) => {
   const { data, className, id, enabled, uischema, path, handleChange } = props;
 
   return (
-    <input
+    <Input
       type='number'
       step='0.1'
       value={data ?? ''}

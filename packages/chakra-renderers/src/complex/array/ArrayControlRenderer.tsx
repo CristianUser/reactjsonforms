@@ -40,6 +40,11 @@ import type { VanillaRendererProps } from '../../index';
 import { withVanillaControlProps } from '../../util';
 import { ArrowUpIcon, ArrowDownIcon, DeleteIcon } from '@chakra-ui/icons';
 import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+  Avatar,
   Button,
   ButtonGroup,
   Flex,
@@ -112,64 +117,77 @@ export const ArrayControl = ({
         </Button>
       </Flex>
       <div className={divClassNames}>{errors}</div>
-      <div className={classNames.children}>
+      <Accordion className={classNames.children} allowMultiple>
         {data ? (
           range(0, data.length).map((index) => {
             const childPath = composePaths(path, `${index}`);
             return (
-              <div key={index}>
-                <JsonFormsDispatch
-                  schema={schema}
-                  uischema={childUiSchema || uischema}
-                  path={childPath}
-                  key={childPath}
-                  renderers={renderers}
-                />
-                <ButtonGroup className={childControlsClass}>
-                  <IconButton
-                    icon={<ArrowUpIcon />}
-                    className={buttonClassUp}
-                    aria-label={translations.upAriaLabel}
-                    onClick={() => {
-                      moveUp(path, index)();
-                    }}
-                  >
-                    {translations.up}
-                  </IconButton>
-                  <IconButton
-                    icon={<ArrowDownIcon />}
-                    className={buttonClassDown}
-                    aria-label={translations.downAriaLabel}
-                    onClick={() => {
-                      moveDown(path, index)();
-                    }}
-                  >
-                    {translations.down}
-                  </IconButton>
-                  <IconButton
-                    icon={<DeleteIcon />}
-                    className={buttonClassDelete}
-                    aria-label={translations.removeAriaLabel}
-                    onClick={() => {
-                      if (
-                        window.confirm(
-                          'Are you sure you wish to delete this item?'
-                        )
-                      ) {
-                        removeItems(path, [index])();
-                      }
-                    }}
-                  >
-                    {translations.removeTooltip}
-                  </IconButton>
-                </ButtonGroup>
-              </div>
+              <AccordionItem key={index}>
+                <AccordionButton>
+                  <Flex justifyContent='space-between' width='100%'>
+                    <Avatar
+                      as='h4'
+                      size='sm'
+                      name={`${index + 1}`}
+                      color='gray.800'
+                      bgColor='gray.100'
+                    />
+                    <ButtonGroup className={childControlsClass}>
+                      <IconButton
+                        icon={<ArrowUpIcon />}
+                        className={buttonClassUp}
+                        aria-label={translations.upAriaLabel}
+                        onClick={() => {
+                          moveUp(path, index)();
+                        }}
+                      >
+                        {translations.up}
+                      </IconButton>
+                      <IconButton
+                        icon={<ArrowDownIcon />}
+                        className={buttonClassDown}
+                        aria-label={translations.downAriaLabel}
+                        onClick={() => {
+                          moveDown(path, index)();
+                        }}
+                      >
+                        {translations.down}
+                      </IconButton>
+                      <IconButton
+                        icon={<DeleteIcon />}
+                        className={buttonClassDelete}
+                        aria-label={translations.removeAriaLabel}
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              'Are you sure you wish to delete this item?'
+                            )
+                          ) {
+                            removeItems(path, [index])();
+                          }
+                        }}
+                      >
+                        {translations.removeTooltip}
+                      </IconButton>
+                    </ButtonGroup>
+                  </Flex>
+                </AccordionButton>
+                <AccordionPanel pb={4}>
+                  <JsonFormsDispatch
+                    schema={schema}
+                    uischema={childUiSchema || uischema}
+                    path={childPath}
+                    key={childPath}
+                    renderers={renderers}
+                  />
+                </AccordionPanel>
+              </AccordionItem>
             );
           })
         ) : (
           <p>{translations.noDataMessage}</p>
         )}
-      </div>
+      </Accordion>
     </div>
   );
 };

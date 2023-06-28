@@ -22,7 +22,6 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import ArrayControl, { arrayControlTester } from './array';
 import Categorization, { categorizationTester } from './categorization';
 import LabelRenderer, { labelRendererTester } from './LabelRenderer';
 import TableArrayControl, {
@@ -30,8 +29,6 @@ import TableArrayControl, {
 } from './TableArrayControl';
 
 export {
-  ArrayControl,
-  arrayControlTester,
   Categorization,
   categorizationTester,
   LabelRenderer,

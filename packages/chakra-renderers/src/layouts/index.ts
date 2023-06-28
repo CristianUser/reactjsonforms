@@ -25,8 +25,11 @@
 import GroupLayout, { groupTester } from './GroupLayout';
 import HorizontalLayout, { horizontalLayoutTester } from './HorizontalLayout';
 import VerticalLayout, { verticalLayoutTester } from './VerticalLayout';
+import ArrayLayout, { arrayLayoutTester } from './ArrayLayoutRenderer';
 
 export {
+  ArrayLayout,
+  arrayLayoutTester,
   GroupLayout,
   groupTester,
   HorizontalLayout,

@@ -37,7 +37,7 @@ import {
   OwnPropsOfRenderer,
 } from '@reactjsonforms/core';
 import { JsonFormsDispatch, useJsonForms } from '@reactjsonforms/react';
-import { Flex } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 
 export const renderLayoutElements = (
   elements: UISchemaElement[],
@@ -49,14 +49,9 @@ export const renderLayoutElements = (
   cells?: JsonFormsCellRendererRegistryEntry[]
 ) => {
   const dir = direction === 'row' ? 'column' : 'row';
-  const childProps: any = {};
-
-  if (direction === 'row') {
-    childProps.w = '100%';
-  }
 
   return elements.map((child, index) => (
-    <Flex direction={dir} key={`${path}-${index}`} {...childProps}>
+    <Stack direction={dir} key={`${path}-${index}`} w='100%'>
       <JsonFormsDispatch
         uischema={child}
         schema={schema}
@@ -65,7 +60,7 @@ export const renderLayoutElements = (
         renderers={renderers}
         cells={cells}
       />
-    </Flex>
+    </Stack>
   ));
 };
 
@@ -83,18 +78,13 @@ export const LayoutRenderer = ({
   renderers,
   cells,
 }: LayoutRendererProps) => {
-  const containerProps: any = {};
   const dir = direction === 'row' ? direction : 'column';
-
-  if (dir === 'row') {
-    containerProps.w = '100%';
-  }
 
   if (isEmpty(elements)) {
     return null;
   } else {
     return (
-      <Flex direction={dir} {...containerProps}>
+      <Stack direction={dir} w='100%'>
         {renderLayoutElements(
           elements,
           schema as JsonSchema,
@@ -104,7 +94,7 @@ export const LayoutRenderer = ({
           renderers,
           cells
         )}
-      </Flex>
+      </Stack>
     );
   }
 };

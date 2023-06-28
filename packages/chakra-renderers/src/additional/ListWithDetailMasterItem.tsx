@@ -25,14 +25,7 @@
 import { StatePropsOfMasterItem } from '@reactjsonforms/core';
 import { withJsonFormsMasterListItemProps } from '@reactjsonforms/react';
 import React, { useMemo } from 'react';
-import {
-  Avatar,
-  Divider,
-  Flex,
-  IconButton,
-  Text,
-  Tooltip,
-} from '@chakra-ui/react';
+import { Avatar, Flex, IconButton, Text, Tooltip } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 
 const ListWithDetailMasterItem = ({
@@ -50,34 +43,34 @@ const ListWithDetailMasterItem = ({
   );
 
   return (
-    <>
-      {index > 0 && <Divider mt='2' />}
-      <Flex
-        justifyContent='space-between'
-        alignItems='center'
-        key={index}
-        onClick={handleSelect(index)}
-        mt='2'
-      >
-        <Flex alignItems='center'>
-          <Avatar
-            size={'sm'}
-            bgColor='gray.200'
-            me='2'
-            {...avatarStyle}
-            name={`${index + 1}`}
-          />
-          <Text>{childLabel}</Text>
-        </Flex>
-        <Tooltip label={translations.removeTooltip} key='action_1'>
-          <IconButton
-            icon={<DeleteIcon />}
-            onClick={removeItem(path, index)}
-            aria-label={translations.removeAriaLabel || ''}
-          />
-        </Tooltip>
+    <Flex
+      justifyContent='space-between'
+      alignItems='center'
+      key={index}
+      onClick={handleSelect(index)}
+      _active={{
+        bgColor: 'gray.100',
+      }}
+      w='100%'
+    >
+      <Flex alignItems='center'>
+        <Avatar
+          size={'sm'}
+          bgColor='gray.200'
+          me='2'
+          {...avatarStyle}
+          name={`${index + 1}`}
+        />
+        <Text>{childLabel}</Text>
       </Flex>
-    </>
+      <Tooltip label={translations.removeTooltip} key='action_1'>
+        <IconButton
+          icon={<DeleteIcon />}
+          onClick={removeItem(path, index)}
+          aria-label={translations.removeAriaLabel || ''}
+        />
+      </Tooltip>
+    </Flex>
   );
 };
 

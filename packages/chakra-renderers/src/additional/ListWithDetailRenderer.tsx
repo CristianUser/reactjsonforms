@@ -43,7 +43,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { ArrayLayoutToolbar } from '../layouts/ArrayToolbar';
 import ListWithDetailMasterItem from './ListWithDetailMasterItem';
 import Hidden from '../util/Hidden';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Divider, Flex, VStack } from '@chakra-ui/react';
 
 export const ListWithDetailRenderer = ({
   uischemas,
@@ -113,7 +113,7 @@ export const ListWithDetailRenderer = ({
         />
         <Flex direction='row' gap='2'>
           <Flex direction='column' flex={1}>
-            <Box w='100%'>
+            <VStack w='100%' divider={<Divider />}>
               {range(data).map((_item, index) => (
                 <ListWithDetailMasterItem
                   translations={translations}
@@ -127,7 +127,7 @@ export const ListWithDetailRenderer = ({
                   enabled={false}
                 />
               ))}
-            </Box>
+            </VStack>
           </Flex>
           <Flex direction='column' flex={3}>
             {selectedIndex !== undefined ? (

@@ -34,7 +34,6 @@ import {
   ArrayControlProps,
   ControlElement,
   createDefaultValue,
-  Helpers,
   Paths,
   RankedTester,
   Resolve,
@@ -62,8 +61,7 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react';
-
-const { convertToValidClassName } = Helpers;
+import Hidden from '../util/Hidden';
 
 const { or, isObjectArrayControl, isPrimitiveArrayControl, rankWith } = Test;
 
@@ -89,7 +87,7 @@ class TableArrayControl extends React.Component<
   render() {
     const {
       addItem,
-      uischema,
+      // uischema,
       schema,
       rootSchema,
       path,
@@ -102,15 +100,10 @@ class TableArrayControl extends React.Component<
       translations,
     } = this.props;
 
-    const controlElement = uischema as ControlElement;
     const tableClass = getStyleAsClassName('array.table.table');
     const labelClass = getStyleAsClassName('array.table.label');
     // const buttonClass = getStyleAsClassName('array.table.button');
     const validationClass = getStyleAsClassName('array.table.validation');
-    const controlClass = [
-      getStyleAsClassName('array.table'),
-      convertToValidClassName(controlElement.scope),
-    ].join(' ');
     const createControlElement = (key?: string): ControlElement => ({
       type: 'Control',
       label: false,
@@ -124,8 +117,8 @@ class TableArrayControl extends React.Component<
       .join(' ');
 
     return (
-      <div className={controlClass} hidden={!visible}>
-        <Flex justifyContent='space-between'>
+      <Hidden hidden={!visible}>
+        <Flex justifyContent='space-between' w='100%'>
           <Heading size='md' className={labelClass}>
             {label}
           </Heading>
@@ -140,7 +133,7 @@ class TableArrayControl extends React.Component<
             {errors}
           </Alert>
         )}
-        <TableContainer>
+        <TableContainer w='100%'>
           <Table className={tableClass} variant='simple'>
             <Thead>
               <Tr>
@@ -258,7 +251,7 @@ class TableArrayControl extends React.Component<
             </Tbody>
           </Table>
         </TableContainer>
-      </div>
+      </Hidden>
     );
   }
 }

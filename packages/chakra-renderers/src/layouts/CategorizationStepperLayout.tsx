@@ -40,7 +40,19 @@ import {
   RendererComponent,
   withJsonFormsLayoutProps,
 } from '@reactjsonforms/react';
-import { Button, Stepper, Step, StepTitle, Box } from '@chakra-ui/react';
+import {
+  Button,
+  Stepper,
+  Step,
+  StepTitle,
+  Box,
+  StepIcon,
+  StepIndicator,
+  StepNumber,
+  StepSeparator,
+  StepStatus,
+  ButtonGroup,
+} from '@chakra-ui/react';
 import {
   AjvProps,
   LayoutRenderer,
@@ -95,17 +107,6 @@ export class CategorizationStepperLayoutRenderer extends RendererComponent<
     const categorization = uischema as Categorization;
     const activeCategory = this.state.activeCategory;
     const appliedUiSchemaOptions = merge({}, config, uischema.options);
-    const buttonWrapperStyle = {
-      textAlign: 'right' as const,
-      width: '100%',
-      margin: '1em auto',
-    };
-    const buttonNextStyle = {
-      float: 'right' as const,
-    };
-    const buttonStyle = {
-      marginRight: '1em',
-    };
     const childProps: LayoutRendererProps = {
       elements: categorization.elements[activeCategory].elements,
       schema,
@@ -120,15 +121,23 @@ export class CategorizationStepperLayoutRenderer extends RendererComponent<
     );
     return (
       <Hidden hidden={!visible}>
-        <Stepper index={activeCategory} style={{ marginBottom: '10px' }}>
+        <Stepper index={activeCategory} mb='10px'>
           {categories.map((item: Category | any, idx: number) => (
             <Step
               key={`${item.label}_${idx}`}
               onClick={() => this.handleStep(idx)}
             >
+              <StepIndicator>
+                <StepStatus
+                  complete={<StepIcon />}
+                  incomplete={<StepNumber />}
+                  active={<StepNumber />}
+                />
+              </StepIndicator>
               <Box flexShrink='0'>
                 <StepTitle>{item.label}</StepTitle>
               </Box>
+              <StepSeparator />
             </Step>
           ))}
         </Stepper>
@@ -136,24 +145,22 @@ export class CategorizationStepperLayoutRenderer extends RendererComponent<
           <LayoutRenderer {...childProps} />
         </div>
         {appliedUiSchemaOptions.showNavButtons ? (
-          <div style={buttonWrapperStyle}>
+          <ButtonGroup w='100%' margin='4' justifyContent='end'>
             <Button
-              style={buttonNextStyle}
-              color='primary'
-              disabled={activeCategory >= categories.length - 1}
-              onClick={() => this.handleStep(activeCategory + 1)}
-            >
-              Next
-            </Button>
-            <Button
-              style={buttonStyle}
               color='secondary'
-              disabled={activeCategory <= 0}
+              isDisabled={activeCategory <= 0}
               onClick={() => this.handleStep(activeCategory - 1)}
             >
               Previous
             </Button>
-          </div>
+            <Button
+              color='primary'
+              isDisabled={activeCategory >= categories.length - 1}
+              onClick={() => this.handleStep(activeCategory + 1)}
+            >
+              Next
+            </Button>
+          </ButtonGroup>
         ) : (
           <></>
         )}

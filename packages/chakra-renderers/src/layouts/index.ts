@@ -28,6 +28,9 @@ import VerticalLayout, { verticalLayoutTester } from './VerticalLayout';
 import CategorizationLayout, {
   categorizationTester,
 } from './CategorizationLayout';
+import CategorizationStepperLayout, {
+  categorizationStepperTester,
+} from './CategorizationStepperLayout';
 import ArrayLayout, { arrayLayoutTester } from './ArrayLayoutRenderer';
 
 export {
@@ -35,6 +38,8 @@ export {
   arrayLayoutTester,
   CategorizationLayout,
   categorizationTester,
+  CategorizationStepperLayout,
+  categorizationStepperTester,
   GroupLayout,
   groupTester,
   HorizontalLayout,

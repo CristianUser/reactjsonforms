@@ -30,8 +30,8 @@ import {
   isDateTimeControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { Control, withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { Control, withJsonFormsControlProps } from '@reactjsonforms/react';
 import { DatePicker, Form } from 'antd';
 import dayjs from 'dayjs';
 

@@ -23,14 +23,14 @@
   THE SOFTWARE.
 */
 import * as React from 'react';
-import { HorizontalLayout, UISchemaElement } from '@jsonforms/core';
+import { HorizontalLayout, UISchemaElement } from '@reactjsonforms/core';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import HorizontalLayoutRenderer, {
   horizontalLayoutTester,
 } from '../../src/layouts/HorizontalLayout';
 import { initCore } from '../util';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 

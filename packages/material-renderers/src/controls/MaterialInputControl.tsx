@@ -27,7 +27,7 @@ import {
   showAsRequired,
   ControlProps,
   isDescriptionHidden,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 
 import { Hidden, InputLabel, FormControl, FormHelperText } from '@mui/material';
 import merge from 'lodash/merge';

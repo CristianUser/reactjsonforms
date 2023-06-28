@@ -31,8 +31,8 @@ import {
   layoutDefaultProps,
   RuleEffect,
   SchemaBasedCondition,
-} from '@jsonforms/core';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import Enzyme, { mount } from 'enzyme';
 
 import MaterialCategorizationStepperLayoutRenderer, {
@@ -40,7 +40,7 @@ import MaterialCategorizationStepperLayoutRenderer, {
 } from '../../src/layouts/MaterialCategorizationStepperLayout';
 import { LayoutRenderer, renderers } from '../../src';
 import { Button, Step, StepButton, Stepper } from '@material-ui/core';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import { initCore } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

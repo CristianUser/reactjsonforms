@@ -24,8 +24,12 @@
 */
 
 import * as React from 'react';
-import { ControlElement, HorizontalLayout, JsonSchema } from '@jsonforms/core';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import {
+  ControlElement,
+  HorizontalLayout,
+  JsonSchema,
+} from '@reactjsonforms/core';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import BooleanCell, { booleanCellTester } from '../../src/cells/BooleanCell';

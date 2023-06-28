@@ -28,8 +28,8 @@ import {
   isStringControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsControlProps } from '@reactjsonforms/react';
 import { AntdInputText } from '../antd-controls/AntdInputText';
 import { InputControl } from './InputControl';
 

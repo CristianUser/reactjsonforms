@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import React, { useCallback } from 'react';
-import { CellProps, Formatted, WithClassname } from '@jsonforms/core';
+import { CellProps, Formatted, WithClassname } from '@reactjsonforms/core';
 import { Input } from '@mui/material';
 import merge from 'lodash/merge';
 import { useDebouncedChange } from '../util';

@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "importHelpers": true
+    // "preserveSymlinks": true
   },
   "types": ["jest"]
 }

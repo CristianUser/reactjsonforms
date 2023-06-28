@@ -29,7 +29,7 @@ import {
   ControlElement,
   createDefaultValue,
   JsonSchema,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { PageHeader } from '@ant-design/pro-components';
 import { Button, Col, Row, Tooltip, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -81,7 +81,7 @@ const TableToolbar = React.memo(
                   type='primary'
                   onClick={addItem(path, createDefaultValue(schema))}
                   shape='circle'
-                  icon={<PlusOutlined />}
+                  icon={<PlusOutlined rev={undefined} />}
                 />
               </Tooltip>,
             ]

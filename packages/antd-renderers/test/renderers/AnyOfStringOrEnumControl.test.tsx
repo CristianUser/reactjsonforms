@@ -26,14 +26,14 @@ import './MatchMediaMock';
 import React from 'react';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { ControlElement, JsonSchema } from '@jsonforms/core';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { ControlElement, JsonSchema } from '@reactjsonforms/core';
 import {
   AnyOfStringOrEnumControl,
   anyOfStringOrEnumControlTester,
   renderers,
 } from '../../src';
-import { JsonForms } from '@jsonforms/react';
+import { JsonForms } from '@reactjsonforms/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 

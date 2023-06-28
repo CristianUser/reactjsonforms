@@ -24,15 +24,15 @@
 */
 import './MatchMediaMock';
 import * as React from 'react';
-import { ControlElement } from '@jsonforms/core';
+import { ControlElement } from '@reactjsonforms/core';
 import OneOfEnumCell, {
   oneOfEnumCellTester,
 } from '../../src/cells/OneOfEnumCell';
 import { renderers } from '../../src';
 
 import Enzyme, { mount } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

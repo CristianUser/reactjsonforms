@@ -31,11 +31,11 @@ import {
   findUISchema,
   Helpers,
   ControlElement,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   JsonFormsDispatch,
   withJsonFormsArrayControlProps,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../../index';
 import { withVanillaControlProps } from '../../util';
 

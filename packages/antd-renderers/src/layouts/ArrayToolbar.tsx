@@ -4,7 +4,7 @@ import { Button, Col, Row, Tooltip, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import React from 'react';
 import ValidationIcon from '../complex/ValidationIcon';
-import { ArrayTranslations } from '@jsonforms/core';
+import { ArrayTranslations } from '@reactjsonforms/core';
 export interface ArrayLayoutToolbarProps {
   translations: ArrayTranslations;
   label: string;
@@ -47,7 +47,7 @@ export const ArrayLayoutToolbar = React.memo(
               type='primary'
               onClick={addItem(path, createDefault())}
               shape='circle'
-              icon={<PlusOutlined />}
+              icon={<PlusOutlined rev={undefined} />}
             />
           </Tooltip>
         }

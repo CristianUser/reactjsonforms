@@ -29,8 +29,8 @@ import {
   RankedTester,
   rankWith,
   uiTypeIs,
-} from '@jsonforms/core';
-import { withJsonFormsLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
 import { Typography } from 'antd';
 import Hidden from '../util/Hidden';
 

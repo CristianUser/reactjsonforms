@@ -23,8 +23,8 @@
   THE SOFTWARE.
 */
 
-import { createAjv, JsonSchema, UISchemaElement } from '@jsonforms/core';
-import { JsonFormsReactProps, useJsonForms } from '@jsonforms/react';
+import { createAjv, JsonSchema, UISchemaElement } from '@reactjsonforms/core';
+import { JsonFormsReactProps, useJsonForms } from '@reactjsonforms/react';
 import React from 'react';
 
 export const initCore = (

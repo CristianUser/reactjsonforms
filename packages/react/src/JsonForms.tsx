@@ -42,7 +42,7 @@ import {
   removeId,
   UISchemaElement,
   ValidationMode,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   JsonFormsStateProvider,
   withJsonFormsRendererProps,

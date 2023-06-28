@@ -25,7 +25,7 @@
 */
 import React from 'react';
 import { Modal } from 'antd';
-import { ArrayTranslations } from '@jsonforms/core';
+import { ArrayTranslations } from '@reactjsonforms/core';
 
 export interface DeleteDialogProps {
   open: boolean;

@@ -28,7 +28,7 @@ import {
   ControlProps,
   isDescriptionHidden,
   OwnPropsOfEnum,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import type { VanillaRendererProps } from '../index';
 import { findStyleAsClassName } from '../reducers/styling';
 import { useStyles } from '../styles';

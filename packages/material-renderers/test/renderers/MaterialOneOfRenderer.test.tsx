@@ -28,13 +28,13 @@ import Dialog from '@mui/material/Dialog';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
-import { ControlElement } from '@jsonforms/core';
+import { ControlElement } from '@reactjsonforms/core';
 import { MaterialOneOfRenderer, materialRenderers } from '../../src';
 import {
   JsonForms,
   JsonFormsDispatch,
   JsonFormsStateProvider,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import { Tab } from '@mui/material';
 import { initCore, TestEmitter } from './util';
 

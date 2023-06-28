@@ -25,7 +25,7 @@
 import maxBy from 'lodash/maxBy';
 import React, { useMemo } from 'react';
 import { UnknownRenderer } from './UnknownRenderer';
-import type { DispatchCellProps } from '@jsonforms/core';
+import type { DispatchCellProps } from '@reactjsonforms/core';
 import { withJsonFormsDispatchCellProps } from './JsonFormsContext';
 
 /**

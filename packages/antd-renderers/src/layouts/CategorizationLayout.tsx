@@ -34,8 +34,11 @@ import {
   Tester,
   UISchemaElement,
   uiTypeIs,
-} from '@jsonforms/core';
-import { RendererComponent, withJsonFormsLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import {
+  RendererComponent,
+  withJsonFormsLayoutProps,
+} from '@reactjsonforms/react';
 import { Tabs } from 'antd';
 import {
   AjvProps,

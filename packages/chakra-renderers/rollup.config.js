@@ -11,7 +11,7 @@ const baseConfig = {
     ...Object.keys(packageJson.peerDependencies),
     'react',
     /^lodash\/.*/,
-    /^@material-ui\/.*/,
+    /^@chakra-ui\/.*/,
     /^dayjs\/.*/,
   ],
 };

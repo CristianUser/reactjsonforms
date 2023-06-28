@@ -30,8 +30,8 @@ import {
   RankedTester,
   rankWith,
   WithClassname,
-} from '@jsonforms/core';
-import { withJsonFormsCellProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import { AntdInputNumberFormat } from '../antd-controls/AntdInputNumberFormat';
 
 export const NumberFormatCell = (

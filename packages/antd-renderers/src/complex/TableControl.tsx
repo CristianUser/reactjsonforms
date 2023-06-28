@@ -31,7 +31,7 @@ import {
   DispatchCell,
   JsonFormsStateContext,
   useJsonForms,
-} from '@jsonforms/react';
+} from '@reactjsonforms/react';
 import React, { Fragment } from 'react';
 import {
   ArrayLayoutProps,
@@ -43,7 +43,7 @@ import {
   JsonSchema,
   Paths,
   Resolve,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import {
   ArrowDownOutlined,
   ArrowUpOutlined,
@@ -81,7 +81,7 @@ const RenderActionsCell = (
             <Button
               shape='circle'
               aria-label={translations.upAriaLabel}
-              icon={<ArrowUpOutlined />}
+              icon={<ArrowUpOutlined rev={undefined} />}
               onClick={moveUp(path, index)}
               disabled={index < data - 1}
             />
@@ -90,7 +90,7 @@ const RenderActionsCell = (
             <Button
               shape='circle'
               aria-label={translations.downAriaLabel}
-              icon={<ArrowDownOutlined />}
+              icon={<ArrowDownOutlined rev={undefined} />}
               onClick={moveDown(path, index)}
               disabled={index !== 0}
             />
@@ -100,7 +100,7 @@ const RenderActionsCell = (
       <Tooltip title='Delete'>
         <Button
           aria-label={translations.removeAriaLabel}
-          icon={<DeleteFilled />}
+          icon={<DeleteFilled rev={undefined} />}
           onClick={() => openDeleteDialog(childPath, index)}
         />
       </Tooltip>

@@ -24,15 +24,19 @@
 */
 import './MatchMediaMock';
 import * as React from 'react';
-import { ControlElement, JsonSchema, NOT_APPLICABLE } from '@jsonforms/core';
+import {
+  ControlElement,
+  JsonSchema,
+  NOT_APPLICABLE,
+} from '@reactjsonforms/core';
 import SliderControl, {
   sliderControlTester,
 } from '../../src/controls/SliderControl';
 import { renderers } from '../../src';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { JsonForms, JsonFormsStateProvider } from '@jsonforms/react';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { JsonForms, JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore } from './util';
 import { Slider } from 'antd';
 

@@ -28,7 +28,7 @@ import {
   ArrayLayoutProps,
   computeLabel,
   createDefaultValue,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { Collapse, Empty } from 'antd';
 import map from 'lodash/map';
 import { ArrayLayoutToolbar } from './ArrayToolbar';

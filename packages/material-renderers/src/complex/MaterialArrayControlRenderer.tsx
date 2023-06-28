@@ -30,8 +30,8 @@ import {
   isPrimitiveArrayControl,
   or,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsArrayLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsArrayLayoutProps } from '@reactjsonforms/react';
 import { MaterialTableControl } from './MaterialTableControl';
 import { Hidden } from '@mui/material';
 import { DeleteDialog } from './DeleteDialog';

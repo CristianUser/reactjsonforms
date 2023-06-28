@@ -1,6 +1,6 @@
 # JSON Forms - More Forms. Less Code
 
-*Complex forms in the blink of an eye*
+_Complex forms in the blink of an eye_
 
 JSON Forms eliminates the tedious task of writing fully-featured forms by hand by leveraging the capabilities of JSON, JSON Schema and Javascript.
 
@@ -19,15 +19,15 @@ Check <https://www.npmjs.com/search?q=%40jsonforms> for all published JSONForms 
 Install JSON Forms Core, React and React Antd Renderers
 
 ```bash
-npm i --save @jsonforms/core @jsonforms/react @jsonforms/antd-renderers
+npm i --save @reactjsonforms/core @reactjsonforms/react @reactjsonforms/antd-renderers
 ```
 
 Use the `JsonForms` component for each form you want to render and hand over the renderer set.
 
 ```js
 import React, { useState } from 'react';
-import { JsonForms } from '@jsonforms/react';
-import { cells, renderers } from '@jsonforms/antd-renderers';
+import { JsonForms } from '@reactjsonforms/react';
+import { cells, renderers } from '@reactjsonforms/antd-renderers';
 
 function App() {
   const [data, setData] = useState(initialData);

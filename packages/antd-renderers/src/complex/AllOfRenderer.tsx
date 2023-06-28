@@ -32,8 +32,11 @@ import {
   RankedTester,
   rankWith,
   StatePropsOfCombinator,
-} from '@jsonforms/core';
-import { JsonFormsDispatch, withJsonFormsAllOfProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import {
+  JsonFormsDispatch,
+  withJsonFormsAllOfProps,
+} from '@reactjsonforms/react';
 import Hidden from '../util/Hidden';
 
 const AllOfRenderer = ({

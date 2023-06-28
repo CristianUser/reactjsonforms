@@ -41,8 +41,11 @@ import {
   Test,
   getControlPath,
   encode,
-} from '@jsonforms/core';
-import { DispatchCell, withJsonFormsArrayControlProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import {
+  DispatchCell,
+  withJsonFormsArrayControlProps,
+} from '@reactjsonforms/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 

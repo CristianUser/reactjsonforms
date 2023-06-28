@@ -25,8 +25,8 @@
 import { createRoot } from 'react-dom/client';
 import React from 'react';
 import App from './App';
-import { RankedTester } from '@jsonforms/core';
-import { getExamples } from '@jsonforms/examples';
+import { RankedTester } from '@reactjsonforms/core';
+import { getExamples } from '@reactjsonforms/examples';
 
 const defaultWrapper = ({ children }: any) => <div>{children}</div>;
 

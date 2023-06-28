@@ -31,8 +31,11 @@ import {
   RankedTester,
   rankWith,
   StatePropsOfCombinator,
-} from '@jsonforms/core';
-import { JsonFormsDispatch, withJsonFormsAnyOfProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import {
+  JsonFormsDispatch,
+  withJsonFormsAnyOfProps,
+} from '@reactjsonforms/react';
 import CombinatorProperties from './CombinatorProperties';
 import { Tabs } from 'antd';
 import Hidden from '../util/Hidden';

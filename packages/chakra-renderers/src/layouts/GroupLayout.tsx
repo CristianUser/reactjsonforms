@@ -30,8 +30,8 @@ import {
   RankedTester,
   rankWith,
   uiTypeIs,
-} from '@jsonforms/core';
-import { withJsonFormsLayoutProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
 import { renderChildren } from './util';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaControlProps } from '../util';

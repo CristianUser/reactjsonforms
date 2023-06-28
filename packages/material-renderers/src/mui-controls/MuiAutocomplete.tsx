@@ -29,7 +29,7 @@ import {
   EnumOption,
   isDescriptionHidden,
   WithClassname,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 
 import {
   Autocomplete,

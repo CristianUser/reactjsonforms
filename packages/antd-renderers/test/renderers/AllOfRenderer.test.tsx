@@ -26,10 +26,10 @@ import './MatchMediaMock';
 import React from 'react';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { ControlElement } from '@jsonforms/core';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { ControlElement } from '@reactjsonforms/core';
 import { AllOfRenderer, renderers } from '../../src';
-import { JsonForms, JsonFormsStateProvider } from '@jsonforms/react';
+import { JsonForms, JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

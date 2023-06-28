@@ -23,7 +23,7 @@
   THE SOFTWARE.
 */
 import './MatchMediaMock';
-import { ControlElement, NOT_APPLICABLE } from '@jsonforms/core';
+import { ControlElement, NOT_APPLICABLE } from '@reactjsonforms/core';
 import MaterialDateControl, {
   dateControlTester,
 } from '../../src/controls/DateControl';
@@ -31,8 +31,8 @@ import * as React from 'react';
 import { renderers } from '../../src';
 
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { JsonFormsStateProvider } from '@jsonforms/react';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import { initCore, TestEmitter } from './util';
 
 Enzyme.configure({ adapter: new Adapter() });

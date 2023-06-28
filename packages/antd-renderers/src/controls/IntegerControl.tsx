@@ -28,10 +28,10 @@ import {
   isIntegerControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
+} from '@reactjsonforms/core';
 import { AntdInputInteger } from '../antd-controls/AntdInputInteger';
 import { InputControl } from './InputControl';
-import { withJsonFormsControlProps } from '@jsonforms/react';
+import { withJsonFormsControlProps } from '@reactjsonforms/react';
 
 export const IntegerControl = (props: ControlProps) => (
   <InputControl {...props} input={AntdInputInteger} />

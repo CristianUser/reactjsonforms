@@ -23,8 +23,13 @@
   THE SOFTWARE.
 */
 import React, { FunctionComponent } from 'react';
-import { LabelProps, RankedTester, rankWith, uiTypeIs } from '@jsonforms/core';
-import { withJsonFormsLabelProps } from '@jsonforms/react';
+import {
+  LabelProps,
+  RankedTester,
+  rankWith,
+  uiTypeIs,
+} from '@reactjsonforms/core';
+import { withJsonFormsLabelProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaControlProps } from '../util';
 

@@ -24,7 +24,7 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import { CellProps, WithClassname } from '@jsonforms/core';
+import { CellProps, WithClassname } from '@reactjsonforms/core';
 import { Switch } from 'antd';
 import merge from 'lodash/merge';
 

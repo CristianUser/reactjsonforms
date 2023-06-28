@@ -28,8 +28,8 @@ import {
   isDateTimeControl,
   RankedTester,
   rankWith,
-} from '@jsonforms/core';
-import { withJsonFormsCellProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
 
@@ -57,4 +57,8 @@ export const DateTimeCell = (props: CellProps & VanillaRendererProps) => {
  */
 export const dateTimeCellTester: RankedTester = rankWith(2, isDateTimeControl);
 
-export default withJsonFormsCellProps(withVanillaCellProps(DateTimeCell));
+const DateTimeCellWithProps = withJsonFormsCellProps(
+  withVanillaCellProps(DateTimeCell)
+);
+
+export default DateTimeCellWithProps;

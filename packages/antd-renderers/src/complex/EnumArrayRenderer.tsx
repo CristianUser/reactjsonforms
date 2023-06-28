@@ -12,8 +12,8 @@ import {
   schemaMatches,
   schemaSubPathMatches,
   uiTypeIs,
-} from '@jsonforms/core';
-import { withJsonFormsMultiEnumProps } from '@jsonforms/react';
+} from '@reactjsonforms/core';
+import { withJsonFormsMultiEnumProps } from '@reactjsonforms/react';
 
 import { Form } from 'antd';
 import { isEmpty, startCase } from 'lodash';

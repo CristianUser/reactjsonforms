@@ -22,8 +22,8 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import { StatePropsOfMasterItem } from '@jsonforms/core';
-import { withJsonFormsMasterListItemProps } from '@jsonforms/react';
+import { StatePropsOfMasterItem } from '@reactjsonforms/core';
+import { withJsonFormsMasterListItemProps } from '@reactjsonforms/react';
 import { DeleteFilled } from '@ant-design/icons';
 import { Avatar, Button, List, Tooltip } from 'antd';
 import React, { useMemo } from 'react';
@@ -47,7 +47,10 @@ const ListWithDetailMasterItem = ({
       onClick={handleSelect(index)}
       actions={[
         <Tooltip title='Delete' key='action_1'>
-          <Button icon={<DeleteFilled />} onClick={removeItem(path, index)} />
+          <Button
+            icon={<DeleteFilled rev={undefined} />}
+            onClick={removeItem(path, index)}
+          />
         </Tooltip>,
       ]}
     >

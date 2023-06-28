@@ -38,6 +38,14 @@ import {
 } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../../index';
 import { withVanillaControlProps } from '../../util';
+import { ArrowUpIcon, ArrowDownIcon, DeleteIcon } from '@chakra-ui/icons';
+import {
+  Button,
+  ButtonGroup,
+  Flex,
+  Heading,
+  IconButton,
+} from '@chakra-ui/react';
 
 const { convertToValidClassName } = Helpers;
 
@@ -81,7 +89,6 @@ export const ArrayControl = ({
     )
     .join(' ');
   const buttonClassAdd = getStyleAsClassName('array.control.add');
-  const labelClass = getStyleAsClassName('array.control.label');
   const childControlsClass = getStyleAsClassName('array.child.controls');
   const buttonClassUp = getStyleAsClassName('array.child.controls.up');
   const buttonClassDown = getStyleAsClassName('array.child.controls.down');
@@ -93,15 +100,17 @@ export const ArrayControl = ({
 
   return (
     <div className={controlClass}>
-      <header>
-        <label className={labelClass}>{label}</label>
-        <button
+      <Flex justifyContent='space-between'>
+        <Heading as='h3' size='md'>
+          {label}
+        </Heading>
+        <Button
           className={buttonClassAdd}
           onClick={addItem(path, createDefaultValue(schema))}
         >
           Add to {label}
-        </button>
-      </header>
+        </Button>
+      </Flex>
       <div className={divClassNames}>{errors}</div>
       <div className={classNames.children}>
         {data ? (
@@ -116,8 +125,9 @@ export const ArrayControl = ({
                   key={childPath}
                   renderers={renderers}
                 />
-                <div className={childControlsClass}>
-                  <button
+                <ButtonGroup className={childControlsClass}>
+                  <IconButton
+                    icon={<ArrowUpIcon />}
                     className={buttonClassUp}
                     aria-label={translations.upAriaLabel}
                     onClick={() => {
@@ -125,8 +135,9 @@ export const ArrayControl = ({
                     }}
                   >
                     {translations.up}
-                  </button>
-                  <button
+                  </IconButton>
+                  <IconButton
+                    icon={<ArrowDownIcon />}
                     className={buttonClassDown}
                     aria-label={translations.downAriaLabel}
                     onClick={() => {
@@ -134,8 +145,9 @@ export const ArrayControl = ({
                     }}
                   >
                     {translations.down}
-                  </button>
-                  <button
+                  </IconButton>
+                  <IconButton
+                    icon={<DeleteIcon />}
                     className={buttonClassDelete}
                     aria-label={translations.removeAriaLabel}
                     onClick={() => {
@@ -149,8 +161,8 @@ export const ArrayControl = ({
                     }}
                   >
                     {translations.removeTooltip}
-                  </button>
-                </div>
+                  </IconButton>
+                </ButtonGroup>
               </div>
             );
           })
@@ -191,12 +203,12 @@ export const ArrayControlRenderer = ({
     controlElement.scope
   )}`;
   const fieldSetClassName = getStyleAsClassName('array.layout');
-  const buttonClassName = getStyleAsClassName('array.button');
+  const buttonClassName = getStyleAsClassName('array.Button');
   const childrenClassName = getStyleAsClassName('array.children');
   const classNames: { [className: string]: string } = {
     wrapper: controlClassName,
     fieldSet: fieldSetClassName,
-    button: buttonClassName,
+    Button: buttonClassName,
     children: childrenClassName,
   };
 

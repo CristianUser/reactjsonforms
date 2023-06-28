@@ -412,13 +412,11 @@ jsonforms-tree > dialog > .content {
   border-bottom: none;
 }
 
-.array-table-layout.control > header,
 .array-control-layout.control > header {
   display: flex;
   margin: 0.25em;
 }
 
-.array-table-layout header label,
 .array-control-layout header label {
   flex: 1;
   font-weight: bold;
@@ -430,40 +428,6 @@ jsonforms-tree > dialog > .content {
   margin: 0 1em 0.75em 0;
 }
 
-.array-table-layout table {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.array-table-layout table.control > * {
-  margin: 0;
-}
-
-.array-table-layout tr {
-  display: flex;
-}
-
-.array-table-layout table,
-.array-table-layout th,
-.array-table-layout td {
-  border: 1px solid var(--jsf-border-color);
-  border-collapse: collapse;
-}
-
-.array-table-layout th {
-  padding: 5px;
-  flex: 1;
-}
-
-.array-table-layout td {
-  display: flex;
-  flex: 1;
-}
-
-.array-table-layout td > * {
-  flex: 1;
-}
 .array-control-layout .children > div {
   border-top: 1px solid var(--jsf-border-color);
   padding-top: 10px;

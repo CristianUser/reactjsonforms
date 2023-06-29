@@ -104,6 +104,9 @@ importers:
       dayjs:
         specifier: 1.10.7
         version: 1.10.7
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       react-jss:
         specifier: ^10.7.1
         version: 10.7.1(react@18.2.0)
@@ -679,6 +682,9 @@ importers:
       jest:
         specifier: ^26.6.3
         version: 26.6.3(ts-node@10.9.1)
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       nyc:
         specifier: ^15.1.0
         version: 15.1.0
@@ -841,6 +847,10 @@ importers:
         version: 4.9.3
 
   packages/vanilla-renderers:
+    dependencies:
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@cfaester/enzyme-adapter-react-18':
         specifier: ^0.7.0

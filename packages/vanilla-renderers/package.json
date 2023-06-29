@@ -49,6 +49,7 @@
     "react": "^16.12.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
+    "@cfaester/enzyme-adapter-react-18": "^0.7.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@reactjsonforms/core": "workspace:^",
     "@reactjsonforms/react": "workspace:^",
@@ -61,7 +62,6 @@
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
-    "@cfaester/enzyme-adapter-react-18": "^0.7.0",
     "copy-webpack-plugin": "^11.0.0",
     "enzyme": "^3.10.0",
     "eslint": "^7.32.0",
@@ -119,5 +119,8 @@
       "lcov",
       "text-summary"
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }

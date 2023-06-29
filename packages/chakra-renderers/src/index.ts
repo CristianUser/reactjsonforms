@@ -25,6 +25,13 @@
 import { RankedTester } from '@reactjsonforms/core';
 
 import {
+  LabelRenderer,
+  labelRendererTester,
+  ListWithDetailRenderer,
+  listWithDetailTester,
+} from './additional';
+
+import {
   BooleanCell,
   booleanCellTester,
   DateCell,
@@ -56,17 +63,25 @@ import {
 } from './controls';
 
 import {
-  ArrayControl,
-  arrayControlTester,
-  Categorization,
-  categorizationTester,
-  LabelRenderer,
-  labelRendererTester,
+  allOfControlTester,
+  AllOfRenderer,
+  anyOfControlTester,
+  AnyOfRenderer,
+  enumArrayRendererTester,
+  EnumArrayRenderer,
+  oneOfControlTester,
+  OneOfRenderer,
   TableArrayControl,
   tableArrayControlTester,
 } from './complex';
 
 import {
+  ArrayLayout,
+  arrayLayoutTester,
+  CategorizationLayout,
+  categorizationTester,
+  CategorizationStepperLayout,
+  categorizationStepperTester,
   GroupLayout,
   groupTester,
   HorizontalLayout,
@@ -115,20 +130,34 @@ export * from './reducers';
 export * from './util';
 export * from './styles';
 
-export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
+export const renderers: { tester: RankedTester; renderer: any }[] = [
+  { tester: allOfControlTester, renderer: AllOfRenderer },
+  { tester: anyOfControlTester, renderer: AnyOfRenderer },
+  { tester: oneOfControlTester, renderer: OneOfRenderer },
+  { tester: enumArrayRendererTester, renderer: EnumArrayRenderer },
   { tester: inputControlTester, renderer: InputControl },
   { tester: radioGroupControlTester, renderer: RadioGroupControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },
-  { tester: arrayControlTester, renderer: ArrayControl },
+  { tester: arrayLayoutTester, renderer: ArrayLayout },
   { tester: labelRendererTester, renderer: LabelRenderer },
-  { tester: categorizationTester, renderer: Categorization },
+  { tester: categorizationTester, renderer: CategorizationLayout },
+  {
+    tester: categorizationStepperTester,
+    renderer: CategorizationStepperLayout,
+  },
   { tester: tableArrayControlTester, renderer: TableArrayControl },
   { tester: groupTester, renderer: GroupLayout },
   { tester: verticalLayoutTester, renderer: VerticalLayout },
   { tester: horizontalLayoutTester, renderer: HorizontalLayout },
+  // additional
+  { tester: labelRendererTester, renderer: LabelRenderer },
+  {
+    tester: listWithDetailTester,
+    renderer: ListWithDetailRenderer,
+  },
 ];
 
-export const vanillaCells: { tester: RankedTester; cell: any }[] = [
+export const cells: { tester: RankedTester; cell: any }[] = [
   { tester: booleanCellTester, cell: BooleanCell },
   { tester: dateCellTester, cell: DateCell },
   { tester: dateTimeCellTester, cell: DateTimeCell },

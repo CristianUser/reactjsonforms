@@ -1,19 +1,19 @@
 /*
   The MIT License
-  
+
   Copyright (c) 2017-2019 EclipseSource Munich
   https://github.com/eclipsesource/jsonforms
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,17 +22,64 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
+import React, { useCallback } from 'react';
+
 import {
+  ArrayLayoutProps,
   isObjectArrayWithNesting,
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
-import ArrayControlRenderer, { ArrayControl } from './ArrayControlRenderer';
-export { ArrayControlRenderer, ArrayControl };
+import { ArrayLayout } from './ArrayLayout';
+import { withJsonFormsArrayLayoutProps } from '@reactjsonforms/react';
+import Hidden from '../util/Hidden';
 
-export const arrayControlTester: RankedTester = rankWith(
+export const ArrayLayoutRenderer = ({
+  visible,
+  enabled,
+  id,
+  uischema,
+  schema,
+  label,
+  rootSchema,
+  renderers,
+  cells,
+  data,
+  path,
+  errors,
+  uischemas,
+  addItem,
+  translations,
+}: ArrayLayoutProps) => {
+  const addItemCb = useCallback(
+    (p: string, value: any) => addItem(p, value),
+    [addItem]
+  );
+  return (
+    <Hidden hidden={!visible}>
+      <ArrayLayout
+        label={label}
+        translations={translations}
+        uischema={uischema}
+        schema={schema}
+        id={id}
+        rootSchema={rootSchema}
+        errors={errors}
+        enabled={enabled}
+        visible={visible}
+        data={data}
+        path={path}
+        addItem={addItemCb}
+        renderers={renderers}
+        cells={cells}
+        uischemas={uischemas}
+      />
+    </Hidden>
+  );
+};
+
+export const arrayLayoutTester: RankedTester = rankWith(
   4,
   isObjectArrayWithNesting
 );
-
-export default ArrayControlRenderer;
+export default withJsonFormsArrayLayoutProps(ArrayLayoutRenderer);

@@ -22,20 +22,27 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import ArrayControl, { arrayControlTester } from './array';
-import Categorization, { categorizationTester } from './categorization';
 import LabelRenderer, { labelRendererTester } from './LabelRenderer';
 import TableArrayControl, {
   tableArrayControlTester,
 } from './TableArrayControl';
+import AllOfRenderer, { allOfControlTester } from './AllOfRenderer';
+import AnyOfRenderer, { anyOfControlTester } from './AnyOfRenderer';
+import OneOfRenderer, { oneOfControlTester } from './OneOfRenderer';
+import EnumArrayRenderer, {
+  enumArrayRendererTester,
+} from './EnumArrayRenderer';
 
+export { EnumArrayRenderer, enumArrayRendererTester };
 export {
-  ArrayControl,
-  arrayControlTester,
-  Categorization,
-  categorizationTester,
+  AllOfRenderer,
+  allOfControlTester,
+  AnyOfRenderer,
+  anyOfControlTester,
   LabelRenderer,
   labelRendererTester,
+  OneOfRenderer,
+  oneOfControlTester,
   TableArrayControl,
   tableArrayControlTester,
 };

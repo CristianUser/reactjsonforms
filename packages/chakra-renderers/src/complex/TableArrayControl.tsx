@@ -34,7 +34,6 @@ import {
   ArrayControlProps,
   ControlElement,
   createDefaultValue,
-  Helpers,
   Paths,
   RankedTester,
   Resolve,
@@ -48,8 +47,22 @@ import {
 } from '@reactjsonforms/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
-
-const { convertToValidClassName } = Helpers;
+import {
+  Alert,
+  AlertIcon,
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react';
+import Hidden from '../util/Hidden';
 
 const { or, isObjectArrayControl, isPrimitiveArrayControl, rankWith } = Test;
 
@@ -75,7 +88,7 @@ class TableArrayControl extends React.Component<
   render() {
     const {
       addItem,
-      uischema,
+      // uischema,
       schema,
       rootSchema,
       path,
@@ -88,15 +101,10 @@ class TableArrayControl extends React.Component<
       translations,
     } = this.props;
 
-    const controlElement = uischema as ControlElement;
     const tableClass = getStyleAsClassName('array.table.table');
     const labelClass = getStyleAsClassName('array.table.label');
-    const buttonClass = getStyleAsClassName('array.table.button');
+    // const buttonClass = getStyleAsClassName('array.table.button');
     const validationClass = getStyleAsClassName('array.table.validation');
-    const controlClass = [
-      getStyleAsClassName('array.table'),
-      convertToValidClassName(controlElement.scope),
-    ].join(' ');
     const createControlElement = (key?: string): ControlElement => ({
       type: 'Control',
       label: false,
@@ -110,132 +118,148 @@ class TableArrayControl extends React.Component<
       .join(' ');
 
     return (
-      <div className={controlClass} hidden={!visible}>
-        <header>
-          <label className={labelClass}>{label}</label>
-          <button
-            className={buttonClass}
-            onClick={addItem(path, createDefaultValue(schema))}
-          >
-            {translations.addTooltip}
-          </button>
-        </header>
-        <div className={divClassNames}>{!isValid ? errors : ''}</div>
-        <table className={tableClass}>
-          <thead>
-            <tr>
-              {schema.properties ? (
-                fpflow(
-                  fpkeys,
-                  fpfilter((prop) => schema.properties[prop].type !== 'array'),
-                  fpmap((prop) => (
-                    <th key={prop}>
-                      {schema.properties[prop].title ?? fpstartCase(prop)}
-                    </th>
-                  ))
-                )(schema.properties)
-              ) : (
-                <th>Items</th>
-              )}
-              <th>Valid</th>
-              <th>&nbsp;</th>
-            </tr>
-          </thead>
-          <tbody>
-            {!data || !Array.isArray(data) || data.length === 0 ? (
-              <tr>
-                <td>{translations.noDataMessage}</td>
-              </tr>
-            ) : (
-              data.map((_child, index) => {
-                const childPath = Paths.compose(path, `${index}`);
-                // TODO
-                const errorsPerEntry: any[] = filter(childErrors, (error) => {
-                  const errorPath = getControlPath(error);
-                  return errorPath.startsWith(childPath);
-                });
+      <Hidden hidden={!visible}>
+        <Box w='100%'>
+          <Flex justifyContent='space-between' w='100%'>
+            <Heading size='md' className={labelClass}>
+              {label}
+            </Heading>
+            <Button onClick={addItem(path, createDefaultValue(schema))}>
+              {translations.addTooltip}
+            </Button>
+          </Flex>
+          <div className={divClassNames}>{!isValid ? errors : ''}</div>
+          {!isValid && (
+            <Alert status='error'>
+              <AlertIcon />
+              {errors}
+            </Alert>
+          )}
+          <TableContainer w='100%'>
+            <Table className={tableClass} variant='simple'>
+              <Thead>
+                <Tr>
+                  {schema.properties ? (
+                    fpflow(
+                      fpkeys,
+                      fpfilter(
+                        (prop) => schema.properties[prop].type !== 'array'
+                      ),
+                      fpmap((prop) => (
+                        <Th key={prop}>
+                          {schema.properties[prop].title ?? fpstartCase(prop)}
+                        </Th>
+                      ))
+                    )(schema.properties)
+                  ) : (
+                    <Th>Items</Th>
+                  )}
+                  <Th>Valid</Th>
+                  <Th>&nbsp;</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {!data || !Array.isArray(data) || data.length === 0 ? (
+                  <Tr>
+                    <Td>{translations.noDataMessage}</Td>
+                  </Tr>
+                ) : (
+                  data.map((_child, index) => {
+                    const childPath = Paths.compose(path, `${index}`);
+                    // TODO
+                    const errorsPerEntry: any[] = filter(
+                      childErrors,
+                      (error) => {
+                        const errorPath = getControlPath(error);
+                        return errorPath.startsWith(childPath);
+                      }
+                    );
 
-                const validationClassName =
-                  getStyleAsClassName('array.validation');
-                const errorValidationClassName = getStyleAsClassName(
-                  'array.validation.error'
-                );
-                const errorClassNames = errorsPerEntry
-                  ? [validationClassName]
-                      .concat(errorValidationClassName)
-                      .join(' ')
-                  : validationClassName;
+                    const validationClassName =
+                      getStyleAsClassName('array.validation');
+                    const errorValidationClassName = getStyleAsClassName(
+                      'array.validation.error'
+                    );
+                    const errorClassNames = errorsPerEntry
+                      ? [validationClassName]
+                          .concat(errorValidationClassName)
+                          .join(' ')
+                      : validationClassName;
 
-                return (
-                  <tr key={childPath}>
-                    {schema.properties ? (
-                      fpflow(
-                        fpkeys,
-                        fpfilter(
-                          (prop) => schema.properties[prop].type !== 'array'
-                        ),
-                        fpmap((prop) => {
-                          const childPropPath = Paths.compose(
-                            childPath,
-                            prop.toString()
-                          );
-                          return (
-                            <td key={childPropPath}>
-                              <DispatchCell
-                                schema={Resolve.schema(
-                                  schema,
-                                  `#/properties/${encode(prop)}`,
-                                  rootSchema
-                                )}
-                                uischema={createControlElement(encode(prop))}
-                                path={childPath + '.' + prop}
-                              />
-                            </td>
-                          );
-                        })
-                      )(schema.properties)
-                    ) : (
-                      <td key={Paths.compose(childPath, index.toString())}>
-                        <DispatchCell
-                          schema={schema}
-                          uischema={createControlElement()}
-                          path={childPath}
-                        />
-                      </td>
-                    )}
-                    <td>
-                      {errorsPerEntry ? (
-                        <span className={errorClassNames}>
-                          {join(
-                            errorsPerEntry.map((e) => e.message),
-                            ' and '
+                    return (
+                      <Tr key={childPath}>
+                        {schema.properties ? (
+                          fpflow(
+                            fpkeys,
+                            fpfilter(
+                              (prop) => schema.properties[prop].type !== 'array'
+                            ),
+                            fpmap((prop) => {
+                              const childPropPath = Paths.compose(
+                                childPath,
+                                prop.toString()
+                              );
+                              return (
+                                <Td key={childPropPath}>
+                                  <DispatchCell
+                                    schema={Resolve.schema(
+                                      schema,
+                                      `#/properties/${encode(prop)}`,
+                                      rootSchema
+                                    )}
+                                    uischema={createControlElement(
+                                      encode(prop)
+                                    )}
+                                    path={childPath + '.' + prop}
+                                  />
+                                </Td>
+                              );
+                            })
+                          )(schema.properties)
+                        ) : (
+                          <Td key={Paths.compose(childPath, index.toString())}>
+                            <DispatchCell
+                              schema={schema}
+                              uischema={createControlElement()}
+                              path={childPath}
+                            />
+                          </Td>
+                        )}
+                        <Td>
+                          {errorsPerEntry ? (
+                            <span className={errorClassNames}>
+                              {join(
+                                errorsPerEntry.map((e) => e.message),
+                                ' and '
+                              )}
+                            </span>
+                          ) : (
+                            <span className={errorClassNames}>OK</span>
                           )}
-                        </span>
-                      ) : (
-                        <span className={errorClassNames}>OK</span>
-                      )}
-                    </td>
-                    <td>
-                      <button
-                        aria-label={translations.removeAriaLabel}
-                        onClick={() => {
-                          if (
-                            window.confirm(translations.deleteDialogMessage)
-                          ) {
-                            this.confirmDelete(childPath, index);
-                          }
-                        }}
-                      >
-                        {translations.removeTooltip}
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
+                        </Td>
+                        <Td>
+                          <button
+                            aria-label={translations.removeAriaLabel}
+                            onClick={() => {
+                              if (
+                                window.confirm(translations.deleteDialogMessage)
+                              ) {
+                                this.confirmDelete(childPath, index);
+                              }
+                            }}
+                          >
+                            {translations.removeTooltip}
+                          </button>
+                        </Td>
+                      </Tr>
+                    );
+                  })
+                )}
+              </Tbody>
+            </Table>
+          </TableContainer>
+        </Box>
+      </Hidden>
     );
   }
 }

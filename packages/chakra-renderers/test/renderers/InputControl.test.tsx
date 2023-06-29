@@ -32,7 +32,7 @@ import {
   JsonFormsDispatch,
   JsonFormsStateProvider,
 } from '@reactjsonforms/react';
-import { vanillaRenderers } from '../../src';
+import { renderers } from '../../src';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import HorizontalLayoutRenderer, {
@@ -122,7 +122,7 @@ describe('Input control', () => {
     const cells = [{ tester: booleanCellTester, cell: BooleanCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsDispatch />
       </JsonFormsStateProvider>
@@ -172,7 +172,7 @@ describe('Input control', () => {
     const cells = [{ tester: booleanCellTester, cell: BooleanCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsDispatch />
       </JsonFormsStateProvider>
@@ -234,7 +234,7 @@ describe('Input control', () => {
     const cells = [{ tester: booleanCellTester, cell: BooleanCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <InputControl schema={fixture.schema} uischema={fixture.uischema} />
       </JsonFormsStateProvider>
@@ -242,7 +242,7 @@ describe('Input control', () => {
     const newCore = { ...core, data: { ...core.data, foo: 2 } };
     wrapper.setProps({
       initState: {
-        renderers: vanillaRenderers,
+        renderers: renderers,
         core: newCore,
         cells,
         renderes,
@@ -258,7 +258,7 @@ describe('Input control', () => {
     const cells = [{ tester: booleanCellTester, cell: BooleanCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <InputControl schema={fixture.schema} uischema={fixture.uischema} />
       </JsonFormsStateProvider>
@@ -266,7 +266,7 @@ describe('Input control', () => {
     const newCore = { ...core, data: { ...core.data, foo: 3 } };
     wrapper.setProps({
       initState: {
-        renderers: vanillaRenderers,
+        renderers: renderers,
         core: newCore,
         cells,
         renderes,
@@ -282,7 +282,7 @@ describe('Input control', () => {
     const cells = [{ tester: booleanCellTester, cell: BooleanCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsDispatch />
       </JsonFormsStateProvider>
@@ -305,7 +305,7 @@ describe('Input control', () => {
     };
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsStyleContext.Provider value={styleContextValue}>
           <JsonFormsDispatch />
@@ -322,7 +322,7 @@ describe('Input control', () => {
     const cells = [{ tester: booleanCellTester, cell: BooleanCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsDispatch />
       </JsonFormsStateProvider>
@@ -386,7 +386,7 @@ describe('Input control', () => {
     const cells = [{ tester: textCellTester, cell: TextCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <HorizontalLayoutRenderer schema={schema} uischema={uischema} />
       </JsonFormsStateProvider>
@@ -525,7 +525,7 @@ describe('Input control', () => {
     const cells = [{ tester: textCellTester, cell: DateCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsDispatch />
       </JsonFormsStateProvider>
@@ -558,7 +558,7 @@ describe('Input control', () => {
     const cells = [{ tester: textCellTester, cell: DateCell }];
     wrapper = mount(
       <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, core, cells, renderes }}
+        initState={{ renderers: renderers, core, cells, renderes }}
       >
         <JsonFormsDispatch />
       </JsonFormsStateProvider>

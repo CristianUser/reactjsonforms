@@ -130,7 +130,7 @@ export * from './reducers';
 export * from './util';
 export * from './styles';
 
-export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
+export const renderers: { tester: RankedTester; renderer: any }[] = [
   { tester: allOfControlTester, renderer: AllOfRenderer },
   { tester: anyOfControlTester, renderer: AnyOfRenderer },
   { tester: oneOfControlTester, renderer: OneOfRenderer },
@@ -157,7 +157,7 @@ export const vanillaRenderers: { tester: RankedTester; renderer: any }[] = [
   },
 ];
 
-export const vanillaCells: { tester: RankedTester; cell: any }[] = [
+export const cells: { tester: RankedTester; cell: any }[] = [
   { tester: booleanCellTester, cell: BooleanCell },
   { tester: dateCellTester, cell: DateCell },
   { tester: dateTimeCellTester, cell: DateTimeCell },

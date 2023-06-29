@@ -34,7 +34,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import HorizontalLayoutRenderer from '../../src/layouts/HorizontalLayout';
 import DateCell, { dateCellTester } from '../../src/cells/DateCell';
 import { initCore, TestEmitter } from '../util';
-import { vanillaRenderers } from '../../src';
+import { renderers } from '../../src';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -160,7 +160,7 @@ describe('Date cell', () => {
     };
     const core = initCore(schema, uischema, data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <HorizontalLayoutRenderer schema={schema} uischema={uischema} />
       </JsonFormsStateProvider>
     );
@@ -180,7 +180,7 @@ describe('Date cell', () => {
     const core = initCore(fixture.schema, uischema, fixture.data);
 
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell schema={fixture.schema} uischema={uischema} path='foo' />
       </JsonFormsStateProvider>
     );
@@ -198,7 +198,7 @@ describe('Date cell', () => {
     };
     const core = initCore(fixture.schema, uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell schema={fixture.schema} uischema={uischema} path='foo' />
       </JsonFormsStateProvider>
     );
@@ -213,7 +213,7 @@ describe('Date cell', () => {
     };
     const core = initCore(fixture.schema, uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell schema={fixture.schema} uischema={uischema} path='foo' />
       </JsonFormsStateProvider>
     );
@@ -224,7 +224,7 @@ describe('Date cell', () => {
   test('render', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -241,7 +241,7 @@ describe('Date cell', () => {
   test('has classes set', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -261,7 +261,7 @@ describe('Date cell', () => {
     };
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <TestEmitter
           onChange={({ data }) => {
             onChangeData.data = data;
@@ -282,7 +282,7 @@ describe('Date cell', () => {
   test('update via action', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -291,7 +291,7 @@ describe('Date cell', () => {
       </JsonFormsStateProvider>
     );
     core.data = { ...core.data, foo: '1961-04-12' };
-    wrapper.setProps({ initState: { renderers: vanillaRenderers, core } });
+    wrapper.setProps({ initState: { renderers: renderers, core } });
     wrapper.update();
     const input = wrapper.find('input');
     expect(input.props().value).toBe('1961-04-12');
@@ -300,7 +300,7 @@ describe('Date cell', () => {
   test('update with null value', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -309,7 +309,7 @@ describe('Date cell', () => {
       </JsonFormsStateProvider>
     );
     core.data = { ...core.data, foo: null };
-    wrapper.setProps({ initState: { renderers: vanillaRenderers, core } });
+    wrapper.setProps({ initState: { renderers: renderers, core } });
     wrapper.update();
     const input = wrapper.find('input');
     expect(input.props().value).toBe('');
@@ -318,7 +318,7 @@ describe('Date cell', () => {
   test('update with undefined value', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -327,7 +327,7 @@ describe('Date cell', () => {
       </JsonFormsStateProvider>
     );
     core.data = { ...core.data, foo: undefined };
-    wrapper.setProps({ initState: { renderers: vanillaRenderers, core } });
+    wrapper.setProps({ initState: { renderers: renderers, core } });
     wrapper.update();
     const input = wrapper.find('input');
     expect(input.props().value).toBe('');
@@ -336,7 +336,7 @@ describe('Date cell', () => {
   test('update with wrong ref', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -346,7 +346,7 @@ describe('Date cell', () => {
     );
     const input = wrapper.find('input');
     core.data = { ...core.data, bar: 'Bar' };
-    wrapper.setProps({ initState: { renderers: vanillaRenderers, core } });
+    wrapper.setProps({ initState: { renderers: renderers, core } });
     wrapper.update();
     expect(input.props().value).toBe('1980-04-04');
   });
@@ -354,7 +354,7 @@ describe('Date cell', () => {
   test('update with null ref', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -364,7 +364,7 @@ describe('Date cell', () => {
     );
     const input = wrapper.find('input');
     core.data = { ...core.data, null: '1961-04-12' };
-    wrapper.setProps({ initState: { renderers: vanillaRenderers, core } });
+    wrapper.setProps({ initState: { renderers: renderers, core } });
     wrapper.update();
     expect(input.props().value).toBe('1980-04-04');
   });
@@ -372,7 +372,7 @@ describe('Date cell', () => {
   test('update with undefined ref', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -382,7 +382,7 @@ describe('Date cell', () => {
     );
     const input = wrapper.find('input');
     core.data = { ...core.data, undefined: '1961-04-12' };
-    wrapper.setProps({ initState: { renderers: vanillaRenderers, core } });
+    wrapper.setProps({ initState: { renderers: renderers, core } });
     wrapper.update();
     expect(input.props().value).toBe('1980-04-04');
   });
@@ -390,7 +390,7 @@ describe('Date cell', () => {
   test('disable', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}
@@ -405,7 +405,7 @@ describe('Date cell', () => {
   test('enabled by default', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <DateCell
           schema={fixture.schema}
           uischema={fixture.uischema}

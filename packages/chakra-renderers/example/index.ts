@@ -24,8 +24,8 @@
 */
 import { ChakraProvider } from '@chakra-ui/react';
 import { createThemeSelection } from './theme.switcher';
-import { vanillaCells, vanillaRenderers } from '../src';
+import { cells, renderers } from '../src';
 import { renderExample } from '../../examples-react/src/index';
 
-renderExample(vanillaRenderers, vanillaCells, ChakraProvider);
+renderExample(renderers, cells, ChakraProvider);
 createThemeSelection();

@@ -31,7 +31,6 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "bundle": "webpack --config ./webpack/webpack.build.js --env=production --display-error-details",
     "build": "tsc",
     "build:examples-app": "rollup -c rollup.example.config.js",
     "dev": "webpack --config webpack/webpack.dev.js && webpack-dev-server --config webpack/webpack.dev.js --env=dev",

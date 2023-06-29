@@ -367,8 +367,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(ajv@8.6.1)
       lodash:
-        specifier: ^4.17.15
-        version: 4.17.15
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@istanbuljs/nyc-config-typescript':
         specifier: ^1.0.2
@@ -458,7 +458,7 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0(ajv@8.6.1)
       lodash:
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
     devDependencies:
       '@reactjsonforms/core':
@@ -549,8 +549,8 @@ importers:
         specifier: 3.0.15
         version: 3.0.15
       lodash:
-        specifier: ^4.17.15
-        version: 4.17.15
+        specifier: ^4.17.21
+        version: 4.17.21
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -740,8 +740,8 @@ importers:
   packages/react:
     dependencies:
       lodash:
-        specifier: ^4.17.15
-        version: 4.17.15
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@cfaester/enzyme-adapter-react-18':
         specifier: ^0.7.0
@@ -11265,10 +11265,6 @@ packages:
   /lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
     dev: true
-
-  /lodash@4.17.15:
-    resolution: {integrity: sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==}
-    dev: false
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}

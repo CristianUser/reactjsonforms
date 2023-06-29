@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /*
   The MIT License
 
@@ -22,69 +23,69 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import isEmpty from 'lodash/isEmpty';
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import {
   GroupLayout,
   LayoutProps,
   RankedTester,
   rankWith,
   uiTypeIs,
+  withIncreasedRank,
 } from '@reactjsonforms/core';
 import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
-import { renderChildren } from './util';
-import type { VanillaRendererProps } from '../index';
-import { withVanillaControlProps } from '../util';
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react';
+import { LayoutRenderer, LayoutRendererProps } from '../util/layout';
 
-/**
- * Default tester for a group layout.
- *
- * @type {RankedTester}
- */
 export const groupTester: RankedTester = rankWith(1, uiTypeIs('Group'));
 
-export const GroupLayoutRenderer = (
-  props: LayoutProps & VanillaRendererProps
-) => {
-  const { data: _data, ...otherProps } = props;
-  // We don't hand over data to the layout renderer to avoid rerendering it with every data change
-  return <GroupLayoutRendererComponent {...otherProps} />;
-};
+const GroupComponent = React.memo(
+  ({ visible, enabled, uischema, ...props }: LayoutRendererProps) => {
+    const groupLayout = uischema as GroupLayout;
+    return (
+      <Card hidden={!visible} mb='10px' w='100%'>
+        <CardHeader>
+          <Heading size='md'>{groupLayout.label}</Heading>
+        </CardHeader>
+        <CardBody>
+          <LayoutRenderer
+            {...props}
+            visible={visible}
+            enabled={enabled}
+            elements={groupLayout.elements}
+          />
+        </CardBody>
+      </Card>
+    );
+  }
+);
 
-const GroupLayoutRendererComponent: FunctionComponent<
-  LayoutProps & VanillaRendererProps
-> = React.memo(function GroupLayoutRendererComponent({
-  schema,
+export const GroupLayoutRenderer = ({
   uischema,
+  schema,
   path,
-  enabled,
   visible,
-  label,
-  getStyle,
-  getStyleAsClassName,
-}: LayoutProps & VanillaRendererProps) {
-  const group = uischema as GroupLayout;
-  const elementsSize = group.elements ? group.elements.length : 0;
-  const classNames = getStyleAsClassName('group.layout');
-  const childClassNames = ['group-layout-item']
-    .concat(getStyle('group.layout.item', elementsSize))
-    .join(' ');
+  enabled,
+  renderers,
+  cells,
+  direction,
+}: LayoutProps) => {
+  const groupLayout = uischema as GroupLayout;
 
   return (
-    <fieldset
-      className={classNames}
-      hidden={visible === undefined || visible === null ? false : !visible}
-    >
-      {!isEmpty(label) ? (
-        <legend className={getStyleAsClassName('group.label')}>{label}</legend>
-      ) : (
-        ''
-      )}
-      {renderChildren(group, schema, childClassNames, path, enabled)}
-    </fieldset>
+    <GroupComponent
+      elements={groupLayout.elements}
+      schema={schema}
+      path={path}
+      direction={direction}
+      visible={visible}
+      enabled={enabled}
+      uischema={uischema}
+      renderers={renderers}
+      cells={cells}
+    />
   );
-});
+};
 
-export default withVanillaControlProps(
-  withJsonFormsLayoutProps(GroupLayoutRenderer)
-);
+export default withJsonFormsLayoutProps(GroupLayoutRenderer);
+
+export const antdGroupTester: RankedTester = withIncreasedRank(1, groupTester);

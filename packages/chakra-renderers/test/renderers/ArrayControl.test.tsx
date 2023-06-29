@@ -25,7 +25,7 @@
 import * as React from 'react';
 import { JsonFormsStateProvider } from '@reactjsonforms/react';
 import ArrayControl from '../../src/complex/array/ArrayControlRenderer';
-import { vanillaRenderers } from '../../src/index';
+import { renderers } from '../../src/index';
 import { initCore } from '../util';
 import IntegerCell, { integerCellTester } from '../../src/cells/IntegerCell';
 
@@ -64,9 +64,7 @@ describe('Array control renderer', () => {
     const core = initCore(fixture.schema, fixture.uischema, fixture.data);
     const cells = [{ tester: integerCellTester, cell: IntegerCell }];
     const wrapper = mount(
-      <JsonFormsStateProvider
-        initState={{ renderers: vanillaRenderers, cells, core }}
-      >
+      <JsonFormsStateProvider initState={{ renderers: renderers, cells, core }}>
         <ArrayControl schema={fixture.schema} uischema={fixture.uischema} />
       </JsonFormsStateProvider>
     );

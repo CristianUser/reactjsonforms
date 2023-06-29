@@ -37,7 +37,7 @@ import CategorizationRenderer, {
   categorizationTester,
 } from '../../src/complex/categorization';
 import { initCore } from '../util';
-import { vanillaRenderers } from '../../src';
+import { renderers } from '../../src';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -350,7 +350,7 @@ describe('Categorization renderer', () => {
     const core = initCore(fixture.schema, uischema, fixture.data);
 
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <CategorizationRenderer
           schema={fixture.schema}
           uischema={uischema}
@@ -378,7 +378,7 @@ describe('Categorization renderer', () => {
     const core = initCore(fixture.schema, uischema, fixture.data);
 
     wrapper = mount(
-      <JsonFormsStateProvider initState={{ renderers: vanillaRenderers, core }}>
+      <JsonFormsStateProvider initState={{ renderers: renderers, core }}>
         <CategorizationRenderer schema={fixture.schema} uischema={uischema} />
       </JsonFormsStateProvider>
     );

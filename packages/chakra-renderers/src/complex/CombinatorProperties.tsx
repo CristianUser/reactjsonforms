@@ -1,19 +1,19 @@
 /*
   The MIT License
-
+  
   Copyright (c) 2017-2019 EclipseSource Munich
   https://github.com/eclipsesource/jsonforms
-
+  
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-
+  
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-
+  
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,38 +22,56 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React, { FunctionComponent } from 'react';
+import React from 'react';
+import _ from 'lodash';
 import {
-  LabelProps,
-  RankedTester,
-  rankWith,
-  uiTypeIs,
+  Generate,
+  isLayout,
+  JsonSchema,
+  UISchemaElement,
 } from '@reactjsonforms/core';
-import { withJsonFormsLabelProps } from '@reactjsonforms/react';
-import type { VanillaRendererProps } from '../index';
-import { withVanillaControlProps } from '../util';
-import { FormLabel } from '@chakra-ui/react';
+import { JsonFormsDispatch } from '@reactjsonforms/react';
 
-/**
- * Default tester for a label.
- * @type {RankedTester}
- */
-export const labelRendererTester: RankedTester = rankWith(1, uiTypeIs('Label'));
+interface CombinatorPropertiesProps {
+  schema: JsonSchema;
+  combinatorKeyword: 'oneOf' | 'anyOf';
+  path: string;
+}
 
-/**
- * Default renderer for a label.
- */
-export const LabelRenderer: FunctionComponent<
-  LabelProps & VanillaRendererProps
-> = ({ text, visible, getStyleAsClassName }) => {
-  const classNames = getStyleAsClassName('label-control');
-  const isHidden = !visible;
+export class CombinatorProperties extends React.Component<
+  CombinatorPropertiesProps,
+  // TODO fix @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  {}
+> {
+  render() {
+    const { schema, combinatorKeyword, path } = this.props;
 
-  return (
-    <FormLabel hidden={isHidden} className={classNames}>
-      {text}
-    </FormLabel>
-  );
-};
+    const otherProps: JsonSchema = _.omit(
+      schema,
+      combinatorKeyword
+    ) as JsonSchema;
+    const foundUISchema: UISchemaElement = Generate.uiSchema(
+      otherProps,
+      'VerticalLayout'
+    );
+    let isLayoutWithElements = false;
+    if (foundUISchema !== null && isLayout(foundUISchema)) {
+      isLayoutWithElements = foundUISchema.elements.length > 0;
+    }
 
-export default withVanillaControlProps(withJsonFormsLabelProps(LabelRenderer));
+    if (isLayoutWithElements) {
+      return (
+        <JsonFormsDispatch
+          schema={otherProps}
+          path={path}
+          uischema={foundUISchema}
+        />
+      );
+    }
+
+    return null;
+  }
+}
+
+export default CombinatorProperties;

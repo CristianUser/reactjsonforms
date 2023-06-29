@@ -22,73 +22,46 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import {
   HorizontalLayout,
+  LayoutProps,
   RankedTester,
   rankWith,
-  RendererProps,
   uiTypeIs,
 } from '@reactjsonforms/core';
 import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
-import { withVanillaControlProps } from '../util';
-import { JsonFormsLayout } from './JsonFormsLayout';
-import { renderChildren } from './util';
-import { VanillaRendererProps } from '../index';
+import { LayoutRenderer, LayoutRendererProps } from '../util/layout';
 
 /**
  * Default tester for a horizontal layout.
  * @type {RankedTester}
  */
 export const horizontalLayoutTester: RankedTester = rankWith(
-  1,
+  2,
   uiTypeIs('HorizontalLayout')
 );
 
-export const HorizontalLayoutRenderer = (
-  props: RendererProps & VanillaRendererProps
-) => {
-  const { data: _data, ...otherProps } = props;
-  // We don't hand over data to the layout renderer to avoid rerendering it with every data change
-  return <HorizontalLayoutRendererComponent {...otherProps} />;
-};
-
-const HorizontalLayoutRendererComponent: FunctionComponent<
-  RendererProps & VanillaRendererProps
-> = React.memo(function HorizontalLayoutRendererComponent({
-  schema,
+export const HorizontalLayoutRenderer = ({
   uischema,
-  getStyle,
-  getStyleAsClassName,
+  renderers,
+  cells,
+  schema,
+  path,
   enabled,
   visible,
-  path,
-}: RendererProps & VanillaRendererProps) {
-  const horizontalLayout = uischema as HorizontalLayout;
-  const elementsSize = horizontalLayout.elements
-    ? horizontalLayout.elements.length
-    : 0;
-  const layoutClassName = getStyleAsClassName('horizontal.layout');
-  const childClassNames = ['horizontal-layout-item']
-    .concat(getStyle('horizontal.layout.item', elementsSize))
-    .join(' ');
+}: LayoutProps) => {
+  const layout = uischema as HorizontalLayout;
+  const childProps: LayoutRendererProps = {
+    elements: layout.elements,
+    schema,
+    path,
+    enabled,
+    direction: 'row',
+    visible,
+  };
 
-  return (
-    <JsonFormsLayout
-      className={layoutClassName}
-      visible={visible}
-      enabled={enabled}
-      path={path}
-      uischema={uischema}
-      schema={schema}
-      getStyle={getStyle}
-      getStyleAsClassName={getStyleAsClassName}
-    >
-      {renderChildren(horizontalLayout, schema, childClassNames, path, enabled)}
-    </JsonFormsLayout>
-  );
-});
+  return <LayoutRenderer {...childProps} renderers={renderers} cells={cells} />;
+};
 
-export default withVanillaControlProps(
-  withJsonFormsLayoutProps(HorizontalLayoutRenderer, false)
-);
+export default withJsonFormsLayoutProps(HorizontalLayoutRenderer);

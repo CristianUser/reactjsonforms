@@ -44,7 +44,7 @@ export const DateCell = (props: CellProps & VanillaRendererProps) => {
       onChange={(ev) => handleChange(path, ev.target.value)}
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
     />
   );

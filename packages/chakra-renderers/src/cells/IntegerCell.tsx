@@ -48,7 +48,7 @@ export const IntegerCell = (props: CellProps & VanillaRendererProps) => {
       onChange={(ev) => handleChange(path, toNumber(ev.target.value))}
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
     />
   );

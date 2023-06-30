@@ -29,6 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
+import { Input } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -39,7 +40,7 @@ export const SliderCell = (props: CellProps & VanillaRendererProps) => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <input
+      <Input
         type='range'
         max={schema.maximum}
         min={schema.minimum}
@@ -47,7 +48,7 @@ export const SliderCell = (props: CellProps & VanillaRendererProps) => {
         onChange={(ev) => handleChange(path, Number(ev.target.value))}
         className={className}
         id={id}
-        disabled={!enabled}
+        isDisabled={!enabled}
         autoFocus={uischema.options && uischema.options.focus}
         style={{ flex: '1' }}
       />

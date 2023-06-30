@@ -29,6 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
+import { Input } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -52,7 +53,7 @@ export const TimeCell = (props: CellProps & VanillaRendererProps) => {
   const { data, className, id, enabled, uischema, path, handleChange } = props;
 
   return (
-    <input
+    <Input
       type='time'
       value={data || ''}
       onChange={(ev) =>
@@ -60,7 +61,7 @@ export const TimeCell = (props: CellProps & VanillaRendererProps) => {
       }
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
     />
   );

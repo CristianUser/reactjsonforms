@@ -238,7 +238,7 @@ class TableArrayControl extends React.Component<
                           )}
                         </Td>
                         <Td>
-                          <button
+                          <Button
                             aria-label={translations.removeAriaLabel}
                             onClick={() => {
                               if (
@@ -249,7 +249,7 @@ class TableArrayControl extends React.Component<
                             }}
                           >
                             {translations.removeTooltip}
-                          </button>
+                          </Button>
                         </Td>
                       </Tr>
                     );

@@ -112,7 +112,7 @@ export const ListWithDetailRenderer = ({
           createDefault={handleCreateDefaultValue}
         />
         <Flex direction='row' gap='2'>
-          <Flex direction='column' flex={1}>
+          <Box flex={1}>
             <VStack w='100%' divider={<Divider />}>
               {range(data).map((_item, index) => (
                 <ListWithDetailMasterItem
@@ -128,8 +128,8 @@ export const ListWithDetailRenderer = ({
                 />
               ))}
             </VStack>
-          </Flex>
-          <Flex direction='column' flex={3}>
+          </Box>
+          <Box flex={3}>
             {selectedIndex !== undefined ? (
               <JsonFormsDispatch
                 renderers={renderers}
@@ -142,7 +142,7 @@ export const ListWithDetailRenderer = ({
             ) : (
               <div>No Data</div>
             )}
-          </Flex>
+          </Box>
         </Flex>
       </Box>
     </Hidden>

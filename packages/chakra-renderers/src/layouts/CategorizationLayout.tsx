@@ -125,10 +125,8 @@ export class CategorizationLayoutRenderer extends RendererComponent<
               <Tab key={idx}>{e.label}</Tab>
             ))}
           </TabList>
-        </Tabs>
-        <div style={{ marginTop: '0.5em' }}>
           <LayoutRenderer {...childProps} />
-        </div>
+        </Tabs>
       </Hidden>
     );
   }

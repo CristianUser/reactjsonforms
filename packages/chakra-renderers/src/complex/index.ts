@@ -29,6 +29,7 @@ import TableArrayControl, {
 import AllOfRenderer, { allOfControlTester } from './AllOfRenderer';
 import AnyOfRenderer, { anyOfControlTester } from './AnyOfRenderer';
 import OneOfRenderer, { oneOfControlTester } from './OneOfRenderer';
+import ObjectRenderer, { objectControlTester } from './ObjectRenderer';
 import EnumArrayRenderer, {
   enumArrayRendererTester,
 } from './EnumArrayRenderer';
@@ -43,6 +44,8 @@ export {
   labelRendererTester,
   OneOfRenderer,
   oneOfControlTester,
+  ObjectRenderer,
+  objectControlTester,
   TableArrayControl,
   tableArrayControlTester,
 };

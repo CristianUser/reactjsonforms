@@ -35,6 +35,7 @@ import ExpandPanelRenderer from './ExpandPanelRenderer';
 import merge from 'lodash/merge';
 import { Accordion, Box } from '@chakra-ui/react';
 import { ArrayLayoutToolbar } from './ArrayToolbar';
+import NoData from '../util/NoData';
 
 interface ArrayLayoutState {
   expanded: number;
@@ -116,7 +117,7 @@ export class ArrayLayout extends React.PureComponent<
             })}
           </Accordion>
         ) : (
-          <div>No data</div>
+          <NoData title='No data' />
         )}
       </Box>
     );

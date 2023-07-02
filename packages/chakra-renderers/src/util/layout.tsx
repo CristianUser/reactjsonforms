@@ -75,13 +75,11 @@ export const LayoutRenderer = ({
   renderers,
   cells,
 }: LayoutRendererProps) => {
-  const dir = direction === 'row' ? 'row' : 'column';
-
   if (isEmpty(elements)) {
     return null;
   } else {
     return (
-      <Stack direction={dir} w='100%'>
+      <Stack direction={direction} w='100%'>
         {renderLayoutElements(
           elements,
           schema as JsonSchema,

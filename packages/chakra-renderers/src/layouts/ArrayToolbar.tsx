@@ -3,7 +3,8 @@ import { AddIcon } from '@chakra-ui/icons';
 import React from 'react';
 import { ArrayTranslations } from '@reactjsonforms/core';
 import ValidationIcon from '../complex/ValidationIcon';
-import { Flex, Heading, IconButton, Tooltip } from '@chakra-ui/react';
+import PageHeader from '../util/PageHeader';
+import { Box, Flex, Heading, IconButton, Tooltip } from '@chakra-ui/react';
 import _ from 'lodash';
 export interface ArrayLayoutToolbarProps {
   translations: ArrayTranslations;
@@ -16,30 +17,16 @@ export interface ArrayLayoutToolbarProps {
 
 const renderTitle = (label: string, errors: string) => (
   <Flex direction='row' alignItems='center'>
-    <Flex direction='column' key='col_1'>
+    <Box key='col_1'>
       <Heading as='h4' size='md'>
         {label}
       </Heading>
-    </Flex>
-    <Flex direction='column' key='col_2' style={{ padding: '0 10px' }}>
+    </Box>
+    <Box key='col_2' style={{ padding: '0 10px' }}>
       <ValidationIcon id='tooltip-validation' errorMessages={errors} />
-    </Flex>
+    </Box>
   </Flex>
 );
-
-type PageHeaderProps = {
-  title: string | React.ReactNode;
-  extra: React.ReactNode;
-};
-
-export const PageHeader = ({ title, extra }: PageHeaderProps) => {
-  return (
-    <Flex justifyContent='space-between' w='100%' mb='2'>
-      {_.isString(title) ? <Heading as='h4'>{title}</Heading> : title}
-      {extra}
-    </Flex>
-  );
-};
 
 export const ArrayLayoutToolbar = React.memo(
   ({

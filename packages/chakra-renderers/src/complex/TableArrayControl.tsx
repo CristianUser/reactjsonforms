@@ -48,8 +48,6 @@ import {
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 import {
-  Alert,
-  AlertIcon,
   Box,
   Button,
   Flex,
@@ -63,6 +61,8 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
+import PageHeader from '../util/PageHeader';
+import ValidationIcon from './ValidationIcon';
 
 const { or, isObjectArrayControl, isPrimitiveArrayControl, rankWith } = Test;
 
@@ -74,6 +74,19 @@ const { or, isObjectArrayControl, isPrimitiveArrayControl, rankWith } = Test;
 export const tableArrayControlTester: RankedTester = rankWith(
   3,
   or(isObjectArrayControl, isPrimitiveArrayControl)
+);
+
+const renderTitle = (label: string, errors: string) => (
+  <Flex direction='row' alignItems='center'>
+    <Box key='col_1'>
+      <Heading as='h4' size='md'>
+        {label}
+      </Heading>
+    </Box>
+    <Box key='col_2' style={{ padding: '0 10px' }}>
+      <ValidationIcon id='tooltip-validation' errorMessages={errors} />
+    </Box>
+  </Flex>
 );
 
 class TableArrayControl extends React.Component<
@@ -102,39 +115,23 @@ class TableArrayControl extends React.Component<
     } = this.props;
 
     const tableClass = getStyleAsClassName('array.table.table');
-    const labelClass = getStyleAsClassName('array.table.label');
-    // const buttonClass = getStyleAsClassName('array.table.button');
-    const validationClass = getStyleAsClassName('array.table.validation');
     const createControlElement = (key?: string): ControlElement => ({
       type: 'Control',
       label: false,
       scope: schema.type === 'object' ? `#/properties/${key}` : '#',
     });
-    const isValid = errors.length === 0;
-    const divClassNames = [validationClass]
-      .concat(
-        isValid ? '' : getStyleAsClassName('array.table.validation.error')
-      )
-      .join(' ');
 
     return (
       <Hidden hidden={!visible}>
         <Box w='100%'>
-          <Flex justifyContent='space-between' w='100%'>
-            <Heading size='md' className={labelClass}>
-              {label}
-            </Heading>
-            <Button onClick={addItem(path, createDefaultValue(schema))}>
-              {translations.addTooltip}
-            </Button>
-          </Flex>
-          <div className={divClassNames}>{!isValid ? errors : ''}</div>
-          {!isValid && (
-            <Alert status='error'>
-              <AlertIcon />
-              {errors}
-            </Alert>
-          )}
+          <PageHeader
+            title={renderTitle(label, errors)}
+            extra={
+              <Button onClick={addItem(path, createDefaultValue(schema))}>
+                {translations.addTooltip}
+              </Button>
+            }
+          />
           <TableContainer w='100%'>
             <Table className={tableClass} variant='simple'>
               <Thead>

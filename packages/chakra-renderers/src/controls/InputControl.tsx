@@ -39,6 +39,7 @@ import {
   DispatchCell,
   withJsonFormsControlProps,
 } from '@reactjsonforms/react';
+import { FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
@@ -91,20 +92,20 @@ export class InputControl extends Control<
       return null;
     } else {
       return (
-        <div
+        <FormControl
           className={classNames.wrapper}
           hidden={!visible}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           id={id}
         >
-          <label htmlFor={id + '-input'} className={classNames.label}>
+          <FormLabel htmlFor={id + '-input'} className={classNames.label}>
             {computeLabel(
               label,
               required,
               appliedUiSchemaOptions.hideRequiredAsterisk
             )}
-          </label>
+          </FormLabel>
           <DispatchCell
             uischema={uischema}
             schema={schema}
@@ -112,10 +113,10 @@ export class InputControl extends Control<
             id={id + '-input'}
             enabled={enabled}
           />
-          <div className={divClassNames}>
+          <FormErrorMessage className={divClassNames}>
             {!isValid ? errors : showDescription ? description : null}
-          </div>
-        </div>
+          </FormErrorMessage>
+        </FormControl>
       );
     }
   }

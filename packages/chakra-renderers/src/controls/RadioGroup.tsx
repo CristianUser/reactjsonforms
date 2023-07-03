@@ -29,6 +29,12 @@ import {
   isDescriptionHidden,
   OwnPropsOfEnum,
 } from '@reactjsonforms/core';
+import {
+  Radio,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 import type { VanillaRendererProps } from '../index';
 import { findStyleAsClassName } from '../reducers/styling';
 import { useStyles } from '../styles';
@@ -89,41 +95,42 @@ export const RadioGroup = ({
     };
   }
   return (
-    <div
+    <FormControl
       className={classNames.wrapper}
       hidden={!visible}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
     >
-      <label htmlFor={id} className={classNames.label}>
+      <FormLabel htmlFor={id} className={classNames.label}>
         {computeLabel(
           label,
           required,
           appliedUiSchemaOptions.hideRequiredAsterisk
         )}
-      </label>
-      <div className={radioControl} style={groupStyle}>
-        {options.map((option) => (
-          <div key={option.label} className={radioOption}>
-            <input
-              type='radio'
-              value={option.value}
-              id={option.value}
-              name={id}
-              checked={data === option.value}
-              onChange={(ev) => handleChange(path, ev.currentTarget.value)}
-              disabled={!enabled}
-              className={radioInput}
-            />
-            <label htmlFor={option.value} className={radioLabel}>
-              {option.label}
-            </label>
-          </div>
-        ))}
-      </div>
-      <div className={divClassNames}>
+      </FormLabel>
+      <FormControl className={radioControl} style={groupStyle}>
+        {options &&
+          options.map((option) => (
+            <FormControl key={option.label} className={radioOption}>
+              <Radio
+                type='radio'
+                value={option.value}
+                id={option.value}
+                name={id}
+                isChecked={data === option.value}
+                onChange={(ev) => handleChange(path, ev.currentTarget.value)}
+                isDisabled={!enabled}
+                className={radioInput}
+              />
+              <FormLabel htmlFor={option.value} className={radioLabel}>
+                {option.label}
+              </FormLabel>
+            </FormControl>
+          ))}
+      </FormControl>
+      <FormErrorMessage className={divClassNames}>
         {!isValid ? errors : showDescription ? description : null}
-      </div>
-    </div>
+      </FormErrorMessage>
+    </FormControl>
   );
 };

@@ -76,13 +76,14 @@ export const EnumCell = (
           {noneOptionLabel}
         </option>,
       ].concat(
-        options.map((optionValue) => (
-          <option
-            value={optionValue.value}
-            label={optionValue.label}
-            key={optionValue.value}
-          />
-        ))
+        options &&
+          options.map((optionValue) => (
+            <option
+              value={optionValue.value}
+              label={optionValue.label}
+              key={optionValue.value}
+            />
+          ))
       )}
     </Select>
   );

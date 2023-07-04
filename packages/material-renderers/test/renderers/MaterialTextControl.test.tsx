@@ -25,6 +25,7 @@
 import './MatchMediaMock';
 import React from 'react';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { MaterialTextControl } from '../../src/controls/MaterialTextControl';
 import { MaterialInputControl } from '../../src/controls/MaterialInputControl';
 import { MuiInputText } from '../../src/mui-controls/MuiInputText';
@@ -99,7 +100,9 @@ describe('Material text control', () => {
     const props = defaultControlProps();
     wrapper = mount(createMaterialTextControl(props));
     // call onPointerEnter prop manually as the tests seem to ignore 'pointerenter' events, 'mouseover' events work however.
-    wrapper.find(Input).props().onPointerEnter?.call(this);
+    act(() => {
+      wrapper.find(Input).props().onPointerEnter?.call(this);
+    });
     wrapper.update();
     expect(wrapper.find(InputAdornment).props().style).not.toHaveProperty(
       'display',

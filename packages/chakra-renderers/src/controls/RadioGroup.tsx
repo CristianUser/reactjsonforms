@@ -42,7 +42,6 @@ import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
 
 export const RadioGroupInput = ({
-  classNames,
   id,
   label,
   options,
@@ -70,7 +69,6 @@ export const RadioGroupInput = ({
     <FormControl
       isInvalid={!isValid}
       isDisabled={!enabled}
-      className={classNames.wrapper}
       hidden={!visible}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}

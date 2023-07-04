@@ -61,7 +61,7 @@ export const BooleanToggleControl = ({
 
   return (
     <Hidden hidden={!visible}>
-      <FormControl hidden={!visible} id={id} isInvalid={!isValid}>
+      <FormControl id={id} isInvalid={!isValid}>
         <FormLabel>{label}</FormLabel>
         <ChakraToggle
           id={`${id}-input`}

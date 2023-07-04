@@ -37,21 +37,18 @@ import {
   OwnPropsOfRenderer,
 } from '@reactjsonforms/core';
 import { JsonFormsDispatch, useJsonForms } from '@reactjsonforms/react';
-import { Stack } from '@chakra-ui/react';
+import { Box, Stack } from '@chakra-ui/react';
 
 export const renderLayoutElements = (
   elements: UISchemaElement[],
   schema: JsonSchema,
   path: string,
   enabled: boolean,
-  direction: 'row' | 'column',
   renderers?: JsonFormsRendererRegistryEntry[],
   cells?: JsonFormsCellRendererRegistryEntry[]
 ) => {
-  const dir = direction === 'row' ? 'column' : 'row';
-
   return elements.map((child, index) => (
-    <Stack direction={dir} key={`${path}-${index}`} w='100%'>
+    <Box key={`${path}-${index}`} w='100%'>
       <JsonFormsDispatch
         uischema={child}
         schema={schema}
@@ -60,7 +57,7 @@ export const renderLayoutElements = (
         renderers={renderers}
         cells={cells}
       />
-    </Stack>
+    </Box>
   ));
 };
 
@@ -78,19 +75,16 @@ export const LayoutRenderer = ({
   renderers,
   cells,
 }: LayoutRendererProps) => {
-  const dir = direction === 'row' ? direction : 'column';
-
   if (isEmpty(elements)) {
     return null;
   } else {
     return (
-      <Stack direction={dir} w='100%'>
+      <Stack direction={direction} w='100%'>
         {renderLayoutElements(
           elements,
           schema as JsonSchema,
           path as string,
           enabled as boolean,
-          direction,
           renderers,
           cells
         )}

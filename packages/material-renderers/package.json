@@ -1,6 +1,6 @@
 {
   "name": "@reactjsonforms/material-renderers",
-  "version": "3.1.0",
+  "version": "4.0.0-alpha.1",
   "description": "Material Renderer Set for JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
@@ -85,8 +85,8 @@
     "@mui/icons-material": "~5.11.16",
     "@mui/material": "~5.13.5",
     "@mui/x-date-pickers": "^6.0.0",
-    "@reactjsonforms/core": "3.1.0",
-    "@reactjsonforms/react": "3.1.0"
+    "@reactjsonforms/core": "^4.0.0-alpha.0",
+    "@reactjsonforms/react": "^4.0.0-alpha.0"
   },
   "devDependencies": {
     "@cfaester/enzyme-adapter-react-18": "^0.7.0",

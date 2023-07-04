@@ -121,7 +121,7 @@ export class CategorizationStepperLayoutRenderer extends RendererComponent<
     );
     return (
       <Hidden hidden={!visible}>
-        <Stepper index={activeCategory} mb='10px'>
+        <Stepper index={activeCategory} mb='4'>
           {categories.map((item: Category | any, idx: number) => (
             <Step
               key={`${item.label}_${idx}`}

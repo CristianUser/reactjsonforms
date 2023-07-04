@@ -9,7 +9,7 @@ module.exports = {
     },
   },
   // There is no file include in ESLint. Thus, ignore all and include files via negative ignore (!)
-  ignorePatterns: ['/*', '!/src', '!/test', '!/example', '/example/dist'],
+  ignorePatterns: ['/*', '!/src', '/test', '!/example', '/example/dist'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',

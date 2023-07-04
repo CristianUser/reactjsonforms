@@ -39,11 +39,12 @@ import {
 import range from 'lodash/range';
 import merge from 'lodash/merge';
 import React, { useCallback, useMemo, useState } from 'react';
+import { Box, Divider, Flex, VStack } from '@chakra-ui/react';
 
+import NoData from '../util/NoData';
 import { ArrayLayoutToolbar } from '../layouts/ArrayToolbar';
 import ListWithDetailMasterItem from './ListWithDetailMasterItem';
 import Hidden from '../util/Hidden';
-import { Box, Divider, Flex, VStack } from '@chakra-ui/react';
 
 export const ListWithDetailRenderer = ({
   uischemas,
@@ -112,7 +113,7 @@ export const ListWithDetailRenderer = ({
           createDefault={handleCreateDefaultValue}
         />
         <Flex direction='row' gap='2'>
-          <Flex direction='column' flex={1}>
+          <Box flex={1}>
             <VStack w='100%' divider={<Divider />}>
               {range(data).map((_item, index) => (
                 <ListWithDetailMasterItem
@@ -128,8 +129,8 @@ export const ListWithDetailRenderer = ({
                 />
               ))}
             </VStack>
-          </Flex>
-          <Flex direction='column' flex={3}>
+          </Box>
+          <Box flex={3}>
             {selectedIndex !== undefined ? (
               <JsonFormsDispatch
                 renderers={renderers}
@@ -140,9 +141,9 @@ export const ListWithDetailRenderer = ({
                 path={composePaths(path, `${selectedIndex}`)}
               />
             ) : (
-              <div>No Data</div>
+              <NoData title='No Row Selected' />
             )}
-          </Flex>
+          </Box>
         </Flex>
       </Box>
     </Hidden>

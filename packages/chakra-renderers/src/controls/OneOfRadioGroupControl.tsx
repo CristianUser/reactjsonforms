@@ -43,7 +43,7 @@ export const OneOfRadioGroupControl = (
 };
 
 export const oneOfRadioGroupControlTester: RankedTester = rankWith(
-  3,
+  20,
   and(isOneOfEnumControl, optionIs('format', 'radio'))
 );
 

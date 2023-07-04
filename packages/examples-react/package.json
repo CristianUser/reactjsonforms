@@ -1,12 +1,12 @@
 {
   "name": "@reactjsonforms/examples-react",
-  "version": "3.1.0",
+  "version": "4.0.0-alpha.0",
   "private": true,
   "dependencies": {
+    "@mui/material": "~5.13.5",
     "@reactjsonforms/core": "workspace:*",
     "@reactjsonforms/examples": "workspace:*",
     "@reactjsonforms/react": "workspace:*",
-    "@mui/material": "~5.13.5",
     "@types/react-highlight": "^0.12.5",
     "@types/react-tabs": "^2.3.3",
     "framer-motion": "^6.5.1",

@@ -54,6 +54,8 @@ import {
 } from './cells';
 
 import {
+  BooloanToggleControl,
+  booleanToggleControlTester,
   InputControl,
   inputControlTester,
   RadioGroupControl,
@@ -71,6 +73,8 @@ import {
   EnumArrayRenderer,
   oneOfControlTester,
   OneOfRenderer,
+  objectControlTester,
+  ObjectRenderer,
   TableArrayControl,
   tableArrayControlTester,
 } from './complex';
@@ -138,6 +142,8 @@ export const renderers: { tester: RankedTester; renderer: any }[] = [
   { tester: inputControlTester, renderer: InputControl },
   { tester: radioGroupControlTester, renderer: RadioGroupControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },
+  { tester: objectControlTester, renderer: ObjectRenderer },
+  { tester: booleanToggleControlTester, renderer: BooloanToggleControl },
   { tester: arrayLayoutTester, renderer: ArrayLayout },
   { tester: labelRendererTester, renderer: LabelRenderer },
   { tester: categorizationTester, renderer: CategorizationLayout },

@@ -1,6 +1,6 @@
 {
   "name": "@reactjsonforms/react",
-  "version": "3.1.0",
+  "version": "4.0.0-alpha.1",
   "description": "React module of JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
@@ -92,7 +92,7 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "@reactjsonforms/core": "3.1.0",
+    "@reactjsonforms/core": "^4.0.0-alpha.0",
     "react": "^16.12.0 || ^17.0.0 || ^18.0.0"
   },
   "optionalPeerDependencies": {

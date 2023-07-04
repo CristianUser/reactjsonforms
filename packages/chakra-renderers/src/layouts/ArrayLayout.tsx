@@ -26,13 +26,16 @@ import range from 'lodash/range';
 import React from 'react';
 import {
   ArrayLayoutProps,
+  computeLabel,
   // computeLabel,
   createDefaultValue,
 } from '@reactjsonforms/core';
 import map from 'lodash/map';
 import ExpandPanelRenderer from './ExpandPanelRenderer';
 import merge from 'lodash/merge';
-import { Accordion, Alert, Box, Button, Flex, Heading } from '@chakra-ui/react';
+import { Accordion, Box } from '@chakra-ui/react';
+import { ArrayLayoutToolbar } from './ArrayToolbar';
+import NoData from '../util/NoData';
 
 interface ArrayLayoutState {
   expanded: number;
@@ -62,7 +65,7 @@ export class ArrayLayout extends React.PureComponent<
       renderers,
       cells,
       label,
-      // required,
+      required,
       rootSchema,
       config,
       uischemas,
@@ -76,19 +79,18 @@ export class ArrayLayout extends React.PureComponent<
 
     return (
       <Box w='100%'>
-        <Flex justifyContent='space-between' w='100%'>
-          <Heading as='h3' size='md'>
-            {label}
-          </Heading>
-          <Button onClick={addItem(path, createDefaultValue(schema))}>
-            Add to {label}
-          </Button>
-        </Flex>
-        {!!errors && (
-          <Alert my='4' status='error'>
-            {errors}
-          </Alert>
-        )}
+        <ArrayLayoutToolbar
+          translations={translations}
+          label={computeLabel(
+            label,
+            required,
+            appliedUiSchemaOptions.hideRequiredAsterisk
+          )}
+          errors={errors}
+          path={path}
+          addItem={addItem}
+          createDefault={this.innerCreateDefaultValue}
+        />
         {data > 0 ? (
           <Accordion allowMultiple>
             {map(range(data), (index) => {
@@ -115,7 +117,7 @@ export class ArrayLayout extends React.PureComponent<
             })}
           </Accordion>
         ) : (
-          <div>No data</div>
+          <NoData title='No data' />
         )}
       </Box>
     );

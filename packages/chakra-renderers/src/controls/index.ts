@@ -29,7 +29,12 @@ import RadioGroupControl, {
 import OneOfRadioGroupControl, {
   oneOfRadioGroupControlTester,
 } from './OneOfRadioGroupControl';
+import BooloanToggleControl, {
+  booleanToggleControlTester,
+} from './BooleanToggleControl';
 export {
+  BooloanToggleControl,
+  booleanToggleControlTester,
   InputControl,
   inputControlTester,
   RadioGroupControl,

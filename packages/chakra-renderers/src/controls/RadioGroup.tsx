@@ -24,7 +24,6 @@
 */
 import React, { useState } from 'react';
 import {
-  computeLabel,
   ControlProps,
   isDescriptionHidden,
   OwnPropsOfEnum,
@@ -36,13 +35,13 @@ import {
   FormLabel,
   FormHelperText,
   FormErrorMessage,
-  Stack,
+  HStack,
+  Text,
 } from '@chakra-ui/react';
 import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
 
 export const RadioGroupInput = ({
-  classNames,
   id,
   label,
   options,
@@ -68,22 +67,26 @@ export const RadioGroupInput = ({
   );
   return (
     <FormControl
+      as='fieldset'
       isInvalid={!isValid}
       isDisabled={!enabled}
-      className={classNames.wrapper}
+      isRequired={required}
       hidden={!visible}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
     >
-      <FormLabel>
-        {computeLabel(
-          label,
-          required,
-          appliedUiSchemaOptions.hideRequiredAsterisk
-        )}
+      <FormLabel
+        as='legend'
+        requiredIndicator={
+          <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
+            {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
+          </Text>
+        }
+      >
+        {label}
       </FormLabel>
       <RadioGroup name={id}>
-        <Stack direction='row'>
+        <HStack spacing='8px'>
           {options &&
             options.map((option) => (
               <Radio
@@ -96,7 +99,7 @@ export const RadioGroupInput = ({
                 {option.label}
               </Radio>
             ))}
-        </Stack>
+        </HStack>
       </RadioGroup>
       <FormHelperText>{showDescription ? description : ''}</FormHelperText>
       <FormErrorMessage>{errors}</FormErrorMessage>

@@ -29,6 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
+import { Textarea } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -39,14 +40,14 @@ export const TextAreaCell = (props: CellProps & VanillaRendererProps) => {
     props;
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
   return (
-    <textarea
+    <Textarea
       value={data || ''}
       onChange={(ev) =>
         handleChange(path, ev.target.value === '' ? undefined : ev.target.value)
       }
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={appliedUiSchemaOptions.focus}
       placeholder={appliedUiSchemaOptions.placeholder}
     />

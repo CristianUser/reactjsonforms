@@ -34,12 +34,12 @@ import {
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 import { withJsonFormsOneOfEnumProps } from '@reactjsonforms/react';
-import { RadioGroup } from './RadioGroup';
+import { RadioGroupInput } from './RadioGroup';
 
 export const OneOfRadioGroupControl = (
   props: ControlProps & VanillaRendererProps
 ) => {
-  return <RadioGroup {...props} />;
+  return <RadioGroupInput {...props} />;
 };
 
 export const oneOfRadioGroupControlTester: RankedTester = rankWith(

@@ -34,6 +34,7 @@ import {
   withJsonFormsEnumCellProps,
   withTranslateProps,
 } from '@reactjsonforms/react';
+import { Select } from '@chakra-ui/react';
 import { i18nDefaults, withVanillaEnumCellProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 
@@ -57,10 +58,10 @@ export const EnumCell = (
     [t, schema, uischema, path]
   );
   return (
-    <select
+    <Select
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
       value={data || ''}
       onChange={(ev) =>
@@ -75,15 +76,16 @@ export const EnumCell = (
           {noneOptionLabel}
         </option>,
       ].concat(
-        options.map((optionValue) => (
-          <option
-            value={optionValue.value}
-            label={optionValue.label}
-            key={optionValue.value}
-          />
-        ))
+        options &&
+          options.map((optionValue) => (
+            <option
+              value={optionValue.value}
+              label={optionValue.label}
+              key={optionValue.value}
+            />
+          ))
       )}
-    </select>
+    </Select>
   );
 };
 /**

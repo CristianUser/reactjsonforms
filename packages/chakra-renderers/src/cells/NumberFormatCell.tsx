@@ -30,6 +30,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
+import { Input } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -47,19 +48,22 @@ export const NumberFormatCell = (
     handleChange(path, validStringNumber);
   };
 
+  const size =
+    uischema.options && uischema.options.trim ? maxLength : undefined;
+
   return (
-    <input
+    <Input
       type='text'
       value={formattedNumber}
       onChange={onChange}
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
       maxLength={
         uischema.options && uischema.options.restrict ? maxLength : undefined
       }
-      size={uischema.options && uischema.options.trim ? maxLength : undefined}
+      htmlSize={size}
     />
   );
 };

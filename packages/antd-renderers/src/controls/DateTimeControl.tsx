@@ -34,6 +34,11 @@ import {
 import { Control, withJsonFormsControlProps } from '@reactjsonforms/react';
 import { DatePicker, Form } from 'antd';
 import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
+import localeData from 'dayjs/plugin/localeData';
+
+dayjs.extend(weekday);
+dayjs.extend(localeData);
 
 export class DateTimeControl extends Control<ControlProps, ControlState> {
   render() {

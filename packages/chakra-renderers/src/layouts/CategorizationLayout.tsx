@@ -120,7 +120,7 @@ export class CategorizationLayoutRenderer extends RendererComponent<
     return (
       <Hidden hidden={!visible}>
         <Tabs index={value} onChange={this.handleChange}>
-          <TabList>
+          <TabList mb='4'>
             {categories.map((e: Category, idx: number) => (
               <Tab key={idx}>{e.label}</Tab>
             ))}

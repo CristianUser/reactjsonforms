@@ -54,6 +54,8 @@ import {
 } from './cells';
 
 import {
+  BooloanToggleControl,
+  booleanToggleControlTester,
   InputControl,
   inputControlTester,
   RadioGroupControl,
@@ -141,6 +143,7 @@ export const renderers: { tester: RankedTester; renderer: any }[] = [
   { tester: radioGroupControlTester, renderer: RadioGroupControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },
   { tester: objectControlTester, renderer: ObjectRenderer },
+  { tester: booleanToggleControlTester, renderer: BooloanToggleControl },
   { tester: arrayLayoutTester, renderer: ArrayLayout },
   { tester: labelRendererTester, renderer: LabelRenderer },
   { tester: categorizationTester, renderer: CategorizationLayout },

@@ -48,7 +48,8 @@ export const NumberFormatCell = (
     handleChange(path, validStringNumber);
   };
 
-  //const size = uischema.options && uischema.options.trim ? maxLength : undefined;
+  const size =
+    uischema.options && uischema.options.trim ? maxLength : undefined;
 
   return (
     <Input
@@ -62,6 +63,7 @@ export const NumberFormatCell = (
       maxLength={
         uischema.options && uischema.options.restrict ? maxLength : undefined
       }
+      htmlSize={size}
     />
   );
 };

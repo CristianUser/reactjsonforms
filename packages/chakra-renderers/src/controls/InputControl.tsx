@@ -44,6 +44,7 @@ import {
   FormErrorMessage,
   FormLabel,
   FormHelperText,
+  Highlight,
 } from '@chakra-ui/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
@@ -100,11 +101,16 @@ export class InputControl extends Control<
           isInvalid={!isValid}
         >
           <FormLabel>
-            {computeLabel(
-              label,
-              required,
-              appliedUiSchemaOptions.hideRequiredAsterisk
-            )}
+            <Highlight
+              query={['*']}
+              styles={{ ms: '1', color: 'blue.600', fontWeight: 'bold' }}
+            >
+              {computeLabel(
+                label,
+                required,
+                appliedUiSchemaOptions.hideRequiredAsterisk
+              )}
+            </Highlight>
           </FormLabel>
           <DispatchCell
             uischema={uischema}

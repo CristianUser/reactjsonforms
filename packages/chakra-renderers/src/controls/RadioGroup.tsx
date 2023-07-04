@@ -22,7 +22,7 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import {
   computeLabel,
   ControlProps,
@@ -31,16 +31,17 @@ import {
 } from '@reactjsonforms/core';
 import {
   Radio,
+  RadioGroup,
   FormControl,
   FormLabel,
+  FormHelperText,
   FormErrorMessage,
+  Stack,
 } from '@chakra-ui/react';
 import type { VanillaRendererProps } from '../index';
-import { findStyleAsClassName } from '../reducers/styling';
-import { useStyles } from '../styles';
 import merge from 'lodash/merge';
 
-export const RadioGroup = ({
+export const RadioGroupInput = ({
   classNames,
   id,
   label,
@@ -56,28 +57,8 @@ export const RadioGroup = ({
   path,
   handleChange,
 }: ControlProps & VanillaRendererProps & OwnPropsOfEnum) => {
-  const contextStyles = useStyles();
   const [isFocused, setFocus] = useState(false);
-  const radioControl = useMemo(
-    () => findStyleAsClassName(contextStyles)('control.radio'),
-    [contextStyles]
-  );
-  const radioOption = useMemo(
-    () => findStyleAsClassName(contextStyles)('control.radio.option'),
-    [contextStyles]
-  );
-  const radioInput = useMemo(
-    () => findStyleAsClassName(contextStyles)('control.radio.input'),
-    [contextStyles]
-  );
-  const radioLabel = useMemo(
-    () => findStyleAsClassName(contextStyles)('control.radio.label'),
-    [contextStyles]
-  );
   const isValid = errors.length === 0;
-  const divClassNames = [classNames.validation]
-    .concat(isValid ? classNames.description : classNames.validationError)
-    .join(' ');
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
   const showDescription = !isDescriptionHidden(
     visible,
@@ -85,52 +66,40 @@ export const RadioGroup = ({
     isFocused,
     appliedUiSchemaOptions.showUnfocusedDescription
   );
-  const hasRadioClass = !radioControl || radioControl === 'radio';
-  let groupStyle: { [x: string]: any } = {};
-  if (hasRadioClass) {
-    groupStyle = {
-      display: 'flex',
-      flexDirection:
-        'vertical' === appliedUiSchemaOptions.orientation ? 'column' : 'row',
-    };
-  }
   return (
     <FormControl
+      isInvalid={!isValid}
+      isDisabled={!enabled}
       className={classNames.wrapper}
       hidden={!visible}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
     >
-      <FormLabel htmlFor={id} className={classNames.label}>
+      <FormLabel>
         {computeLabel(
           label,
           required,
           appliedUiSchemaOptions.hideRequiredAsterisk
         )}
       </FormLabel>
-      <FormControl className={radioControl} style={groupStyle}>
-        {options &&
-          options.map((option) => (
-            <FormControl key={option.label} className={radioOption}>
+      <RadioGroup name={id}>
+        <Stack direction='row'>
+          {options &&
+            options.map((option) => (
               <Radio
-                type='radio'
+                key={option.label}
                 value={option.value}
                 id={option.value}
-                name={id}
                 isChecked={data === option.value}
                 onChange={(ev) => handleChange(path, ev.currentTarget.value)}
-                isDisabled={!enabled}
-                className={radioInput}
-              />
-              <FormLabel htmlFor={option.value} className={radioLabel}>
+              >
                 {option.label}
-              </FormLabel>
-            </FormControl>
-          ))}
-      </FormControl>
-      <FormErrorMessage className={divClassNames}>
-        {!isValid ? errors : showDescription ? description : null}
-      </FormErrorMessage>
+              </Radio>
+            ))}
+        </Stack>
+      </RadioGroup>
+      <FormHelperText>{showDescription ? description : ''}</FormHelperText>
+      <FormErrorMessage>{errors}</FormErrorMessage>
     </FormControl>
   );
 };

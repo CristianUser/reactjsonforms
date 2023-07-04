@@ -32,13 +32,13 @@ import {
   rankWith,
 } from '@reactjsonforms/core';
 import { withJsonFormsEnumProps } from '@reactjsonforms/react';
-import { RadioGroup } from './RadioGroup';
+import { RadioGroupInput } from './RadioGroup';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 export const RadioGroupControl = (
   props: ControlProps & VanillaRendererProps
 ) => {
-  return <RadioGroup {...props} />;
+  return <RadioGroupInput {...props} />;
 };
 
 export const radioGroupControlTester: RankedTester = rankWith(

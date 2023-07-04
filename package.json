@@ -2,7 +2,7 @@
   "name": "jsonforms-monorepo",
   "scripts": {
     "lerna": "lerna",
-    "preparePublish": "git clean -dfx && npm ci && npm run init && npm run clean && npm run build && npm run test",
+    "preparePublish": "git clean -dfx && pnpm install && pnpm clean && pnpm build",
     "merge-report": "mkdir -p coverage && lcov-result-merger 'packages/**/coverage/lcov.info' 'coverage/lcov.info'",
     "check-format": "echo 'temporarily disabled'",
     "init": "lerna bootstrap --hoist",

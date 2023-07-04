@@ -39,6 +39,13 @@ import {
   DispatchCell,
   withJsonFormsControlProps,
 } from '@reactjsonforms/react';
+import {
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  FormHelperText,
+  Highlight,
+} from '@chakra-ui/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
@@ -49,7 +56,6 @@ export class InputControl extends Control<
 > {
   render() {
     const {
-      classNames,
       description,
       id,
       errors,
@@ -66,10 +72,6 @@ export class InputControl extends Control<
     } = this.props;
 
     const isValid = errors.length === 0;
-
-    const divClassNames = [classNames.validation]
-      .concat(isValid ? classNames.description : classNames.validationError)
-      .join(' ');
 
     const appliedUiSchemaOptions = merge({}, config, uischema.options);
     const showDescription = !isDescriptionHidden(
@@ -91,31 +93,34 @@ export class InputControl extends Control<
       return null;
     } else {
       return (
-        <div
-          className={classNames.wrapper}
+        <FormControl
           hidden={!visible}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           id={id}
+          isInvalid={!isValid}
         >
-          <label htmlFor={id + '-input'} className={classNames.label}>
-            {computeLabel(
-              label,
-              required,
-              appliedUiSchemaOptions.hideRequiredAsterisk
-            )}
-          </label>
+          <FormLabel>
+            <Highlight
+              query={['*']}
+              styles={{ ms: '1', color: 'blue.600', fontWeight: 'bold' }}
+            >
+              {computeLabel(
+                label,
+                required,
+                appliedUiSchemaOptions.hideRequiredAsterisk
+              )}
+            </Highlight>
+          </FormLabel>
           <DispatchCell
             uischema={uischema}
             schema={schema}
             path={path}
-            id={id + '-input'}
             enabled={enabled}
           />
-          <div className={divClassNames}>
-            {!isValid ? errors : showDescription ? description : null}
-          </div>
-        </div>
+          <FormHelperText>{showDescription ? description : ''}</FormHelperText>
+          <FormErrorMessage>{errors}</FormErrorMessage>
+        </FormControl>
       );
     }
   }

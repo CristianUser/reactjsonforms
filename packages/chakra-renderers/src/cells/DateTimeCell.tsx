@@ -29,6 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
+import { Input } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -40,13 +41,13 @@ export const DateTimeCell = (props: CellProps & VanillaRendererProps) => {
   };
 
   return (
-    <input
+    <Input
       type='datetime-local'
       value={(data || '').substr(0, 16)}
       onChange={(ev) => handleChange(path, toISOString(ev.target.value))}
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
     />
   );

@@ -29,6 +29,13 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
+import {
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+} from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -37,19 +44,24 @@ const toNumber = (value: string) =>
   value === '' ? undefined : parseInt(value, 10);
 
 export const IntegerCell = (props: CellProps & VanillaRendererProps) => {
-  const { data, className, id, enabled, uischema, path, handleChange } = props;
+  const { data, id, enabled, uischema, path, handleChange } = props;
 
   return (
-    <input
-      type='number'
-      step='1'
+    <NumberInput
+      inputMode='numeric'
+      step={1}
       value={data ?? ''}
-      onChange={(ev) => handleChange(path, toNumber(ev.target.value))}
-      className={className}
+      onChange={(value) => handleChange(path, toNumber(value))}
       id={id}
-      disabled={!enabled}
-      autoFocus={uischema.options && uischema.options.focus}
-    />
+      isDisabled={!enabled}
+      focusInputOnChange={uischema.options && uischema.options.focus}
+    >
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
   );
 };
 /**

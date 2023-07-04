@@ -39,7 +39,12 @@ import {
   DispatchCell,
   withJsonFormsControlProps,
 } from '@reactjsonforms/react';
-import { FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  FormHelperText,
+} from '@chakra-ui/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
@@ -50,7 +55,6 @@ export class InputControl extends Control<
 > {
   render() {
     const {
-      classNames,
       description,
       id,
       errors,
@@ -67,10 +71,6 @@ export class InputControl extends Control<
     } = this.props;
 
     const isValid = errors.length === 0;
-
-    const divClassNames = [classNames.validation]
-      .concat(isValid ? classNames.description : classNames.validationError)
-      .join(' ');
 
     const appliedUiSchemaOptions = merge({}, config, uischema.options);
     const showDescription = !isDescriptionHidden(
@@ -93,13 +93,13 @@ export class InputControl extends Control<
     } else {
       return (
         <FormControl
-          className={classNames.wrapper}
           hidden={!visible}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           id={id}
+          isInvalid={!isValid}
         >
-          <FormLabel htmlFor={id + '-input'} className={classNames.label}>
+          <FormLabel>
             {computeLabel(
               label,
               required,
@@ -110,12 +110,10 @@ export class InputControl extends Control<
             uischema={uischema}
             schema={schema}
             path={path}
-            id={id + '-input'}
             enabled={enabled}
           />
-          <FormErrorMessage className={divClassNames}>
-            {!isValid ? errors : showDescription ? description : null}
-          </FormErrorMessage>
+          <FormHelperText>{showDescription ? description : ''}</FormHelperText>
+          <FormErrorMessage>{errors}</FormErrorMessage>
         </FormControl>
       );
     }

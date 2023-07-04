@@ -33,7 +33,7 @@ export interface ValidationProps {
 }
 
 const ValidationIcon: React.FC<ValidationProps> = ({ errorMessages, id }) => {
-  const errorCount = errorMessages.split('\n').length - 1;
+  const errorCount = errorMessages && errorMessages.split('\n').length;
   return (
     !!errorCount && (
       <Tooltip id={id} title={errorMessages}>

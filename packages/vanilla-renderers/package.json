@@ -1,6 +1,6 @@
 {
   "name": "@reactjsonforms/vanilla-renderers",
-  "version": "3.1.0",
+  "version": "4.0.0-alpha.0",
   "description": "Default Renderer Set for JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",

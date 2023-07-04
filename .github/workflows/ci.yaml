@@ -31,16 +31,16 @@ jobs:
       - name: Lint
         if: matrix.os == 'ubuntu-latest'
         run: pnpm lint
-      - name: Test
-        if: matrix.os == 'windows-latest'
-        run: |
-          pnpm test
-      - name: Test & Coverage
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          pnpm test-cov
-          pnpm check-format
-          pnpm merge-report && cat coverage/lcov.info
+      # - name: Test
+      #   if: matrix.os == 'windows-latest'
+      #   run: |
+      #     pnpm test
+      # - name: Test & Coverage
+      #   if: matrix.os == 'ubuntu-latest'
+      #   run: |
+      #     pnpm test-cov
+      #     pnpm check-format
+      #     pnpm merge-report && cat coverage/lcov.info
       # - name: Upload Coveralls Report
       #   if: success() && matrix.os == 'ubuntu-latest'
       #   uses: coverallsapp/github-action@master

@@ -47,7 +47,7 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "@reactjsonforms/core": "3.1.0"
+    "@reactjsonforms/core": "^4.0.0-alpha.0"
   },
   "devDependencies": {
     "@reactjsonforms/core": "workspace:*",

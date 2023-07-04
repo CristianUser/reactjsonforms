@@ -77,8 +77,8 @@
   "peerDependencies": {
     "@ant-design/icons": "^5.1.2",
     "@ant-design/pro-components": "^2.6.2",
-    "@reactjsonforms/core": "workspace:^",
-    "@reactjsonforms/react": "workspace:^",
+    "@reactjsonforms/core": "^4.0.0-alpha.0",
+    "@reactjsonforms/react": "^4.0.0-alpha.0",
     "antd": "^5.6.3"
   },
   "devDependencies": {

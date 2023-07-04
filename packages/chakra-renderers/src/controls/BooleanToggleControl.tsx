@@ -38,13 +38,16 @@ import {
   FormErrorMessage,
   FormHelperText,
   FormLabel,
+  Text,
 } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
 import { ChakraToggle } from './ChakraToggle';
+import { merge } from 'lodash';
 
 export const BooleanToggleControl = ({
   data,
   visible,
+  required,
   label,
   description,
   id,
@@ -58,11 +61,20 @@ export const BooleanToggleControl = ({
   config,
 }: ControlProps) => {
   const isValid = isEmpty(errors);
+  const appliedUiSchemaOptions = merge({}, config, uischema.options);
 
   return (
     <Hidden hidden={!visible}>
-      <FormControl id={id} isInvalid={!isValid}>
-        <FormLabel>{label}</FormLabel>
+      <FormControl id={id} isInvalid={!isValid} isRequired={required}>
+        <FormLabel
+          requiredIndicator={
+            <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
+              {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
+            </Text>
+          }
+        >
+          {label}
+        </FormLabel>
         <ChakraToggle
           id={`${id}-input`}
           isValid={isValid}

@@ -25,7 +25,6 @@
 import maxBy from 'lodash/maxBy';
 import React from 'react';
 import {
-  computeLabel,
   ControlProps,
   ControlState,
   isControl,
@@ -44,7 +43,7 @@ import {
   FormErrorMessage,
   FormLabel,
   FormHelperText,
-  Highlight,
+  Text,
 } from '@chakra-ui/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
@@ -97,20 +96,18 @@ export class InputControl extends Control<
           hidden={!visible}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
+          isRequired={required}
           id={id}
           isInvalid={!isValid}
         >
-          <FormLabel>
-            <Highlight
-              query={['*']}
-              styles={{ ms: '1', color: 'blue.600', fontWeight: 'bold' }}
-            >
-              {computeLabel(
-                label,
-                required,
-                appliedUiSchemaOptions.hideRequiredAsterisk
-              )}
-            </Highlight>
+          <FormLabel
+            requiredIndicator={
+              <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
+                {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
+              </Text>
+            }
+          >
+            {label}
           </FormLabel>
           <DispatchCell
             uischema={uischema}

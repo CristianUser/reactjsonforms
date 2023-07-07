@@ -69,13 +69,6 @@ export abstract class InputControlWrapper extends Control<
       appliedUiSchemaOptions.showUnfocusedDescription
     );
 
-    // const firstFormHelperText = showDescription
-    //   ? description
-    //   : !isValid
-    //     ? errors
-    //     : null;
-    // const secondFormHelperText = showDescription && !isValid ? errors : null;
-    const help = !isValid ? errors : showDescription ? description : null;
     const InnerComponent = input;
     const style = !appliedUiSchemaOptions.trim ? { width: '100%' } : {};
 
@@ -104,9 +97,7 @@ export abstract class InputControlWrapper extends Control<
             isValid={isValid}
             visible={visible}
           />
-          <FormHelperText>
-            {showDescription ? description : help}
-          </FormHelperText>
+          <FormHelperText>{showDescription ? description : ''}</FormHelperText>
           <FormErrorMessage>{errors}</FormErrorMessage>
         </FormControl>
       </Hidden>

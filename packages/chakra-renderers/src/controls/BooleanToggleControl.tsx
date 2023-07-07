@@ -41,7 +41,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
-import { ChakraToggle } from './ChakraToggle';
+import { ChakraToggle } from '../chakra-controls/ChakraToggle';
 import { merge } from 'lodash';
 
 export const BooleanToggleControl = ({

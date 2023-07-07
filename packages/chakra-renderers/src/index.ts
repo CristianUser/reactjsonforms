@@ -60,6 +60,8 @@ import {
   inputControlTester,
   RadioGroupControl,
   radioGroupControlTester,
+  OneOfEnumControl,
+  oneOfEnumControlTester,
   OneOfRadioGroupControl,
   oneOfRadioGroupControlTester,
 } from './controls';
@@ -141,6 +143,7 @@ export const renderers: { tester: RankedTester; renderer: any }[] = [
   { tester: enumArrayRendererTester, renderer: EnumArrayRenderer },
   { tester: inputControlTester, renderer: InputControl },
   { tester: radioGroupControlTester, renderer: RadioGroupControl },
+  { tester: oneOfEnumControlTester, renderer: OneOfEnumControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },
   { tester: objectControlTester, renderer: ObjectRenderer },
   { tester: booleanToggleControlTester, renderer: BooloanToggleControl },

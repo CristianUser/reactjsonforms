@@ -50,7 +50,7 @@ export const ChakraSelect = (props: EnumCellProps & WithClassname) => {
       disabled={!enabled}
       autoFocus={appliedUiSchemaOptions.focus}
       value={data || ''}
-      onChange={(value) => handleChange(path, value)}
+      onChange={(e) => handleChange(path, e.target.value)}
       style={selectStyle}
     >
       {[{ label: '', value: '' }].concat(options).map((optionValue) => (

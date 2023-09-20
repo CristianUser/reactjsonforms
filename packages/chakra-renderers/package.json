@@ -61,7 +61,7 @@
     "@emotion/styled": "^11.3.0",
     "@reactjsonforms/core": "^4.0.0-alpha.0",
     "@reactjsonforms/react": "^4.0.0-alpha.0",
-    "framer-motion": "^6.5.1"
+    "framer-motion": ">=6.5.1"
   },
   "devDependencies": {
     "@cfaester/enzyme-adapter-react-18": "^0.7.0",

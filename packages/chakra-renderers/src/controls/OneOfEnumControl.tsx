@@ -30,7 +30,10 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
-import { withJsonFormsOneOfEnumProps } from '@reactjsonforms/react';
+import {
+  withJsonFormsOneOfEnumProps,
+  withTranslateProps,
+} from '@reactjsonforms/react';
 import { ChakraSelect } from '../chakra-controls/ChakraSelect';
 import { InputControlWrapper } from './InputControlWrapper';
 
@@ -43,4 +46,6 @@ export const oneOfEnumControlTester: RankedTester = rankWith(
   isOneOfEnumControl
 );
 
-export default withJsonFormsOneOfEnumProps(OneOfEnumControl);
+export default withJsonFormsOneOfEnumProps(
+  withTranslateProps(OneOfEnumControl)
+);

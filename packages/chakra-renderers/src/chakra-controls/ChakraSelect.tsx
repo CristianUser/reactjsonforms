@@ -22,18 +22,24 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import React from 'react';
+import React, { useMemo } from 'react';
 import { EnumCellProps, WithClassname } from '@reactjsonforms/core';
 
 import { Select } from '@chakra-ui/react';
 import merge from 'lodash/merge';
+import { i18nDefaults } from '../util';
+import { TranslateProps } from '@reactjsonforms/react';
 
-export const ChakraSelect = (props: EnumCellProps & WithClassname) => {
+export const ChakraSelect = (
+  props: EnumCellProps & WithClassname & TranslateProps
+) => {
   const {
     data,
     className,
     id,
     enabled,
+    schema,
+    t,
     uischema,
     path,
     handleChange,
@@ -42,18 +48,31 @@ export const ChakraSelect = (props: EnumCellProps & WithClassname) => {
   } = props;
   const appliedUiSchemaOptions = merge({}, config, uischema.options);
   const selectStyle = appliedUiSchemaOptions.trim ? {} : { width: '100%' };
+  const noneOptionLabel = useMemo(
+    () => t('enum.none', i18nDefaults['enum.none'], { schema, uischema, path }),
+    [t, schema, uischema, path]
+  );
 
   return (
     <Select
       className={className}
       id={id}
-      disabled={!enabled}
+      isDisabled={!enabled}
       autoFocus={appliedUiSchemaOptions.focus}
       value={data || ''}
-      onChange={(e) => handleChange(path, e.target.value)}
+      onChange={(ev) =>
+        handleChange(
+          path,
+          ev.target.selectedIndex === 0 ? undefined : ev.target.value
+        )
+      }
       style={selectStyle}
     >
-      {[{ label: '', value: '' }].concat(options).map((optionValue) => (
+      <option value={''} key={'jsonforms.enum.none'}>
+        {noneOptionLabel}
+      </option>
+      ,
+      {options.map((optionValue) => (
         <option value={optionValue.value} key={optionValue.value}>
           {optionValue.label}
         </option>

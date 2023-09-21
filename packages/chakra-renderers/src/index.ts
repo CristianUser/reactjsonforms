@@ -54,7 +54,7 @@ import {
 } from './cells';
 
 import {
-  BooloanToggleControl,
+  BooleanToggleControl,
   booleanToggleControlTester,
   InputControl,
   inputControlTester,
@@ -64,6 +64,8 @@ import {
   oneOfEnumControlTester,
   OneOfRadioGroupControl,
   oneOfRadioGroupControlTester,
+  booleanCheckboxControlTester,
+  BooleanCheckboxControl,
 } from './controls';
 
 import {
@@ -146,7 +148,8 @@ export const renderers: { tester: RankedTester; renderer: any }[] = [
   { tester: oneOfEnumControlTester, renderer: OneOfEnumControl },
   { tester: oneOfRadioGroupControlTester, renderer: OneOfRadioGroupControl },
   { tester: objectControlTester, renderer: ObjectRenderer },
-  { tester: booleanToggleControlTester, renderer: BooloanToggleControl },
+  { tester: booleanCheckboxControlTester, renderer: BooleanCheckboxControl },
+  { tester: booleanToggleControlTester, renderer: BooleanToggleControl },
   { tester: arrayLayoutTester, renderer: ArrayLayout },
   { tester: labelRendererTester, renderer: LabelRenderer },
   { tester: categorizationTester, renderer: CategorizationLayout },

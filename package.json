@@ -13,7 +13,8 @@
     "test-cov": "lerna run test-cov",
     "lint": "lerna run --no-bail lint",
     "lint:fix": "lerna run --no-bail lint:fix",
-    "build:examples-app": "lerna run build:examples-app && node packages/examples-app/prepare-examples-app.js"
+    "build:examples-app": "lerna run build:examples-app && node packages/examples-app/prepare-examples-app.js",
+    "release": "lerna publish --no-private from-git"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

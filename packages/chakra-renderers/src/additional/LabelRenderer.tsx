@@ -47,7 +47,7 @@ export const LabelRenderer = ({ uischema, visible }: OwnPropsOfRenderer) => {
   const labelElement: LabelElement = uischema as LabelElement;
   return (
     <Hidden hidden={!visible}>
-      <Heading as='h4'>
+      <Heading size='md'>
         {labelElement.text !== undefined &&
           labelElement.text !== null &&
           labelElement.text}

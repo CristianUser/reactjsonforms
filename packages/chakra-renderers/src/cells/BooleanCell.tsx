@@ -26,6 +26,7 @@ import React from 'react';
 import { Checkbox } from '@chakra-ui/react';
 import {
   CellProps,
+  createLabelDescriptionFrom,
   isBooleanControl,
   RankedTester,
   rankWith,
@@ -39,6 +40,7 @@ export const BooleanCell: FC<CellProps> = (
   props: CellProps & VanillaRendererProps
 ) => {
   const { data, className, id, enabled, uischema, path, handleChange } = props;
+  const { text: label } = createLabelDescriptionFrom(uischema, props.schema);
 
   return (
     <Checkbox
@@ -48,7 +50,9 @@ export const BooleanCell: FC<CellProps> = (
       id={id}
       isDisabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
-    />
+    >
+      {label}
+    </Checkbox>
   );
 };
 

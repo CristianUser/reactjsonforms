@@ -53,7 +53,6 @@ import {
   Flex,
   Heading,
   Table,
-  TableContainer,
   Tbody,
   Td,
   Th,
@@ -132,7 +131,7 @@ class TableArrayControl extends React.Component<
               </Button>
             }
           />
-          <TableContainer w='100%'>
+          <Box w='100%'>
             <Table className={tableClass} variant='simple'>
               <Thead>
                 <Tr>
@@ -254,7 +253,7 @@ class TableArrayControl extends React.Component<
                 )}
               </Tbody>
             </Table>
-          </TableContainer>
+          </Box>
         </Box>
       </Hidden>
     );

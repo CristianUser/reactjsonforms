@@ -1,7 +1,7 @@
 /*
   The MIT License
 
-  Copyright (c) 2017-2019 EclipseSource Munich
+  Copyright (c) 2018-2020 EclipseSource Munich
   https://github.com/eclipsesource/jsonforms
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,43 +23,29 @@
   THE SOFTWARE.
 */
 import React from 'react';
-import { Checkbox } from '@chakra-ui/react';
 import {
-  CellProps,
-  createLabelDescriptionFrom,
-  isBooleanControl,
+  ControlProps,
+  isOneOfEnumControl,
+  OwnPropsOfEnum,
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
-import { withJsonFormsCellProps } from '@reactjsonforms/react';
-import type { FC } from 'react';
-import type { VanillaRendererProps } from '../index';
-import { withVanillaBooleanCellProps } from '../util/index';
+import {
+  withJsonFormsOneOfEnumProps,
+  withTranslateProps,
+} from '@reactjsonforms/react';
+import { ChakraSelect } from '../chakra-controls/ChakraSelect';
+import { InputControlWrapper } from './InputControlWrapper';
 
-export const BooleanCell: FC<CellProps> = (
-  props: CellProps & VanillaRendererProps
-) => {
-  const { data, className, id, enabled, uischema, path, handleChange } = props;
-  const { text: label } = createLabelDescriptionFrom(uischema, props.schema);
+export const OneOfEnumControl = (props: ControlProps & OwnPropsOfEnum) => (
+  <InputControlWrapper {...props} input={ChakraSelect} />
+);
 
-  return (
-    <Checkbox
-      isChecked={!!data}
-      onChange={(ev) => handleChange(path, ev.target.checked)}
-      className={className}
-      id={id}
-      isDisabled={!enabled}
-      autoFocus={uischema.options && uischema.options.focus}
-    >
-      {label}
-    </Checkbox>
-  );
-};
+export const oneOfEnumControlTester: RankedTester = rankWith(
+  5,
+  isOneOfEnumControl
+);
 
-/**
- * Default tester for boolean controls.
- * @type {RankedTester}
- */
-export const booleanCellTester: RankedTester = rankWith(2, isBooleanControl);
-
-export default withJsonFormsCellProps(withVanillaBooleanCellProps(BooleanCell));
+export default withJsonFormsOneOfEnumProps(
+  withTranslateProps(OneOfEnumControl)
+);

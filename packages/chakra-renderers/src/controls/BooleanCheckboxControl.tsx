@@ -25,10 +25,8 @@
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 import {
-  and,
   ControlProps,
   isBooleanControl,
-  optionIs,
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
@@ -37,14 +35,11 @@ import {
   FormControl,
   FormErrorMessage,
   FormHelperText,
-  FormLabel,
-  Text,
 } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
-import { ChakraToggle } from '../chakra-controls/ChakraToggle';
-import { merge } from 'lodash';
+import { ChakraCheckbox } from '../chakra-controls/ChakraCheckbox';
 
-export const BooleanToggleControl = ({
+export const BooleanCheckboxControl = ({
   data,
   visible,
   required,
@@ -61,27 +56,27 @@ export const BooleanToggleControl = ({
   config,
 }: ControlProps) => {
   const isValid = isEmpty(errors);
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
+  // const appliedUiSchemaOptions = merge({}, config, uischema.options);
 
   return (
     <Hidden hidden={!visible}>
-      <FormControl id={id} isInvalid={!isValid} isRequired={required}>
-        <FormLabel
+      <FormControl id={id} isInvalid={!isValid} isRequired={required} my='12px'>
+        {/* <FormLabel
           requiredIndicator={
             <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
               {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
             </Text>
           }
         >
-          {label}
-        </FormLabel>
-        <ChakraToggle
+        </FormLabel> */}
+        <ChakraCheckbox
           id={`${id}-input`}
           isValid={isValid}
           data={data}
           enabled={enabled}
           visible={visible}
           path={path}
+          label={label}
           uischema={uischema}
           schema={schema}
           rootSchema={rootSchema}
@@ -96,9 +91,9 @@ export const BooleanToggleControl = ({
   );
 };
 
-export const booleanToggleControlTester: RankedTester = rankWith(
-  3,
-  and(isBooleanControl, optionIs('toggle', true))
+export const booleanCheckboxControlTester: RankedTester = rankWith(
+  2,
+  isBooleanControl
 );
 
-export default withJsonFormsControlProps(BooleanToggleControl);
+export default withJsonFormsControlProps(BooleanCheckboxControl);

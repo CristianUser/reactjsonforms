@@ -1,6 +1,6 @@
 {
   "name": "@reactjsonforms/chakra-renderers",
-  "version": "4.0.0-alpha.2",
+  "version": "4.0.0-alpha.8",
   "description": "Chakra Renderer Set for JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
@@ -61,7 +61,7 @@
     "@emotion/styled": "^11.3.0",
     "@reactjsonforms/core": "^4.0.0-alpha.0",
     "@reactjsonforms/react": "^4.0.0-alpha.0",
-    "framer-motion": "^6.5.1"
+    "framer-motion": ">=6.5.1"
   },
   "devDependencies": {
     "@cfaester/enzyme-adapter-react-18": "^0.7.0",
@@ -77,6 +77,7 @@
     "@rollup/plugin-json": "^5.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.1",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@types/enzyme": "^3.10.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -99,11 +100,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.78.0",
+    "rollup": "^2.79.1",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-import-css": "^3.3.1",
-    "rollup-plugin-typescript2": "^0.35.0",
     "rollup-plugin-visualizer": "^5.9.2",
     "source-map-loader": "^4.0.1",
     "source-map-support": "0.5.21",

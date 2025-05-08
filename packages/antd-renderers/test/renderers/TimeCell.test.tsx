@@ -49,14 +49,14 @@ const uischema: ControlElement = {
 
 describe('Ant Design time cell tester', () => {
   it('should fail', () => {
-    expect(timeCellTester(undefined, undefined, undefined)).toBe(
+    expect(timeCellTester(undefined as any, undefined as any, undefined as any)).toBe(
       NOT_APPLICABLE
     );
-    expect(timeCellTester(null, undefined, undefined)).toBe(NOT_APPLICABLE);
-    expect(timeCellTester({ type: 'Foo' }, undefined, undefined)).toBe(
+    expect(timeCellTester(null as any, undefined as any, undefined as any)).toBe(NOT_APPLICABLE);
+    expect(timeCellTester({ type: 'Foo' }, undefined as any, undefined as any)).toBe(
       NOT_APPLICABLE
     );
-    expect(timeCellTester({ type: 'Control' }, undefined, undefined)).toBe(
+    expect(timeCellTester({ type: 'Control' }, undefined as any, undefined as any)).toBe(
       NOT_APPLICABLE
     );
   });
@@ -71,7 +71,7 @@ describe('Ant Design time cell tester', () => {
             foo: { type: 'string' },
           },
         },
-        undefined
+        undefined as any
       )
     ).toBe(NOT_APPLICABLE);
   });
@@ -90,7 +90,7 @@ describe('Ant Design time cell tester', () => {
             },
           },
         },
-        undefined
+        undefined as any
       )
     ).toBe(NOT_APPLICABLE);
   });
@@ -108,7 +108,7 @@ describe('Ant Design time cell tester', () => {
             },
           },
         },
-        undefined
+        undefined as any
       )
     ).toBe(2);
   });
@@ -185,7 +185,7 @@ describe('Material time cell', () => {
   it.skip('should update via event', () => {
     const core = initCore(schema, uischema, data);
     const onChangeData: any = {
-      data: undefined,
+      data: undefined as any,
     };
     wrapper = mount(
       <JsonFormsStateProvider initState={{ renderers, core }}>
@@ -232,14 +232,14 @@ describe('Material time cell', () => {
     expect(input.props().value).toBe('');
   });
 
-  it('update with undefined value', () => {
+  it('update with undefined as any value', () => {
     const core = initCore(schema, uischema, data);
     wrapper = mount(
       <JsonFormsStateProvider initState={{ renderers, core }}>
         <TimeCell schema={schema} uischema={uischema} path='foo' />
       </JsonFormsStateProvider>
     );
-    core.data = { ...core.data, foo: undefined };
+    core.data = { ...core.data, foo: undefined as any };
     wrapper.setProps({ initState: { renderers, core } });
     wrapper.update();
     const input = wrapper.find('input').first();
@@ -274,14 +274,14 @@ describe('Material time cell', () => {
     expect(input.props().value).toBe('13:37');
   });
 
-  it('should update with undefined ref', () => {
+  it('should update with undefined as any ref', () => {
     const core = initCore(schema, uischema, data);
     wrapper = mount(
       <JsonFormsStateProvider initState={{ renderers, core }}>
         <TimeCell schema={schema} uischema={uischema} path='foo' />
       </JsonFormsStateProvider>
     );
-    core.data = { ...core.data, undefined: '20:15' };
+    core.data = { ...core.data, undefined as any: '20:15' };
     wrapper.setProps({ initState: { renderers, core } });
     wrapper.update();
     const input = wrapper.find('input').first();

@@ -4,6 +4,12 @@
     "outDir": "./lib",
     "sourceMap": true
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es5"
+    }
+  },
   "exclude": ["node_modules"],
   "files": ["./src/index.ts"]
 }

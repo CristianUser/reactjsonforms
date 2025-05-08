@@ -1,6 +1,6 @@
 {
   "name": "@reactjsonforms/vanilla-renderers",
-  "version": "4.0.0-alpha.1",
+  "version": "4.0.0-alpha.3",
   "description": "Default Renderer Set for JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
@@ -77,7 +77,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.78.0",
+    "rollup": "^2.79.1",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-import-css": "^3.3.1",

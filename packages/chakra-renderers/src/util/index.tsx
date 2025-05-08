@@ -23,6 +23,7 @@
   THE SOFTWARE.
 */
 export * from './i18nDefaults';
+export * from './layout';
 import React, { ComponentType, useMemo } from 'react';
 import isEmpty from 'lodash/isEmpty';
 import {

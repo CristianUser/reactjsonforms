@@ -40,7 +40,7 @@ import {
   RendererComponent,
   withJsonFormsLayoutProps,
 } from '@reactjsonforms/react';
-import { Button, Steps, Box, ButtonGroup } from '@chakra-ui/react';
+import { Button, Steps, ButtonGroup } from '@chakra-ui/react';
 import {
   AjvProps,
   LayoutRenderer,

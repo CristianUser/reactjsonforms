@@ -23,11 +23,16 @@
   THE SOFTWARE.
 */
 const knownThemes: { [key: string]: string } = {
-  normal: 'Normal Label Top',
+  light: 'Normal Label Top',
   dark: 'Dark label Top',
 };
 const changeTheme = (style: string) => {
   document.body.className = style;
+  const html = document.querySelector('html');
+  if (!html) return;
+  const toRemove = style === 'light' ? 'dark' : 'light';
+  html.classList.replace(toRemove, style);
+  html.style.colorScheme = style;
 };
 export const createThemeSelection = () => {
   const themeDiv = document.getElementById('theme');

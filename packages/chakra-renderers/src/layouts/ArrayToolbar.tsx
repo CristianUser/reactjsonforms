@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-import { AddIcon } from '@chakra-ui/icons';
 import React from 'react';
 import { ArrayTranslations } from '@reactjsonforms/core';
 import ValidationIcon from '../complex/ValidationIcon';
@@ -7,6 +6,7 @@ import PageHeader from '../util/PageHeader';
 import { Box, Flex, Heading, IconButton } from '@chakra-ui/react';
 import _ from 'lodash';
 import { Tooltip } from '../components/ui/tooltip';
+import { LuPlus } from 'react-icons/lu';
 export interface ArrayLayoutToolbarProps {
   translations: ArrayTranslations;
   label: string;
@@ -47,7 +47,7 @@ export const ArrayLayoutToolbar = React.memo(
               aria-label={translations.addAriaLabel || ''}
               onClick={addItem(path, createDefault())}
             >
-              <AddIcon />
+              <LuPlus />
             </IconButton>
           </Tooltip>
         }

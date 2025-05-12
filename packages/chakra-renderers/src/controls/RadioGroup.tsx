@@ -39,7 +39,6 @@ export const RadioGroupInput = ({
   required,
   description,
   errors,
-  data,
   uischema,
   visible,
   config,

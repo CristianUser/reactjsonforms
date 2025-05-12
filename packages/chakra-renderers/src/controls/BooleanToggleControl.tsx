@@ -33,10 +33,9 @@ import {
   rankWith,
 } from '@reactjsonforms/core';
 import { withJsonFormsControlProps } from '@reactjsonforms/react';
-import { Field, Text } from '@chakra-ui/react';
+import { Field } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
 import { ChakraToggle } from '../chakra-controls/ChakraToggle';
-import { merge } from 'lodash';
 
 export const BooleanToggleControl = ({
   data,
@@ -55,7 +54,6 @@ export const BooleanToggleControl = ({
   config,
 }: ControlProps) => {
   const isValid = isEmpty(errors);
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
 
   return (
     <Hidden hidden={!visible}>

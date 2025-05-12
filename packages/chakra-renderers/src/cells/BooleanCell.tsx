@@ -43,16 +43,22 @@ export const BooleanCell: FC<CellProps> = (
   const { text: label } = createLabelDescriptionFrom(uischema, props.schema);
 
   return (
-    <Checkbox
-      isChecked={!!data}
-      onChange={(ev) => handleChange(path, ev.target.checked)}
-      className={className}
+    <Checkbox.Root
+      checked={!!data}
       id={id}
+      onCheckedChange={(ev) => handleChange(path, ev.checked)}
+      className={className}
       disabled={!enabled}
-      autoFocus={uischema.options && uischema.options.focus}
+      // autoFocus={!!appliedUiSchemaOptions.focus}
     >
-      {label}
-    </Checkbox>
+      <Checkbox.HiddenInput />
+      <Checkbox.Control>
+        <Checkbox.Indicator />
+      </Checkbox.Control>
+      <Checkbox.Label fontSize='md' fontWeight='medium'>
+        {label}
+      </Checkbox.Label>
+    </Checkbox.Root>
   );
 };
 

@@ -23,7 +23,6 @@ import {
   Resolve,
   update,
 } from '@reactjsonforms/core';
-import { ArrowUpIcon, ArrowDownIcon, DeleteIcon } from '@chakra-ui/icons';
 import {
   Accordion,
   Avatar,
@@ -34,6 +33,7 @@ import {
 } from '@chakra-ui/react';
 import { Tooltip } from '../components/ui/tooltip';
 import Hidden from '../util/Hidden';
+import { LuArrowDown, LuArrowUp, LuTrash2 } from 'react-icons/lu';
 
 interface OwnPropsOfExpandPanel {
   enabled: boolean;
@@ -125,7 +125,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
             onClick={moveUp(path, index)}
             disabled={!enableMoveUp}
           >
-            <ArrowUpIcon />
+            <LuArrowUp />
           </IconButton>
         </Tooltip>
         <Tooltip key='2' content='Move down'>
@@ -134,7 +134,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
             onClick={moveDown(path, index)}
             disabled={!enableMoveDown}
           >
-            <ArrowDownIcon />
+            <LuArrowDown />
           </IconButton>
         </Tooltip>
         {appliedUiSchemaOptions.showSortButtons ? (
@@ -143,7 +143,7 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
               aria-label={translations.removeAriaLabel || ''}
               onClick={removeItems(path, [index])}
             >
-              <DeleteIcon />
+              <LuTrash2 />
             </IconButton>
           </Tooltip>
         ) : null}
@@ -270,6 +270,6 @@ export const withContextToExpandPanelProps = (
 export const withJsonFormsExpandPanelProps = (
   Component: ComponentType<ExpandPanelProps>
 ): ComponentType<OwnPropsOfExpandPanel> =>
-  withJsonFormsContext(withContextToExpandPanelProps(Component));
+  withJsonFormsContext(withContextToExpandPanelProps(Component) as any);
 
 export default withJsonFormsExpandPanelProps(ExpandPanelRenderer);

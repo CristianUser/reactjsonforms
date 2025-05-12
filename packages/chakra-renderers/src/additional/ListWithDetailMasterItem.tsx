@@ -26,8 +26,8 @@ import { StatePropsOfMasterItem } from '@reactjsonforms/core';
 import { withJsonFormsMasterListItemProps } from '@reactjsonforms/react';
 import React, { useMemo } from 'react';
 import { Avatar, Flex, IconButton, Text } from '@chakra-ui/react';
-import { DeleteIcon } from '@chakra-ui/icons';
 import { Tooltip } from '../components/ui/tooltip';
+import { LuTrash2 } from 'react-icons/lu';
 
 const ListWithDetailMasterItem = ({
   index,
@@ -65,7 +65,7 @@ const ListWithDetailMasterItem = ({
           onClick={removeItem(path, index)}
           aria-label={translations.removeAriaLabel || ''}
         >
-          <DeleteIcon />
+          <LuTrash2 />
         </IconButton>
       </Tooltip>
     </Flex>

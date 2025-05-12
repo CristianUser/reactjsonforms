@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Flex, Text } from '@chakra-ui/react';
-import { InfoIcon } from '@chakra-ui/icons';
+import { Flex, Icon, Text } from '@chakra-ui/react';
+import { LuInfo } from 'react-icons/lu';
 
 type NoDataProps = {
   title: string;
@@ -17,7 +17,9 @@ const NoData = (props: NoDataProps) => {
       justifyContent='center'
       alignItems='center'
     >
-      <Box as={InfoIcon} fontSize='5xl' color='gray.500' mb='2' />
+      <Icon fontSize='5xl' color='gray.500' mb='2'>
+        <LuInfo />
+      </Icon>
       <Text fontSize='2xl' fontWeight='bold' color='gray.500'>
         {title}
       </Text>

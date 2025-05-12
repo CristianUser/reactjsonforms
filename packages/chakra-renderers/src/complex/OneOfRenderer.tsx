@@ -68,7 +68,6 @@ const OneOfRenderer = ({
   data,
 }: CombinatorRendererProps) => {
   const { open, onOpen, onClose } = useDisclosure();
-  const cancelRef = React.useRef();
   const [selectedIndex, setSelectedIndex] = useState(indexOfFittingSchema || 0);
   const [newSelectedIndex, setNewSelectedIndex] = useState(0);
   const oneOfRenderInfos = createCombinatorRenderInfos(

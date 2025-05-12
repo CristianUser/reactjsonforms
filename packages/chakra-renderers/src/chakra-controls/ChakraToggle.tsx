@@ -26,12 +26,9 @@
 import React from 'react';
 import { CellProps, WithClassname } from '@reactjsonforms/core';
 import { Switch } from '@chakra-ui/react';
-import merge from 'lodash/merge';
 
 export const ChakraToggle = React.memo((props: CellProps & WithClassname) => {
-  const { data, className, enabled, uischema, path, handleChange, config } =
-    props;
-  const appliedUiSchemaOptions = merge({}, config, uischema.options);
+  const { data, className, enabled, path, handleChange } = props;
   const checked = !!data;
 
   return (

@@ -25,8 +25,8 @@
 import React from 'react';
 
 import { Avatar, Float } from '@chakra-ui/react';
-import { WarningIcon } from '@chakra-ui/icons';
 import { Tooltip } from '../components/ui/tooltip';
+import { PiWarningCircle } from 'react-icons/pi';
 
 export interface ValidationProps {
   errorMessages: string;
@@ -40,7 +40,7 @@ const ValidationIcon: React.FC<ValidationProps> = ({ errorMessages, id }) => {
       <Tooltip id={id} content={errorMessages}>
         <Avatar.Root>
           <Avatar.Icon>
-            <WarningIcon />
+            <PiWarningCircle />
           </Avatar.Icon>
           <Float placement='bottom-end' offsetX='1' offsetY='1'>
             {errorCount}

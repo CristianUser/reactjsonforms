@@ -25,22 +25,11 @@
 */
 import React from 'react';
 import { CellProps, WithClassname } from '@reactjsonforms/core';
-import { Checkbox, Text } from '@chakra-ui/react';
-import merge from 'lodash/merge';
+import { Checkbox } from '@chakra-ui/react';
 
 export const ChakraCheckbox = React.memo(
   (props: CellProps & WithClassname & { label: string }) => {
-    const {
-      data,
-      className,
-      enabled,
-      uischema,
-      path,
-      handleChange,
-      config,
-      label,
-    } = props;
-    const appliedUiSchemaOptions = merge({}, config, uischema.options);
+    const { data, className, enabled, path, handleChange, label } = props;
     const checked = !!data;
 
     return (

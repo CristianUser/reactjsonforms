@@ -29,14 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
-import {
-  Flex,
-  Field.Label,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-} from '@chakra-ui/react';
+import { Flex, Field, Slider } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -46,19 +39,22 @@ export const SliderCell = (props: CellProps & VanillaRendererProps) => {
 
   return (
     <Flex>
-      <Slider
+      <Slider.Root
+        maxW='200px'
         max={schema.maximum}
         min={schema.minimum}
         value={data || schema.default}
-        onChange={(value) => handleChange(path, Number(value))}
+        onValueChange={(e) => handleChange(path, Number(e.value))}
         id={id}
         disabled={!enabled}
       >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
-      </Slider>
+        <Slider.Control>
+          <Slider.Track>
+            <Slider.Range />
+          </Slider.Track>
+          <Slider.Thumbs />
+        </Slider.Control>
+      </Slider.Root>
       <Field.Label style={{ marginLeft: '0.5em' }}>
         {data || schema.default}
       </Field.Label>

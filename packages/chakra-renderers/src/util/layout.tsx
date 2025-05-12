@@ -37,7 +37,7 @@ import {
   OwnPropsOfRenderer,
 } from '@reactjsonforms/core';
 import { JsonFormsDispatch, useJsonForms } from '@reactjsonforms/react';
-import { Box, Stack } from '@chakra-ui/react';
+import { Box, Fieldset, Stack } from '@chakra-ui/react';
 
 export const renderLayoutElements = (
   elements: UISchemaElement[],
@@ -80,14 +80,16 @@ export const LayoutRenderer = ({
   } else {
     return (
       <Stack direction={direction} w='100%'>
-        {renderLayoutElements(
-          elements,
-          schema as JsonSchema,
-          path as string,
-          enabled as boolean,
-          renderers,
-          cells
-        )}
+        <Fieldset.Root>
+          {renderLayoutElements(
+            elements,
+            schema as JsonSchema,
+            path as string,
+            enabled as boolean,
+            renderers,
+            cells
+          )}
+        </Fieldset.Root>
       </Stack>
     );
   }

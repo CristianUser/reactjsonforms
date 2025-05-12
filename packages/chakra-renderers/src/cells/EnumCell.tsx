@@ -34,7 +34,7 @@ import {
   withJsonFormsEnumCellProps,
   withTranslateProps,
 } from '@reactjsonforms/react';
-import { Select } from '@chakra-ui/react';
+import { NativeSelect } from '@chakra-ui/react';
 import { i18nDefaults, withVanillaEnumCellProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 
@@ -58,34 +58,32 @@ export const EnumCell = (
     [t, schema, uischema, path]
   );
   return (
-    <Select
+    <NativeSelect.Root
       className={className}
       id={id}
       disabled={!enabled}
-      autoFocus={uischema.options && uischema.options.focus}
-      value={data || ''}
-      onChange={(ev) =>
-        handleChange(
-          path,
-          ev.target.selectedIndex === 0 ? undefined : ev.target.value
-        )
-      }
+      // autoFocus={appliedUiSchemaOptions.focus}
     >
-      {[
+      <NativeSelect.Field
+        value={data || ''}
+        onChange={(ev) =>
+          handleChange(
+            path,
+            ev.currentTarget.value == '0' ? undefined : ev.currentTarget.value
+          )
+        }
+      >
         <option value={''} key={'jsonforms.enum.none'}>
           {noneOptionLabel}
-        </option>,
-      ].concat(
-        options &&
-          options.map((optionValue) => (
-            <option
-              value={optionValue.value}
-              label={optionValue.label}
-              key={optionValue.value}
-            />
-          ))
-      )}
-    </Select>
+        </option>
+        ,
+        {options.map((optionValue) => (
+          <option value={optionValue.value} key={optionValue.value}>
+            {optionValue.label}
+          </option>
+        ))}
+      </NativeSelect.Field>
+    </NativeSelect.Root>
   );
 };
 /**

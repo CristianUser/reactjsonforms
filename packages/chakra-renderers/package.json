@@ -54,20 +54,18 @@
     "customization"
   ],
   "peerDependencies": {
-    "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "2.7.1",
-    "@chakra-ui/system": "^2.5.1",
     "@emotion/react": "^11.5.0",
     "@reactjsonforms/core": "^4.0.0-alpha.0",
     "@reactjsonforms/react": "^4.0.0-alpha.0"
   },
   "devDependencies": {
+    "next-themes": "^0.4.6",
+    "react-icons": "^5.5.0",
     "@cfaester/enzyme-adapter-react-18": "^0.7.0",
     "@chakra-ui/cli": "^3.17.0",
-    "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "3.17.0",
-    "@chakra-ui/system": "^2.5.1",
-    "@emotion/react": "^11.14.0",
+    "@emotion/react": "^11.5.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@reactjsonforms/core": "workspace:*",
     "@reactjsonforms/react": "workspace:*",
@@ -75,7 +73,7 @@
     "@rollup/plugin-json": "^5.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.1",
-    "@rollup/plugin-typescript": "^11.1.2",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@types/enzyme": "^3.10.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -108,7 +106,7 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.6.0",
     "typedoc": "^0.24.8",
-    "typescript": "4.9.3",
+    "typescript": "5.3.3",
     "webpack": "^5.88.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"

@@ -29,13 +29,7 @@ import {
   RankedTester,
   rankWith,
 } from '@reactjsonforms/core';
-import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from '@chakra-ui/react';
+import { NumberInput } from '@chakra-ui/react';
 import { withJsonFormsCellProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaCellProps } from '../util/index';
@@ -47,21 +41,18 @@ export const IntegerCell = (props: CellProps & VanillaRendererProps) => {
   const { data, id, enabled, uischema, path, handleChange } = props;
 
   return (
-    <NumberInput
+    <NumberInput.Root
       inputMode='numeric'
       step={1}
       value={data ?? ''}
-      onChange={(value) => handleChange(path, toNumber(value))}
+      onValueChange={(e) => handleChange(path, toNumber(e.value))}
       id={id}
       disabled={!enabled}
       focusInputOnChange={uischema.options && uischema.options.focus}
     >
-      <NumberInputField />
-      <NumberInputStepper>
-        <NumberIncrementStepper />
-        <NumberDecrementStepper />
-      </NumberInputStepper>
-    </NumberInput>
+      <NumberInput.Control />
+      <NumberInput.Input />
+    </NumberInput.Root>
   );
 };
 /**

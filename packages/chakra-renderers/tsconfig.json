@@ -3,7 +3,9 @@
   "compilerOptions": {
     "outDir": "lib",
     "sourceMap": true,
-    "strict": false
+    "strict": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
   },
   "exclude": ["node_modules"],
   "files": ["./src/index.ts"]

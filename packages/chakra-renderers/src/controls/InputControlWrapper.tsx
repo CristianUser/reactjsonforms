@@ -29,13 +29,7 @@ import {
   isDescriptionHidden,
 } from '@reactjsonforms/core';
 import { Control } from '@reactjsonforms/react';
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  FormHelperText,
-  Text,
-} from '@chakra-ui/react';
+import { Field } from '@chakra-ui/react';
 import merge from 'lodash/merge';
 import Hidden from '../util/Hidden';
 
@@ -43,7 +37,7 @@ export interface WithInput {
   input: any;
 }
 
-export abstract class InputControlWrapper extends Control<
+export class InputControlWrapper extends Control<
   ControlProps & WithInput,
   ControlState
 > {
@@ -74,32 +68,28 @@ export abstract class InputControlWrapper extends Control<
 
     return (
       <Hidden hidden={!visible}>
-        <FormControl
-          isRequired={required}
-          isInvalid={!isValid}
-          style={style}
-          id={id}
-        >
-          <FormLabel
-            requiredIndicator={
-              <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
-                {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
-              </Text>
-            }
+        <>
+          <Field.Root
+            required={required}
+            invalid={!isValid}
+            style={style}
+            id={id}
           >
-            {label}
-          </FormLabel>
-          <InnerComponent
-            {...this.props}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-            id={id + '-input'}
-            isValid={isValid}
-            visible={visible}
-          />
-          <FormHelperText>{showDescription ? description : ''}</FormHelperText>
-          <FormErrorMessage>{errors}</FormErrorMessage>
-        </FormControl>
+            <Field.Label>{label}</Field.Label>
+            <InnerComponent
+              {...this.props}
+              onFocus={this.onFocus}
+              onBlur={this.onBlur}
+              id={id + '-input'}
+              isValid={isValid}
+              visible={visible}
+            />
+            <Field.HelperText>
+              {showDescription ? description : ''}
+            </Field.HelperText>
+            <Field.ErrorText>{errors}</Field.ErrorText>
+          </Field.Root>
+        </>
       </Hidden>
     );
   }

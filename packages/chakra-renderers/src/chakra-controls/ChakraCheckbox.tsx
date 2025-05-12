@@ -44,17 +44,21 @@ export const ChakraCheckbox = React.memo(
     const checked = !!data;
 
     return (
-      <Checkbox
-        isChecked={checked}
-        onChange={(ev) => handleChange(path, ev.target.checked)}
+      <Checkbox.Root
+        checked={checked}
+        onCheckedChange={(ev) => handleChange(path, ev.checked)}
         className={className}
-        isDisabled={!enabled}
-        autoFocus={!!appliedUiSchemaOptions.focus}
+        disabled={!enabled}
+        // autoFocus={!!appliedUiSchemaOptions.focus}
       >
-        <Text fontSize='md' fontWeight='medium'>
+        <Checkbox.HiddenInput />
+        <Checkbox.Control>
+          <Checkbox.Indicator />
+        </Checkbox.Control>
+        <Checkbox.Label fontSize='md' fontWeight='medium'>
           {label}
-        </Text>
-      </Checkbox>
+        </Checkbox.Label>
+      </Checkbox.Root>
     );
   }
 );

@@ -4,8 +4,9 @@ import React from 'react';
 import { ArrayTranslations } from '@reactjsonforms/core';
 import ValidationIcon from '../complex/ValidationIcon';
 import PageHeader from '../util/PageHeader';
-import { Box, Flex, Heading, IconButton, Tooltip } from '@chakra-ui/react';
+import { Box, Flex, Heading, IconButton } from '@chakra-ui/react';
 import _ from 'lodash';
+import { Tooltip } from '../components/ui/tooltip';
 export interface ArrayLayoutToolbarProps {
   translations: ArrayTranslations;
   label: string;
@@ -41,12 +42,13 @@ export const ArrayLayoutToolbar = React.memo(
       <PageHeader
         title={renderTitle(label, errors)}
         extra={
-          <Tooltip key='1' label={translations.addTooltip}>
+          <Tooltip key='1' content={translations.addTooltip}>
             <IconButton
               aria-label={translations.addAriaLabel || ''}
               onClick={addItem(path, createDefault())}
-              icon={<AddIcon />}
-            />
+            >
+              <AddIcon />
+            </IconButton>
           </Tooltip>
         }
       />

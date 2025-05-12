@@ -25,17 +25,14 @@ import {
 } from '@reactjsonforms/core';
 import { ArrowUpIcon, ArrowDownIcon, DeleteIcon } from '@chakra-ui/icons';
 import {
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
+  Accordion,
   Avatar,
   ButtonGroup,
   Flex,
   IconButton,
   Text,
-  Tooltip,
 } from '@chakra-ui/react';
-
+import { Tooltip } from '../components/ui/tooltip';
 import Hidden from '../util/Hidden';
 
 interface OwnPropsOfExpandPanel {
@@ -122,29 +119,32 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
   const getExtra = () => {
     return (
       <ButtonGroup>
-        <Tooltip key='1' label='Move up'>
+        <Tooltip key='1' content='Move up'>
           <IconButton
             aria-label={translations.upAriaLabel || ''}
-            icon={<ArrowUpIcon />}
             onClick={moveUp(path, index)}
             disabled={!enableMoveUp}
-          />
+          >
+            <ArrowUpIcon />
+          </IconButton>
         </Tooltip>
-        <Tooltip key='2' label='Move down'>
+        <Tooltip key='2' content='Move down'>
           <IconButton
             aria-label={translations.downAriaLabel || ''}
-            icon={<ArrowDownIcon />}
             onClick={moveDown(path, index)}
             disabled={!enableMoveDown}
-          />
+          >
+            <ArrowDownIcon />
+          </IconButton>
         </Tooltip>
         {appliedUiSchemaOptions.showSortButtons ? (
-          <Tooltip key='3' label='Delete'>
+          <Tooltip key='3' content='Delete'>
             <IconButton
               aria-label={translations.removeAriaLabel || ''}
               onClick={removeItems(path, [index])}
-              icon={<DeleteIcon />}
-            />
+            >
+              <DeleteIcon />
+            </IconButton>
           </Tooltip>
         ) : null}
       </ButtonGroup>
@@ -153,26 +153,27 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
 
   return (
     <>
-      <AccordionItem key={key}>
-        <AccordionButton>
+      <Accordion.Item key={key} value={key.toString()}>
+        <Accordion.ItemTrigger>
           <Flex justifyContent='space-between' width='100%'>
             <Flex alignItems='center'>
-              <Avatar
+              <Avatar.Root
                 as='h4'
                 size='sm'
                 me='2'
-                name={`${index + 1}`}
                 color='gray.800'
                 bgColor='gray.100'
-              />
+              >
+                <Avatar.Fallback name={`${index + 1}`} />
+              </Avatar.Root>
               <Hidden hidden={!childLabel}>
                 <Text>{childLabel}</Text>
               </Hidden>
             </Flex>
             {getExtra()}
           </Flex>
-        </AccordionButton>
-        <AccordionPanel pb={4}>
+        </Accordion.ItemTrigger>
+        <Accordion.ItemContent pb={4}>
           <JsonFormsDispatch
             schema={schema}
             uischema={foundUISchema}
@@ -181,8 +182,8 @@ const ExpandPanelRenderer = (props: ExpandPanelProps) => {
             renderers={renderers}
             cells={cells}
           />
-        </AccordionPanel>
-      </AccordionItem>
+        </Accordion.ItemContent>
+      </Accordion.Item>
     </>
   );
 };

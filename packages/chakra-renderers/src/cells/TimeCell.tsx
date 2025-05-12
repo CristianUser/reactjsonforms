@@ -61,7 +61,7 @@ export const TimeCell = (props: CellProps & VanillaRendererProps) => {
       }
       className={className}
       id={id}
-      isDisabled={!enabled}
+      disabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
     />
   );

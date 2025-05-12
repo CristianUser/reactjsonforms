@@ -38,13 +38,7 @@ import {
   DispatchCell,
   withJsonFormsControlProps,
 } from '@reactjsonforms/react';
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  FormHelperText,
-  Text,
-} from '@chakra-ui/react';
+import { Field } from '@chakra-ui/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
@@ -92,32 +86,26 @@ export class InputControl extends Control<
       return null;
     } else {
       return (
-        <FormControl
+        <Field.Root
           hidden={!visible}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
-          isRequired={required}
+          required={required}
           id={id}
-          isInvalid={!isValid}
+          invalid={!isValid}
         >
-          <FormLabel
-            requiredIndicator={
-              <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
-                {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
-              </Text>
-            }
-          >
-            {label}
-          </FormLabel>
+          <Field.Label>{label}</Field.Label>
           <DispatchCell
             uischema={uischema}
             schema={schema}
             path={path}
             enabled={enabled}
           />
-          <FormHelperText>{showDescription ? description : ''}</FormHelperText>
-          <FormErrorMessage>{errors}</FormErrorMessage>
-        </FormControl>
+          <Field.HelperText>
+            {showDescription ? description : ''}
+          </Field.HelperText>
+          <Field.ErrorText>{errors}</Field.ErrorText>
+        </Field.Root>
       );
     }
   }

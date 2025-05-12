@@ -25,7 +25,7 @@
 import React, { useMemo } from 'react';
 import { EnumCellProps, WithClassname } from '@reactjsonforms/core';
 
-import { Select } from '@chakra-ui/react';
+import { NativeSelect } from '@chakra-ui/react';
 import merge from 'lodash/merge';
 import { i18nDefaults } from '../util';
 import { TranslateProps } from '@reactjsonforms/react';
@@ -54,29 +54,66 @@ export const ChakraSelect = (
   );
 
   return (
-    <Select
-      className={className}
-      id={id}
-      isDisabled={!enabled}
-      autoFocus={appliedUiSchemaOptions.focus}
-      value={data || ''}
-      onChange={(ev) =>
-        handleChange(
-          path,
-          ev.target.selectedIndex === 0 ? undefined : ev.target.value
-        )
-      }
-      style={selectStyle}
-    >
-      <option value={''} key={'jsonforms.enum.none'}>
-        {noneOptionLabel}
-      </option>
-      ,
-      {options.map((optionValue) => (
-        <option value={optionValue.value} key={optionValue.value}>
-          {optionValue.label}
-        </option>
-      ))}
-    </Select>
+    <>
+      {/* <Select.Root
+        className={className}
+        id={id}
+        disabled={!enabled}
+        // autoFocus={appliedUiSchemaOptions.focus}
+        value={data || ''}
+        collection={options as any}
+        onValueChange={(e) => handleChange(path, e.value)}
+      >
+        <Select.HiddenSelect />
+        <Select.Control>
+          <Select.Trigger>
+            <Select.ValueText placeholder='Select framework' />
+          </Select.Trigger>
+          <Select.IndicatorGroup>
+            <Select.Indicator />
+          </Select.IndicatorGroup>
+        </Select.Control>
+        <Portal>
+          <Select.Positioner>
+            <Select.Content>
+              {options.map((optionValue) => (
+                <Select.Item item={optionValue} key={optionValue.value}>
+                  {optionValue.label}
+                  <Select.ItemIndicator />
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select.Positioner>
+        </Portal>
+      </Select.Root> */}
+      <NativeSelect.Root
+        className={className}
+        id={id}
+        disabled={!enabled}
+        // autoFocus={appliedUiSchemaOptions.focus}
+
+        style={selectStyle}
+      >
+        <NativeSelect.Field
+          value={data || ''}
+          onChange={(ev) =>
+            handleChange(
+              path,
+              ev.currentTarget.value == '0' ? undefined : ev.currentTarget.value
+            )
+          }
+        >
+          <option value={''} key={'jsonforms.enum.none'}>
+            {noneOptionLabel}
+          </option>
+          ,
+          {options.map((optionValue) => (
+            <option value={optionValue.value} key={optionValue.value}>
+              {optionValue.label}
+            </option>
+          ))}
+        </NativeSelect.Field>
+      </NativeSelect.Root>
+    </>
   );
 };

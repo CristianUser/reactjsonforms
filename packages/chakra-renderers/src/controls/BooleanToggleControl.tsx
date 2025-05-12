@@ -33,13 +33,7 @@ import {
   rankWith,
 } from '@reactjsonforms/core';
 import { withJsonFormsControlProps } from '@reactjsonforms/react';
-import {
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  Text,
-} from '@chakra-ui/react';
+import { Field, Text } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
 import { ChakraToggle } from '../chakra-controls/ChakraToggle';
 import { merge } from 'lodash';
@@ -65,16 +59,8 @@ export const BooleanToggleControl = ({
 
   return (
     <Hidden hidden={!visible}>
-      <FormControl id={id} isInvalid={!isValid} isRequired={required}>
-        <FormLabel
-          requiredIndicator={
-            <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
-              {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
-            </Text>
-          }
-        >
-          {label}
-        </FormLabel>
+      <Field.Root id={id} invalid={!isValid} required={required}>
+        <Field.Label>{label}</Field.Label>
         <ChakraToggle
           id={`${id}-input`}
           isValid={isValid}
@@ -89,9 +75,9 @@ export const BooleanToggleControl = ({
           errors={errors}
           config={config}
         />
-        <FormHelperText>{description}</FormHelperText>
-        <FormErrorMessage>{errors}</FormErrorMessage>
-      </FormControl>
+        <Field.HelperText>{description}</Field.HelperText>
+        <Field.ErrorText>{errors}</Field.ErrorText>
+      </Field.Root>
     </Hidden>
   );
 };

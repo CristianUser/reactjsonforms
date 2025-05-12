@@ -31,7 +31,7 @@ import {
 } from '@reactjsonforms/core';
 import {
   Flex,
-  FormLabel,
+  Field.Label,
   Slider,
   SliderTrack,
   SliderFilledTrack,
@@ -52,16 +52,16 @@ export const SliderCell = (props: CellProps & VanillaRendererProps) => {
         value={data || schema.default}
         onChange={(value) => handleChange(path, Number(value))}
         id={id}
-        isDisabled={!enabled}
+        disabled={!enabled}
       >
         <SliderTrack>
           <SliderFilledTrack />
         </SliderTrack>
         <SliderThumb />
       </Slider>
-      <FormLabel style={{ marginLeft: '0.5em' }}>
+      <Field.Label style={{ marginLeft: '0.5em' }}>
         {data || schema.default}
-      </FormLabel>
+      </Field.Label>
     </Flex>
   );
 };

@@ -35,12 +35,18 @@ export const ChakraToggle = React.memo((props: CellProps & WithClassname) => {
   const checked = !!data;
 
   return (
-    <Switch
-      isChecked={checked}
-      onChange={(ev) => handleChange(path, ev.target.checked)}
+    <Switch.Root
+      checked={checked}
+      onCheckedChange={(ev) => handleChange(path, ev.checked)}
       className={className}
-      isDisabled={!enabled}
-      autoFocus={!!appliedUiSchemaOptions.focus}
-    />
+      disabled={!enabled}
+      // autoFocus={!!appliedUiSchemaOptions.focus}
+    >
+      <Switch.HiddenInput />
+      <Switch.Control>
+        <Switch.Thumb />
+      </Switch.Control>
+      <Switch.Label />
+    </Switch.Root>
   );
 });

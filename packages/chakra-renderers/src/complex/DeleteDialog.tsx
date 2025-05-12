@@ -25,15 +25,7 @@
 */
 import React from 'react';
 import { ArrayTranslations } from '@reactjsonforms/core';
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-  Button,
-} from '@chakra-ui/react';
+import { Dialog, Button, Portal, CloseButton } from '@chakra-ui/react';
 
 export interface DeleteDialogProps {
   open: boolean;
@@ -49,35 +41,39 @@ export interface WithDeleteDialogSupport {
 
 export const DeleteDialog = React.memo(
   ({ open, onClose, onConfirm, onCancel, translations }: DeleteDialogProps) => {
-    const cancelRef = React.useRef(null);
+    // const cancelRef = React.useRef(null);
 
     return (
-      <AlertDialog
-        isOpen={open}
-        leastDestructiveRef={cancelRef}
-        onClose={onClose}
+      <Dialog.Root
+        size={'xs'}
+        open={open}
+        // leastDestructiveRef={cancelRef}
+        onOpenChange={onClose}
       >
-        <AlertDialogOverlay>
-          <AlertDialogContent>
-            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-              {translations.deleteDialogTitle}
-            </AlertDialogHeader>
-
-            <AlertDialogBody>
-              {translations.deleteDialogMessage}
-            </AlertDialogBody>
-
-            <AlertDialogFooter>
-              <Button ref={cancelRef} onClick={onCancel}>
-                {translations.deleteDialogDecline}
-              </Button>
-              <Button colorScheme='red' onClick={onConfirm} ml={3}>
-                {translations.deleteDialogAccept}
-              </Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogOverlay>
-      </AlertDialog>
+        <Portal>
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Header fontSize='lg' fontWeight='bold'>
+                <Dialog.Title>{translations.deleteDialogTitle}</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body>{translations.deleteDialogMessage}</Dialog.Body>
+              <Dialog.Footer>
+                <Dialog.ActionTrigger asChild>
+                  <Button variant='outline' onClick={onCancel}>
+                    {translations.deleteDialogDecline}
+                  </Button>
+                </Dialog.ActionTrigger>
+                <Button onClick={onConfirm}>
+                  {translations.deleteDialogAccept}
+                </Button>
+              </Dialog.Footer>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size='sm' />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     );
   }
 );

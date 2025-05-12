@@ -25,8 +25,9 @@
 import { StatePropsOfMasterItem } from '@reactjsonforms/core';
 import { withJsonFormsMasterListItemProps } from '@reactjsonforms/react';
 import React, { useMemo } from 'react';
-import { Avatar, Flex, IconButton, Text, Tooltip } from '@chakra-ui/react';
+import { Avatar, Flex, IconButton, Text } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
+import { Tooltip } from '../components/ui/tooltip';
 
 const ListWithDetailMasterItem = ({
   index,
@@ -54,21 +55,18 @@ const ListWithDetailMasterItem = ({
       w='100%'
     >
       <Flex alignItems='center'>
-        <Avatar
-          size={'sm'}
-          bgColor='gray.200'
-          me='2'
-          {...avatarStyle}
-          name={`${index + 1}`}
-        />
+        <Avatar.Root size={'sm'} bgColor='gray.200' me='2' {...avatarStyle}>
+          <Avatar.Fallback>{`${index + 1}`}</Avatar.Fallback>
+        </Avatar.Root>
         <Text>{childLabel}</Text>
       </Flex>
-      <Tooltip label={translations.removeTooltip} key='action_1'>
+      <Tooltip content={translations.removeTooltip} key='action_1'>
         <IconButton
-          icon={<DeleteIcon />}
           onClick={removeItem(path, index)}
           aria-label={translations.removeAriaLabel || ''}
-        />
+        >
+          <DeleteIcon />
+        </IconButton>
       </Tooltip>
     </Flex>
   );

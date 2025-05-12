@@ -58,7 +58,7 @@ export const NumberFormatCell = (
       onChange={onChange}
       className={className}
       id={id}
-      isDisabled={!enabled}
+      disabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
       maxLength={
         uischema.options && uischema.options.restrict ? maxLength : undefined

@@ -39,7 +39,7 @@ import {
 import range from 'lodash/range';
 import merge from 'lodash/merge';
 import React, { useCallback, useMemo, useState } from 'react';
-import { Box, Divider, Flex, VStack } from '@chakra-ui/react';
+import { Box, Flex, Separator, VStack } from '@chakra-ui/react';
 
 import NoData from '../util/NoData';
 import { ArrayLayoutToolbar } from '../layouts/ArrayToolbar';
@@ -114,7 +114,7 @@ export const ListWithDetailRenderer = ({
         />
         <Flex direction='row' gap='2'>
           <Box flex={1}>
-            <VStack w='100%' divider={<Divider />}>
+            <VStack w='100%' separator={<Separator />}>
               {range(data).map((_item, index) => (
                 <ListWithDetailMasterItem
                   translations={translations}

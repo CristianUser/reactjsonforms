@@ -46,7 +46,7 @@ import {
   withAjvProps,
 } from '../util/layout';
 import Hidden from '../util/Hidden';
-import { Tab, TabList, Tabs } from '@chakra-ui/react';
+import { Tabs } from '@chakra-ui/react';
 
 export const isSingleLevelCategorization: Tester = and(
   uiTypeIs('Categorization'),
@@ -119,14 +119,20 @@ export class CategorizationLayoutRenderer extends RendererComponent<
     );
     return (
       <Hidden hidden={!visible}>
-        <Tabs index={value} onChange={this.handleChange}>
-          <TabList mb='4'>
+        <Tabs.Root defaultValue={value.toString()}>
+          <Tabs.List>
             {categories.map((e: Category, idx: number) => (
-              <Tab key={idx}>{e.label}</Tab>
+              <Tabs.Trigger
+                key={idx}
+                value={idx.toString()}
+                onClick={() => this.handleChange(idx)}
+              >
+                {e.label}
+              </Tabs.Trigger>
             ))}
-          </TabList>
+          </Tabs.List>
           <LayoutRenderer {...childProps} />
-        </Tabs>
+        </Tabs.Root>
       </Hidden>
     );
   }

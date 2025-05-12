@@ -31,11 +31,7 @@ import {
   rankWith,
 } from '@reactjsonforms/core';
 import { withJsonFormsControlProps } from '@reactjsonforms/react';
-import {
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-} from '@chakra-ui/react';
+import { Field } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
 import { ChakraCheckbox } from '../chakra-controls/ChakraCheckbox';
 
@@ -60,15 +56,15 @@ export const BooleanCheckboxControl = ({
 
   return (
     <Hidden hidden={!visible}>
-      <FormControl id={id} isInvalid={!isValid} isRequired={required} my='12px'>
-        {/* <FormLabel
+      <Field.Root id={id} invalid={!isValid} required={required} my='12px'>
+        {/* <Field.Label
           requiredIndicator={
             <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
               {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
             </Text>
           }
         >
-        </FormLabel> */}
+        </Field.Label> */}
         <ChakraCheckbox
           id={`${id}-input`}
           isValid={isValid}
@@ -84,9 +80,9 @@ export const BooleanCheckboxControl = ({
           errors={errors}
           config={config}
         />
-        <FormHelperText>{description}</FormHelperText>
-        <FormErrorMessage>{errors}</FormErrorMessage>
-      </FormControl>
+        <Field.HelperText>{description}</Field.HelperText>
+        <Field.ErrorText>{errors}</Field.ErrorText>
+      </Field.Root>
     </Hidden>
   );
 };

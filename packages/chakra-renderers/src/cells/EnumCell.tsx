@@ -61,7 +61,7 @@ export const EnumCell = (
     <Select
       className={className}
       id={id}
-      isDisabled={!enabled}
+      disabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
       value={data || ''}
       onChange={(ev) =>

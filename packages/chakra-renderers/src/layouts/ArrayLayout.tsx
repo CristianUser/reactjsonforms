@@ -92,7 +92,7 @@ export class ArrayLayout extends React.PureComponent<
           createDefault={this.innerCreateDefaultValue}
         />
         {data > 0 ? (
-          <Accordion allowMultiple>
+          <Accordion.Root multiple>
             {map(range(data), (index) => {
               return (
                 <ExpandPanelRenderer
@@ -115,7 +115,7 @@ export class ArrayLayout extends React.PureComponent<
                 />
               );
             })}
-          </Accordion>
+          </Accordion.Root>
         ) : (
           <NoData title='No data' />
         )}

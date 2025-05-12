@@ -53,7 +53,7 @@ export const IntegerCell = (props: CellProps & VanillaRendererProps) => {
       value={data ?? ''}
       onChange={(value) => handleChange(path, toNumber(value))}
       id={id}
-      isDisabled={!enabled}
+      disabled={!enabled}
       focusInputOnChange={uischema.options && uischema.options.focus}
     >
       <NumberInputField />

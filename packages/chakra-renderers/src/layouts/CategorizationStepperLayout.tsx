@@ -40,19 +40,7 @@ import {
   RendererComponent,
   withJsonFormsLayoutProps,
 } from '@reactjsonforms/react';
-import {
-  Button,
-  Stepper,
-  Step,
-  StepTitle,
-  Box,
-  StepIcon,
-  StepIndicator,
-  StepNumber,
-  StepSeparator,
-  StepStatus,
-  ButtonGroup,
-} from '@chakra-ui/react';
+import { Button, Steps, Box, ButtonGroup } from '@chakra-ui/react';
 import {
   AjvProps,
   LayoutRenderer,
@@ -79,6 +67,8 @@ export interface CategorizationStepperLayoutRendererProps
     AjvProps {
   data: any;
 }
+
+const StepsItem = Steps.Item as any;
 
 export class CategorizationStepperLayoutRenderer extends RendererComponent<
   CategorizationStepperLayoutRendererProps,
@@ -121,26 +111,22 @@ export class CategorizationStepperLayoutRenderer extends RendererComponent<
     );
     return (
       <Hidden hidden={!visible}>
-        <Stepper index={activeCategory} mb='4'>
-          {categories.map((item: Category | any, idx: number) => (
-            <Step
-              key={`${item.label}_${idx}`}
-              onClick={() => this.handleStep(idx)}
-            >
-              <StepIndicator>
-                <StepStatus
-                  complete={<StepIcon />}
-                  incomplete={<StepNumber />}
-                  active={<StepNumber />}
-                />
-              </StepIndicator>
-              <Box flexShrink='0'>
-                <StepTitle>{item.label}</StepTitle>
-              </Box>
-              <StepSeparator />
-            </Step>
-          ))}
-        </Stepper>
+        <Steps.Root defaultValue={activeCategory} mb='4'>
+          <Steps.List>
+            {categories.map((item: Category | any, idx: number) => (
+              <StepsItem
+                key={`${item.label}_${idx}`}
+                index={idx}
+                title={item.label}
+                onClick={() => this.handleStep(idx)}
+              >
+                <Steps.Indicator />
+                <Steps.Title>{item.label}</Steps.Title>
+                <Steps.Separator />
+              </StepsItem>
+            ))}
+          </Steps.List>
+        </Steps.Root>
         <div>
           <LayoutRenderer {...childProps} />
         </div>
@@ -148,14 +134,14 @@ export class CategorizationStepperLayoutRenderer extends RendererComponent<
           <ButtonGroup w='100%' margin='4' justifyContent='end'>
             <Button
               color='secondary'
-              isDisabled={activeCategory <= 0}
+              disabled={activeCategory <= 0}
               onClick={() => this.handleStep(activeCategory - 1)}
             >
               Previous
             </Button>
             <Button
               color='primary'
-              isDisabled={activeCategory >= categories.length - 1}
+              disabled={activeCategory >= categories.length - 1}
               onClick={() => this.handleStep(activeCategory + 1)}
             >
               Next

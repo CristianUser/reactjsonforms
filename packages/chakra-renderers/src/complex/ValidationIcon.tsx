@@ -24,8 +24,9 @@
 */
 import React from 'react';
 
-import { Tooltip, Avatar, AvatarBadge } from '@chakra-ui/react';
+import { Avatar, Float } from '@chakra-ui/react';
 import { WarningIcon } from '@chakra-ui/icons';
+import { Tooltip } from '../components/ui/tooltip';
 
 export interface ValidationProps {
   errorMessages: string;
@@ -36,12 +37,15 @@ const ValidationIcon: React.FC<ValidationProps> = ({ errorMessages, id }) => {
   const errorCount = errorMessages && errorMessages.split('\n').length;
   return (
     !!errorCount && (
-      <Tooltip id={id} title={errorMessages}>
-        <Avatar icon={<WarningIcon />}>
-          <AvatarBadge bgColor='red.400' boxSize='1.25em'>
+      <Tooltip id={id} content={errorMessages}>
+        <Avatar.Root>
+          <Avatar.Icon>
+            <WarningIcon />
+          </Avatar.Icon>
+          <Float placement='bottom-end' offsetX='1' offsetY='1'>
             {errorCount}
-          </AvatarBadge>
-        </Avatar>
+          </Float>
+        </Avatar.Root>
       </Tooltip>
     )
   );

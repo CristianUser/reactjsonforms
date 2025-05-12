@@ -47,18 +47,7 @@ import {
 } from '@reactjsonforms/react';
 import { withVanillaControlProps } from '../util';
 import type { VanillaRendererProps } from '../index';
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Table } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
 import PageHeader from '../util/PageHeader';
 import ValidationIcon from './ValidationIcon';
@@ -132,9 +121,9 @@ class TableArrayControl extends React.Component<
             }
           />
           <Box w='100%'>
-            <Table className={tableClass} variant='simple'>
-              <Thead>
-                <Tr>
+            <Table.Root className={tableClass}>
+              <Table.Header>
+                <Table.Row>
                   {schema.properties ? (
                     fpflow(
                       fpkeys,
@@ -142,23 +131,23 @@ class TableArrayControl extends React.Component<
                         (prop) => schema.properties[prop].type !== 'array'
                       ),
                       fpmap((prop) => (
-                        <Th key={prop}>
+                        <Table.ColumnHeader key={prop}>
                           {schema.properties[prop].title ?? fpstartCase(prop)}
-                        </Th>
+                        </Table.ColumnHeader>
                       ))
                     )(schema.properties)
                   ) : (
-                    <Th>Items</Th>
+                    <Table.ColumnHeader>Items</Table.ColumnHeader>
                   )}
-                  <Th>Valid</Th>
-                  <Th>&nbsp;</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
+                  <Table.ColumnHeader>Valid</Table.ColumnHeader>
+                  <Table.ColumnHeader>&nbsp;</Table.ColumnHeader>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
                 {!data || !Array.isArray(data) || data.length === 0 ? (
-                  <Tr>
-                    <Td>{translations.noDataMessage}</Td>
-                  </Tr>
+                  <Table.Row>
+                    <Table.Cell>{translations.noDataMessage}</Table.Cell>
+                  </Table.Row>
                 ) : (
                   data.map((_child, index) => {
                     const childPath = Paths.compose(path, `${index}`);
@@ -183,7 +172,7 @@ class TableArrayControl extends React.Component<
                       : validationClassName;
 
                     return (
-                      <Tr key={childPath}>
+                      <Table.Row key={childPath}>
                         {schema.properties ? (
                           fpflow(
                             fpkeys,
@@ -196,7 +185,7 @@ class TableArrayControl extends React.Component<
                                 prop.toString()
                               );
                               return (
-                                <Td key={childPropPath}>
+                                <Table.Cell key={childPropPath}>
                                   <DispatchCell
                                     schema={Resolve.schema(
                                       schema,
@@ -208,20 +197,22 @@ class TableArrayControl extends React.Component<
                                     )}
                                     path={childPath + '.' + prop}
                                   />
-                                </Td>
+                                </Table.Cell>
                               );
                             })
                           )(schema.properties)
                         ) : (
-                          <Td key={Paths.compose(childPath, index.toString())}>
+                          <Table.Cell
+                            key={Paths.compose(childPath, index.toString())}
+                          >
                             <DispatchCell
                               schema={schema}
                               uischema={createControlElement()}
                               path={childPath}
                             />
-                          </Td>
+                          </Table.Cell>
                         )}
-                        <Td>
+                        <Table.Cell>
                           {errorsPerEntry ? (
                             <span className={errorClassNames}>
                               {join(
@@ -232,8 +223,8 @@ class TableArrayControl extends React.Component<
                           ) : (
                             <span className={errorClassNames}>OK</span>
                           )}
-                        </Td>
-                        <Td>
+                        </Table.Cell>
+                        <Table.Cell>
                           <Button
                             aria-label={translations.removeAriaLabel}
                             onClick={() => {
@@ -246,13 +237,13 @@ class TableArrayControl extends React.Component<
                           >
                             {translations.removeTooltip}
                           </Button>
-                        </Td>
-                      </Tr>
+                        </Table.Cell>
+                      </Table.Row>
                     );
                   })
                 )}
-              </Tbody>
-            </Table>
+              </Table.Body>
+            </Table.Root>
           </Box>
         </Box>
       </Hidden>

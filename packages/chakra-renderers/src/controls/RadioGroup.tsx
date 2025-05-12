@@ -28,16 +28,7 @@ import {
   isDescriptionHidden,
   OwnPropsOfEnum,
 } from '@reactjsonforms/core';
-import {
-  Radio,
-  RadioGroup,
-  FormControl,
-  FormLabel,
-  FormHelperText,
-  FormErrorMessage,
-  HStack,
-  Text,
-} from '@chakra-ui/react';
+import { RadioGroup, Field, HStack } from '@chakra-ui/react';
 import type { VanillaRendererProps } from '../index';
 import merge from 'lodash/merge';
 
@@ -66,43 +57,39 @@ export const RadioGroupInput = ({
     appliedUiSchemaOptions.showUnfocusedDescription
   );
   return (
-    <FormControl
+    <Field.Root
       as='fieldset'
-      isInvalid={!isValid}
-      isDisabled={!enabled}
-      isRequired={required}
+      invalid={!isValid}
+      disabled={!enabled}
+      required={required}
       hidden={!visible}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
     >
-      <FormLabel
-        as='legend'
-        requiredIndicator={
-          <Text as='span' ms='0.5' color='blue.600' fontWeight='bold'>
-            {appliedUiSchemaOptions.hideRequiredAsterisk ? '' : '*'}
-          </Text>
-        }
+      <Field.Label as='legend'>{label}</Field.Label>
+
+      <RadioGroup.Root
+        name={id}
+        onValueChange={(e) => handleChange(path, e.value)}
       >
-        {label}
-      </FormLabel>
-      <RadioGroup name={id}>
-        <HStack spacing='8px'>
+        <HStack gap='8px'>
           {options &&
             options.map((option) => (
-              <Radio
+              <RadioGroup.Item
                 key={option.label}
                 value={option.value}
                 id={option.value}
-                isChecked={data === option.value}
-                onChange={(ev) => handleChange(path, ev.currentTarget.value)}
+                // checked={data === option.value}
               >
-                {option.label}
-              </Radio>
+                <RadioGroup.ItemHiddenInput />
+                <RadioGroup.ItemIndicator />
+                <RadioGroup.ItemText>{option.label}</RadioGroup.ItemText>
+              </RadioGroup.Item>
             ))}
         </HStack>
-      </RadioGroup>
-      <FormHelperText>{showDescription ? description : ''}</FormHelperText>
-      <FormErrorMessage>{errors}</FormErrorMessage>
-    </FormControl>
+      </RadioGroup.Root>
+      <Field.HelperText>{showDescription ? description : ''}</Field.HelperText>
+      <Field.ErrorText>{errors}</Field.ErrorText>
+    </Field.Root>
   );
 };

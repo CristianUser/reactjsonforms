@@ -33,7 +33,7 @@ import {
   withIncreasedRank,
 } from '@reactjsonforms/core';
 import { withJsonFormsLayoutProps } from '@reactjsonforms/react';
-import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react';
+import { Card, Heading } from '@chakra-ui/react';
 import { LayoutRenderer, LayoutRendererProps } from '../util/layout';
 
 export const groupTester: RankedTester = rankWith(1, uiTypeIs('Group'));
@@ -42,19 +42,19 @@ const GroupComponent = React.memo(
   ({ visible, enabled, uischema, ...props }: LayoutRendererProps) => {
     const groupLayout = uischema as GroupLayout;
     return (
-      <Card hidden={!visible} mb='10px' w='100%'>
-        <CardHeader>
+      <Card.Root hidden={!visible} mb='10px' w='100%'>
+        <Card.Header>
           <Heading size='md'>{groupLayout.label}</Heading>
-        </CardHeader>
-        <CardBody>
+        </Card.Header>
+        <Card.Body>
           <LayoutRenderer
             {...props}
             visible={visible}
             enabled={enabled}
             elements={groupLayout.elements}
           />
-        </CardBody>
-      </Card>
+        </Card.Body>
+      </Card.Root>
     );
   }
 );

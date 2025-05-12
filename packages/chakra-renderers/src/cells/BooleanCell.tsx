@@ -48,7 +48,7 @@ export const BooleanCell: FC<CellProps> = (
       onChange={(ev) => handleChange(path, ev.target.checked)}
       className={className}
       id={id}
-      isDisabled={!enabled}
+      disabled={!enabled}
       autoFocus={uischema.options && uischema.options.focus}
     >
       {label}

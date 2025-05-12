@@ -32,7 +32,7 @@ import {
 import { withJsonFormsLabelProps } from '@reactjsonforms/react';
 import type { VanillaRendererProps } from '../index';
 import { withVanillaControlProps } from '../util';
-import { FormLabel } from '@chakra-ui/react';
+import { Field } from '@chakra-ui/react';
 
 /**
  * Default tester for a label.
@@ -50,9 +50,9 @@ export const LabelRenderer: FunctionComponent<
   const isHidden = !visible;
 
   return (
-    <FormLabel hidden={isHidden} className={classNames}>
+    <Field.Label hidden={isHidden} className={classNames}>
       {text}
-    </FormLabel>
+    </Field.Label>
   );
 };
 

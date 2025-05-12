@@ -16,13 +16,7 @@ import {
 import { withJsonFormsMultiEnumProps } from '@reactjsonforms/react';
 
 import { startCase } from 'lodash';
-import {
-  Checkbox,
-  Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-} from '@chakra-ui/react';
+import { Checkbox, Flex, Field } from '@chakra-ui/react';
 import Hidden from '../util/Hidden';
 
 export const EnumArrayRenderer = ({
@@ -39,27 +33,32 @@ export const EnumArrayRenderer = ({
   // NOTE: probably will need to remove the marginBottom of Form.Item
   return (
     <Hidden hidden={!visible}>
-      <FormControl isInvalid={!isValid}>
+      <Field.Root invalid={!isValid}>
         {(options || []).map((option: any, index: number) => {
           const optionPath = Paths.compose(path, `${index}`);
           const isChecked = data?.includes(option.value);
           return (
             <Flex key={optionPath}>
-              <FormLabel>{startCase(option.label)}</FormLabel>
-              <Checkbox
+              <Field.Label>{startCase(option.label)}</Field.Label>
+              <Checkbox.Root
                 id={option.value}
-                onChange={(e) =>
-                  e.target.checked
+                checked={isChecked}
+                onCheckedChange={(e) =>
+                  e.checked
                     ? addItem(path, option.value)
                     : removeItem?.(path, option.value)
                 }
-                isChecked={isChecked}
-              />
+              >
+                <Checkbox.HiddenInput />
+                <Checkbox.Control>
+                  <Checkbox.Indicator />
+                </Checkbox.Control>
+              </Checkbox.Root>
             </Flex>
           );
         })}
-        <FormErrorMessage>{errors}</FormErrorMessage>
-      </FormControl>
+        <Field.ErrorText>{errors}</Field.ErrorText>
+      </Field.Root>
     </Hidden>
   );
 };

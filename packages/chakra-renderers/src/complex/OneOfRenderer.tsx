@@ -40,16 +40,9 @@ import {
   withJsonFormsOneOfProps,
 } from '@reactjsonforms/react';
 import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogCloseButton,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
   Button,
-  Tab,
-  TabList,
+  CloseButton,
+  Dialog,
   Tabs,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -74,7 +67,7 @@ const OneOfRenderer = ({
   uischemas,
   data,
 }: CombinatorRendererProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
   const [selectedIndex, setSelectedIndex] = useState(indexOfFittingSchema || 0);
   const [newSelectedIndex, setNewSelectedIndex] = useState(0);
@@ -110,43 +103,51 @@ const OneOfRenderer = ({
 
   return (
     <Hidden hidden={!visible}>
-      <AlertDialog
-        motionPreset='slideInBottom'
-        leastDestructiveRef={cancelRef}
-        onClose={onClose}
-        isOpen={isOpen}
-        isCentered
+      <Dialog.Root
+        size={'xs'}
+        motionPreset='slide-in-bottom'
+        onOpenChange={onClose}
+        open={open}
+        placement='center'
       >
-        <AlertDialogOverlay />
+        <Dialog.Backdrop />
 
-        <AlertDialogContent>
-          <AlertDialogHeader>Discard Changes?</AlertDialogHeader>
-          <AlertDialogCloseButton />
-          <AlertDialogBody>
+        <Dialog.Content>
+          <Dialog.Header>Discard Changes?</Dialog.Header>
+          <Dialog.Body>
             Your data will be cleared if you navigate away from this tab. Do you
             want to proceed?
-          </AlertDialogBody>
-          <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
-              No
-            </Button>
+          </Dialog.Body>
+          <Dialog.Footer>
+            <Dialog.ActionTrigger asChild>
+              <Button>No</Button>
+            </Dialog.ActionTrigger>
             <Button colorScheme='red' ml={3} onClick={confirm}>
               Yes
             </Button>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+          </Dialog.Footer>
+          <Dialog.CloseTrigger asChild>
+            <CloseButton size='sm' />
+          </Dialog.CloseTrigger>
+        </Dialog.Content>
+      </Dialog.Root>
       <CombinatorProperties
         schema={schema}
         combinatorKeyword={'oneOf'}
         path={path}
       />
-      <Tabs index={selectedIndex} onChange={handleTabChange} w='100%'>
-        <TabList>
+      <Tabs.Root
+        value={String(selectedIndex)}
+        onValueChange={(e) => handleTabChange(parseInt(e.value))}
+        w='100%'
+      >
+        <Tabs.List>
           {oneOfRenderInfos.map((oneOfRenderInfo, idx) => (
-            <Tab key={idx}>{oneOfRenderInfo.label}</Tab>
+            <Tabs.Trigger key={idx} value={String(idx)}>
+              {oneOfRenderInfo.label}
+            </Tabs.Trigger>
           ))}
-        </TabList>
+        </Tabs.List>
         {oneOfRenderInfos.map(
           (oneOfRenderInfo, oneOfIndex) =>
             selectedIndex === oneOfIndex && (
@@ -160,7 +161,7 @@ const OneOfRenderer = ({
               />
             )
         )}
-      </Tabs>
+      </Tabs.Root>
     </Hidden>
   );
 };

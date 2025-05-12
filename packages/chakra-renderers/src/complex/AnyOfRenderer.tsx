@@ -38,7 +38,7 @@ import {
 } from '@reactjsonforms/react';
 import CombinatorProperties from './CombinatorProperties';
 import Hidden from '../util/Hidden';
-import { Tab, TabList, Tabs } from '@chakra-ui/react';
+import { Tabs } from '@chakra-ui/react';
 
 const AnyOfRenderer = ({
   schema,
@@ -73,12 +73,18 @@ const AnyOfRenderer = ({
         combinatorKeyword={'anyOf'}
         path={path}
       />
-      <Tabs index={selectedAnyOf} onChange={handleChange} w='100%'>
-        <TabList>
+      <Tabs.Root
+        value={selectedAnyOf.toString()}
+        onValueChange={(e) => handleChange(parseInt(e.value))}
+        w='100%'
+      >
+        <Tabs.List>
           {anyOfRenderInfos.map((anyOfRenderInfo, idx) => (
-            <Tab key={idx}>{anyOfRenderInfo.label}</Tab>
+            <Tabs.Trigger key={idx} value={String(idx)}>
+              {anyOfRenderInfo.label}
+            </Tabs.Trigger>
           ))}
-        </TabList>
+        </Tabs.List>
         {anyOfRenderInfos.map(
           (anyOfRenderInfo, anyOfIndex) =>
             selectedAnyOf === anyOfIndex && (
@@ -92,7 +98,7 @@ const AnyOfRenderer = ({
               />
             )
         )}
-      </Tabs>
+      </Tabs.Root>
     </Hidden>
   );
 };

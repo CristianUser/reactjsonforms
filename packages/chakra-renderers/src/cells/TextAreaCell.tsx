@@ -47,7 +47,7 @@ export const TextAreaCell = (props: CellProps & VanillaRendererProps) => {
       }
       className={className}
       id={id}
-      isDisabled={!enabled}
+      disabled={!enabled}
       autoFocus={appliedUiSchemaOptions.focus}
       placeholder={appliedUiSchemaOptions.placeholder}
     />
